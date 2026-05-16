@@ -1,0 +1,45 @@
+pipeline:
+  id: dreaming_v8_6
+  pattern: scheduled
+  dispatch_events:
+    - cron_nightly_dream
+  hard_gates:
+    - hermes_doctor_must_pass_before_dream
+    - dream_runs_per_home_only_never_cross_agent
+    - dream_never_rewrites_soul_md
+  schedule:
+    type: per_agent_cron
+    expression: "0 3 * * *"
+    timezone: UTC
+    owner: hermes_per_home_scheduler
+  stages:
+    - id: pre_flight
+      action: hermes_doctor
+      gate: must_pass
+    - id: native_dream_if_supported
+      action: hermes_dream
+      args:
+        review_sessions: 7d
+        extract_patterns: true
+        dedup_skills: true
+        consolidate_memory: true
+        max_tokens: 8000
+      fallback: structural_cleanup
+    - id: structural_cleanup_fallback
+      action: bash
+      script: scripts/dream_runner.sh
+      operations:
+        - memory_md_tail_truncate_if_over_5000_lines
+        - skills_dedup_by_sha256
+      backup_policy: write_pre_dream_bak_before_truncate
+    - id: log
+      sink: "$HERMES_HOME/logs/dream-YYYY-MM-DD.log"
+  invariants:
+    - "no cross-agent state read or write"
+    - "no repo write; only ~/.hermes-<slug>/ paths touched"
+    - "SOUL.md immutable"
+    - "USER.md immutable"
+    - "config.yaml immutable"
+  observability:
+    log_retention_days: 14
+    failures_escalate_to: arthur-project-manager

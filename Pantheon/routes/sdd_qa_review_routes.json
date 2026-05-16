@@ -1,0 +1,45 @@
+{
+  "routes": [
+    {
+      "name": "sdd_to_nadia_qa_review",
+      "trigger": "Marcus emits SDD (sdd_architecture stage complete)",
+      "path": [
+        "marcus-senior-backend-developer",
+        "senior-qa",
+        "tdd_block_or_return"
+      ],
+      "hard_rule": "No SDD goes to tdd_block without Nadia QA signoff.",
+      "harness": "Hermes",
+      "input_contract": "prd_to_sdd_pipeline.schema.json",
+      "output_contract": "sdd_qa_signoff.schema.json",
+      "gate_id": "qa_sdd_signoff_required_before_tdd_block",
+      "iteration_policy": {
+        "max_iterations": 2,
+        "on_iteration_exhausted": "escalate_to_arthur"
+      },
+      "fail_action": "return_to_marcus_with_notes",
+      "rationale": "V8.6 mid-pipeline QA. Catches PRD-to-SDD drift at design time, before Marcus locks task-level TDD red tests."
+    },
+    {
+      "name": "nadia_sdd_signoff_to_tdd_block",
+      "trigger": "Nadia approves SDD against PRD intent",
+      "path": [
+        "senior-qa",
+        "marcus-senior-backend-developer"
+      ],
+      "hard_rule": "Nadia signoff is required and recorded in sdd_qa_signoff.schema.json.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "nadia_sdd_return_to_marcus",
+      "trigger": "Nadia rejects SDD with cited PRD clauses",
+      "path": [
+        "senior-qa",
+        "marcus-senior-backend-developer"
+      ],
+      "hard_rule": "Returns must include specific PRD clause references; vague rejection is not allowed.",
+      "harness": "Hermes",
+      "iteration_counter_field": "sdd_qa_iteration_count"
+    }
+  ]
+}

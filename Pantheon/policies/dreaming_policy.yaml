@@ -1,0 +1,29 @@
+policy:
+  id: dreaming_policy_v8_6
+  applies_to: all_active_hermes_homes
+  excludes: ["owen"]                    # no model assigned, no sessions, nothing to dream
+  schedule:
+    cadence: nightly
+    default_hour_utc: 3
+    skew_per_agent: false               # all fire at 03:00 UTC; Hermes serialises locally
+  immutable_files:
+    - SOUL.md
+    - USER.md
+    - config.yaml
+  mutable_under_dream:
+    - MEMORY.md           # tail-compaction only when > 5000 lines
+    - skills/*.md         # dedup by sha256; first occurrence wins
+    - logs/dream-*.log    # written by runner
+  budget:
+    max_tokens_per_pass: 8000
+    max_wall_seconds: 180
+  safety:
+    require_hermes_doctor_green: true
+    refuse_if_session_dir_empty: true   # nothing to learn from
+    backup_before_mutation: true
+    backup_suffix: ".pre-dream-{utc-iso}.bak"
+  escalation:
+    on_failure:
+      - log_to: "$HERMES_HOME/logs/dream-failures.log"
+      - notify: arthur-project-manager
+      - cooldown_hours: 24              # don't retry same broken home in a loop

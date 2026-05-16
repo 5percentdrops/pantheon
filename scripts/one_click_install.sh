@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
-# one_click_install.sh — V8.5
+# one_click_install.sh — V8.6
 #
 # Full installer: workspace + validation + agentcompanies/v1 conversion +
 # Hermes home bootstrap + hermes_local adapter plugin install +
-# Paperclip company import.
+# nightly Dreaming cron per-home + Paperclip company import.
 #
 # Modes:
 #   bash scripts/one_click_install.sh                       # interactive
@@ -12,6 +12,7 @@
 #   bash scripts/one_click_install.sh --convert-only        # convert to package, no install
 #   bash scripts/one_click_install.sh --no-bootstrap        # skip 32 Hermes homes
 #   bash scripts/one_click_install.sh --skip-adapter-install # skip hermes_local adapter registration
+#   bash scripts/one_click_install.sh --no-dreaming         # V8.6: skip nightly Dreaming cron install
 #   bash scripts/one_click_install.sh --no-paperclip        # skip Paperclip import
 #   bash scripts/one_click_install.sh --setup-keys          # interactive secure API key setup (opt-in)
 #   bash scripts/one_click_install.sh -y                    # non-interactive, apply everything
@@ -26,6 +27,7 @@ MODE_CONVERT_ONLY=0
 SKIP_PAPERCLIP=0
 SKIP_BOOTSTRAP=0
 SKIP_ADAPTER_INSTALL=0
+SKIP_DREAMING=0
 ASSUME_YES=0
 SETUP_KEYS=0
 
@@ -36,6 +38,7 @@ for arg in "$@"; do
         --no-paperclip)         SKIP_PAPERCLIP=1 ;;
         --no-bootstrap)         SKIP_BOOTSTRAP=1 ;;
         --skip-adapter-install) SKIP_ADAPTER_INSTALL=1 ;;
+        --no-dreaming)          SKIP_DREAMING=1 ;;
         --setup-keys)           SETUP_KEYS=1 ;;
         # V8.4 back-compat: --no-hermes meant "skip the single-home skills wiring".
         # In V8.5 that step is replaced by --no-bootstrap (32 per-agent homes).
@@ -49,7 +52,7 @@ for arg in "$@"; do
 done
 
 echo "==================================================================="
-echo " Pantheon V8.5 — Full Installer"
+echo " Pantheon V8.6 — Full Installer"
 echo "==================================================================="
 echo " Paperclip = company/control plane (the 33 agents run here)"
 echo " Hermes    = per-agent harness (32 ~/.hermes-<slug>/ homes; Owen skipped)"
@@ -142,16 +145,26 @@ fi
 
 # Step 6: install hermes_local adapter plugin into Paperclip (V8.5 NEW)
 if [ "$SKIP_ADAPTER_INSTALL" = "0" ]; then
-    echo "==> Step 6/7: Register hermes_local adapter plugin with Paperclip"
+    echo "==> Step 6/8: Register hermes_local adapter plugin with Paperclip"
     bash scripts/install_hermes_adapter_plugin.sh
     echo
 else
-    echo "==> Step 6/7: Skipped (--skip-adapter-install)"
+    echo "==> Step 6/8: Skipped (--skip-adapter-install)"
+    echo
+fi
+
+# Step 6b: install nightly Dreaming cron per-home (V8.6 NEW)
+if [ "$SKIP_DREAMING" = "0" ] && [ "$SKIP_BOOTSTRAP" = "0" ]; then
+    echo "==> Step 7/8: Install nightly Dreaming cron in every ~/.hermes-<slug>/cron/"
+    bash scripts/install_dreaming.sh
+    echo
+else
+    echo "==> Step 7/8: Skipped (--no-dreaming or --no-bootstrap)"
     echo
 fi
 
 # Step 7: import company to Paperclip
-echo "==> Step 7/7: Import Pantheon company to Paperclip"
+echo "==> Step 8/8: Import Pantheon company to Paperclip"
 echo
 
 if [ "$SKIP_PAPERCLIP" = "0" ]; then
@@ -185,6 +198,7 @@ echo "   workspace/                            — local PRD/SDD/ticket tree"
 echo "   .stage/paperclip_company.import.json  — legacy V8.x payload"
 echo "   pantheon/                       — agentcompanies/v1 package (hermes_local)"
 echo "   ~/.hermes-<slug>/                     — 32 per-agent Hermes homes"
+echo "   ~/.hermes-<slug>/cron/dream.cron      — V8.6 nightly Dreaming pass (03:00 UTC)"
 echo "   ~/.paperclip/adapter-plugins.json     — registers hermes_local adapter"
 echo
 echo " Hard rules:"

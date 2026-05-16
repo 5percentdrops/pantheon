@@ -32,7 +32,7 @@
     "Nadia",
     "Arthur"
   ],
-  "version": "8.5",
+  "version": "8.6",
   "pantheon_parallel_escalation": {
     "arthur": "GPT-5 mini under Hermes",
     "jack": "DeepSeek V4 Pro under Hermes",
@@ -52,7 +52,9 @@
     "green_before_next_task": true,
     "green_before_merge": true,
     "superpowers_tdd_skill_allowed": true,
-    "research_notebooklm_pipeline_added": false
+    "research_notebooklm_pipeline_added": false,
+    "nadia_sdd_review": true,
+    "mid_pipeline_qa_v8_6": true
   },
   "technical_domain_routing": {
     "arthur_routes_by_domain": true,
@@ -479,7 +481,7 @@
     "pipeline_dispatch_enabled": true,
     "budget_caps_checked": true
   },
-  "schema_version": "pantheon.v8.5",
+  "schema_version": "pantheon.v8.6",
   "v8_2_patch": {
     "arthur_model_purged": true,
     "retry_ladder_canonical": "engineering_escalation_ladder_v8_2",
@@ -498,7 +500,9 @@
     "registration": "~/.paperclip/adapter-plugins.json",
     "loaded_via": "Paperclip external adapter plugin loader (Board -> Adapter manager)",
     "session_persistence": "hermes --resume + sessionCodec",
-    "skipped_agents": ["owen"],
+    "skipped_agents": [
+      "owen"
+    ],
     "reason_skipped": "NotebookLM is a manual product with no API; cannot shell from adapter"
   },
   "v8_5_patch": {
@@ -518,5 +522,31 @@
       "no_network_calls": true,
       "idempotent": true
     }
+  },
+  "dreaming_v8_6": {
+    "enabled_by_default": true,
+    "scheduler": "hermes_per_home_cron",
+    "cadence": "0 3 * * * UTC",
+    "pipeline": "Pantheon/pipelines/dreaming_pipeline.yaml",
+    "policy": "Pantheon/policies/dreaming_policy.yaml",
+    "runner": "scripts/dream_runner.sh",
+    "installer": "scripts/install_dreaming.sh",
+    "excludes": [
+      "owen"
+    ],
+    "immutable_files": [
+      "SOUL.md",
+      "USER.md",
+      "config.yaml"
+    ],
+    "rationale": "Per-agent nightly memory consolidation + skill dedup. Compounding quality gains across sessions; no cross-agent state read or write."
+  },
+  "v8_6_patch": {
+    "inserted_stage": "sdd_qa_review (Nadia) between sdd_architecture (Marcus) and tdd_block (Marcus)",
+    "gate": "qa_sdd_signoff_required_before_tdd_block",
+    "enforcement": "tdd_block.input_contract = sdd_qa_signoff.schema.json (not bypassable)",
+    "max_iterations": 2,
+    "escalation": "arthur-project-manager",
+    "dreaming_added": true
   }
 }

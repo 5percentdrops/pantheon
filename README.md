@@ -119,6 +119,14 @@ Fire up the same machine next year. Marcus remembers the architecture decision h
 
 Agents write skills *to themselves* after solving a problem. The next agent to hit the same pattern reads it and skips the discovery phase. Your studio gets smarter every week, not slower.
 
+### 🌙 Nightly Dreaming (V8.6)
+
+At 03:00 UTC every agent runs a Dreaming pass in its own home: 7 days of sessions reviewed, duplicate skills `sha256`-dedup'd, `MEMORY.md` consolidated. `SOUL.md` / `USER.md` / `config.yaml` are immutable. No cross-agent reads. Compounding quality gains while you sleep.
+
+### 🛑 Mid-pipeline QA gate (V8.6)
+
+Marcus's SDD doesn't reach Jack's TDD block until Nadia (Senior QA, Opus 4.7 XHigh) signs it off against the PRD. Max 2 return cycles before Arthur escalates. Catches PRD-to-SDD drift at design time, not at PR review.
+
 ### 🎛 Stack you control
 
 ```
@@ -217,6 +225,7 @@ bash scripts/one_click_install.sh -y --no-bootstrap         # skip 32-home step
 bash scripts/one_click_install.sh -y --skip-adapter-install # skip adapter register
 bash scripts/one_click_install.sh -y --no-paperclip         # skip company import
 bash scripts/one_click_install.sh -y --setup-keys           # add secure key prompt
+bash scripts/one_click_install.sh -y --no-dreaming          # V8.6: skip nightly Dreaming cron
 ```
 
 ---
@@ -246,6 +255,7 @@ Three layers stop it: per-agent budget caps, dual PR review (Clara + Cody), and 
 ## 📚 Deeper docs
 
 - [`README_INSTALL.md`](README_INSTALL.md) — full install guide, OS matrix, key setup
+- [`PATCH_NOTES_V8_6.md`](PATCH_NOTES_V8_6.md) — mid-pipeline QA + per-agent Dreaming
 - [`PATCH_NOTES_V8_5.md`](PATCH_NOTES_V8_5.md) — Hermes-as-harness rollout
 - [`ROLLBACK_TO_V8_4.md`](ROLLBACK_TO_V8_4.md) — one-command revert
 - [`docs/PAPERCLIP_HERMES_CONTROL_PLANE_V8.md`](docs/PAPERCLIP_HERMES_CONTROL_PLANE_V8.md)

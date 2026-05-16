@@ -7,6 +7,7 @@ pipeline:
   hard_gates:
     - context_pack_before_non_trivial_work
     - architecture_before_tickets
+    - qa_sdd_signoff_required_before_tdd_block   # V8.6
     - tests_before_code
   stages:
     - id: context_pack
@@ -21,8 +22,22 @@ pipeline:
       agent: marcus-senior-backend-developer
       input_contract: prd.schema.json
       output_contract: prd_to_sdd_pipeline.schema.json
+    - id: sdd_qa_review                            # V8.6: mid-pipeline QA
+      agent: senior-qa                             # Nadia
+      input_contract: prd_to_sdd_pipeline.schema.json
+      output_contract: sdd_qa_signoff.schema.json
+      gate: qa_sdd_signoff_required_before_tdd_block
+      fail_action: return_to_marcus_with_notes
+      max_iterations: 2
+      escalation_on_persistent_fail: arthur-project-manager
+      reason: |
+        Catches PRD-to-SDD drift at design time, before Marcus locks
+        task-level TDD red tests. Prevents the failure mode where
+        downstream review (Clara/Cody) is forced to relitigate
+        architecture-vs-requirement gaps that belonged at design time.
     - id: tdd_block
       agent: marcus-senior-backend-developer
+      input_contract: sdd_qa_signoff.schema.json   # V8.6: gate not bypassable
       output_contract: task_tdd_block.schema.json
     - id: implementation
       agent: jack-backend-developer

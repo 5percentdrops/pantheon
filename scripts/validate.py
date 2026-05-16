@@ -16,6 +16,9 @@ validators = [
     "validate_agentcompanies_v1_package.py",
     # V8.5: uniform hermes_local adapter check
     "validate_hermes_local_package.py",
+    # V8.6: mid-pipeline Nadia QA + Dreaming subsystem
+    "validate_mid_pipeline_qa.py",
+    "validate_dreaming.py",
 ]
 
 failed = []
