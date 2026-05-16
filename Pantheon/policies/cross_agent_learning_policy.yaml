@@ -1,0 +1,34 @@
+policy:
+  id: cross_agent_learning_policy_v8_8
+  owner: winston-director-knowledge-architecture
+  description: |
+    Cross-agent compounding learning. V8.6 Dreaming kept lessons strictly
+    per-home (no cross-agent reads). V8.8 lets Winston lift patterns up to
+    org level via a nightly aggregator. Engineers pre-read the aggregate
+    before starting a new TDD loop.
+  schedule:
+    aggregator: "0 4 * * *"          # 04:00 UTC, after 03:00 per-home Dreams
+    cadence: nightly
+  read_scope:
+    - ~/.hermes-*/logs/dream-*.log   # last 24h only
+    - ~/.hermes-*/skills/*.md        # capped at 50KB per agent
+  write_scope:
+    - workspace/wiki/lessons_learned.md       # human-readable aggregate
+    - workspace/wiki/lessons_learned.index.json  # dedup index by sha256
+    - ~/.hermes-winston/                       # Winston's own home only
+  immutable:
+    - "Every ~/.hermes-<slug>/ EXCEPT ~/.hermes-winston/ (read-only across)"
+    - "SOUL.md / USER.md / config.yaml in every home (never read or written)"
+  dedup_rule: "sha256 of normalised (lowercase, whitespace-collapsed) lesson text"
+  audit:
+    append_only: true                # lessons never deleted; reinforcement tracked
+    reinforcement_field: agents      # array grows when multiple agents discover same lesson
+  consumer_hook:
+    engineers_pre_read: true
+    inject_path: workspace/wiki/lessons_learned.md
+    inject_phase: pre_tdd_red_test_write
+    inject_max_tokens: 4_000         # cap on injected context to keep PR cost bounded
+  rationale: |
+    Without this, Jack burns 21 attempts learning the same lesson Marcus
+    learned last project. The per-agent skill library is private; this
+    is the shared layer.

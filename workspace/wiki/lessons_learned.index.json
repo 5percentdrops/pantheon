@@ -1,0 +1,410 @@
+{
+  "04f17e77de2d0286": {
+    "agents": [
+      "graham"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "04f17e77de2d0286",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "revise the feasibility route and respond to each issue"
+  },
+  "07b704b8e5450f78": {
+    "agents": [
+      "dante",
+      "dominic",
+      "elena",
+      "ellie",
+      "henrik",
+      "ivan",
+      "leo",
+      "mira",
+      "nadia",
+      "oscar",
+      "priya",
+      "safiya",
+      "sonia",
+      "viktor"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "07b704b8e5450f78",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "perform executor work unless your role is explicitly an executor role"
+  },
+  "0bebc66ab27525e9": {
+    "agents": [
+      "jack"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "0bebc66ab27525e9",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "change the plan"
+  },
+  "19914d0619b3da87": {
+    "agents": [
+      "chloe"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "19914d0619b3da87",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "rewrite plans"
+  },
+  "1c4a4eb6f113885a": {
+    "agents": [
+      "grant"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "1c4a4eb6f113885a",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "place live-trading logic without explicit safety gates"
+  },
+  "24f8520b23cf4643": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "24f8520b23cf4643",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "send TradingView/PineScript indicators to Quantower/C# agents"
+  },
+  "27c246a8d2a0eed1": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "27c246a8d2a0eed1",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "route by implementation domain, not just market"
+  },
+  "283128acef14943c": {
+    "agents": [
+      "clara"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "283128acef14943c",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "merge"
+  },
+  "2b401840d394903e": {
+    "agents": [
+      "grant"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "2b401840d394903e",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "bypass execution/risk checks"
+  },
+  "39b766e44bcb5e2f": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "39b766e44bcb5e2f",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "not route Magnus directly to a standard developer"
+  },
+  "44ab22eb4f63120c": {
+    "agents": [
+      "vera"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "44ab22eb4f63120c",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "pass feasibility until bottlenecks are mapped"
+  },
+  "44d97ea91ea1ffa8": {
+    "agents": [
+      "clara"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "44d97ea91ea1ffa8",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "ignore failed CI"
+  },
+  "48a206277c18776c": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "48a206277c18776c",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "RTK-squash every routing handoff to a standard developer"
+  },
+  "5dfb0df825c81d52": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "5dfb0df825c81d52",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "not paste full logs to Jack or any standard developer"
+  },
+  "64788ec426809398": {
+    "agents": [
+      "winston"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "64788ec426809398",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "create trades"
+  },
+  "73a01f36db275304": {
+    "agents": [
+      "jack"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "73a01f36db275304",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "attempt Cody's code-wise fix/review guidance before Magnus is involved"
+  },
+  "7bcdc7c3b7994852": {
+    "agents": [
+      "magnus"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "7bcdc7c3b7994852",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "write an `APPROACH_SOLUTION_LOG` in `wiki/errors/`"
+  },
+  "801f5386f68f663b": {
+    "agents": [
+      "ben",
+      "ellie",
+      "grant",
+      "ivan",
+      "leo",
+      "theo"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "801f5386f68f663b",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "execute tasks sequentially"
+  },
+  "8de98a4729772db2": {
+    "agents": [
+      "winston"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "8de98a4729772db2",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "merge code"
+  },
+  "986ff514ce47229f": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "986ff514ce47229f",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "push to Marcus"
+  },
+  "987e49e0d137f01a": {
+    "agents": [
+      "chloe"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "987e49e0d137f01a",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "silently ignore errors"
+  },
+  "9a64724e506bbc24": {
+    "agents": [
+      "clara"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "9a64724e506bbc24",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "skip Cody unless Arthur explicitly bypasses the second-pass gate"
+  },
+  "9d482ba60f399975": {
+    "agents": [
+      "winston"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "9d482ba60f399975",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "access production secrets"
+  },
+  "a710fba8b4f1f49d": {
+    "agents": [
+      "chloe"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "a710fba8b4f1f49d",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "bypass QA/security"
+  },
+  "c165401a9398d7bf": {
+    "agents": [
+      "dominic",
+      "felix",
+      "nadia",
+      "nathan",
+      "sonia",
+      "viktor"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "c165401a9398d7bf",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "use the Superpowers TDD skill"
+  },
+  "c3c9954c0f933d01": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "c3c9954c0f933d01",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "send Quantower/C# automation to PineScript agents"
+  },
+  "d0d4aba013f204b8": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "d0d4aba013f204b8",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "mediate all returns from Marcus, Maxwell, Cody, and Magnus"
+  },
+  "d2d24ad08503b277": {
+    "agents": [
+      "clara"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "d2d24ad08503b277",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "learn recurring review patterns, common implementation mistakes, repeated missing-test classes, and successful fixes"
+  },
+  "d3725b01c6280d8f": {
+    "agents": [
+      "winston"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "d3725b01c6280d8f",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "edit governance files without human approval"
+  },
+  "d3929d976a755794": {
+    "agents": [
+      "jack"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "d3929d976a755794",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "skip ahead"
+  },
+  "e41b48a6f6be6fb3": {
+    "agents": [
+      "grant"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "e41b48a6f6be6fb3",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "route TradingView Pine work here"
+  },
+  "e97a9b64df0d7f6f": {
+    "agents": [
+      "cody",
+      "magnus"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "e97a9b64df0d7f6f",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "include:"
+  },
+  "e9b00f5f3dd8b382": {
+    "agents": [
+      "cody"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "e9b00f5f3dd8b382",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "write a `CODE_FIX_LOG` in `wiki/errors/`"
+  },
+  "ebefe9642e51a040": {
+    "agents": [
+      "nadia"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "ebefe9642e51a040",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "a vague \"this isn't ready.\""
+  },
+  "eda3ae120052924c": {
+    "agents": [
+      "chloe"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "eda3ae120052924c",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "redesign, rewrite strategy, or improvise beyond the plan"
+  },
+  "edd793e1939f5734": {
+    "agents": [
+      "arthur"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "edd793e1939f5734",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "route to Maxwell before Cody or Magnus"
+  },
+  "f32fe8f5f7ec6e70": {
+    "agents": [
+      "ben",
+      "dante",
+      "ellie",
+      "grant",
+      "ivan",
+      "jack",
+      "leo"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "f32fe8f5f7ec6e70",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "write general notes into this folder"
+  },
+  "f7f638e844ffde4e": {
+    "agents": [
+      "adrian"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "f7f638e844ffde4e",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "be assigned only if benchmark/profile justifies this role"
+  },
+  "f8bffab9f05f389a": {
+    "agents": [
+      "vera"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "f8bffab9f05f389a",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "trust stale API lists blindly"
+  },
+  "f983d30d65001371": {
+    "agents": [
+      "clara"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "f983d30d65001371",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "implement fixes"
+  },
+  "fe55346de03acd0e": {
+    "agents": [
+      "ben"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "fe55346de03acd0e",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "implement Quantower/C# automation. Route Quantower work to Grant/Nathan"
+  },
+  "fec44f3f1c75842b": {
+    "agents": [
+      "chloe"
+    ],
+    "first_seen_utc": "2026-05-16T20:32:48Z",
+    "id": "fec44f3f1c75842b",
+    "last_seen_utc": "2026-05-16T20:32:48Z",
+    "lesson": "invent architecture"
+  }
+}

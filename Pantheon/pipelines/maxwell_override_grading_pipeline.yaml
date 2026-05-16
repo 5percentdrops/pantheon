@@ -1,0 +1,39 @@
+pipeline:
+  id: maxwell_override_grading_v8_8
+  pattern: escalation_post_review
+  dispatch_events:
+    - maxwell_override_emitted
+  hard_gates:
+    - maxwell_override_must_pass_cody_rubric_before_merge
+    - cody_grade_must_cite_per_criterion_evidence
+    - max_2_iterations_then_escalate_to_magnus
+  stages:
+    - id: maxwell_override
+      agent: maxwell-opus-max-escalation-engineer
+      input_contract: engineer_escalation_packet.schema.json
+      output_contract: implementation_report.schema.json
+    - id: cody_rubric_grade
+      agent: cody-code-escalation-reviewer
+      input_contract: outcome.schema.json
+      output_contract: outcome_grade.schema.json
+      gate: maxwell_override_must_pass_cody_rubric_before_merge
+      fail_action: return_to_maxwell_with_notes
+      max_iterations: 2
+      escalation_on_persistent_fail: magnus-architecture-escalation
+      reason: |
+        Maxwell is the most expensive agent in Pantheon (Opus 4.7 Max).
+        Silent acceptance of his overrides is the worst-class failure
+        mode — confident wrong code shipped to merge_gate because no one
+        challenged the senior. V8.8 forces Cody to re-grade against the
+        SAME rubric that gated Jack's original implementation. Merge gate
+        is identical regardless of who wrote the code.
+    - id: merge_gate
+      gate: merge_blocked_without_cody_pass_decision
+      output_contract: merge_review.schema.json
+  invariants:
+    - "Maxwell overrides do NOT auto-merge"
+    - "Cody grade evidence must be file:line or commit SHA (vague rejection forbidden by schema)"
+    - "Magnus escalation only after 2 Maxwell+Cody iterations (architecture itself suspect)"
+  observability:
+    grade_log_sink: workspace/05_QA_Audit_Logs/maxwell_override_grades.jsonl
+    cost_attribution: maxwell_override_token_burn

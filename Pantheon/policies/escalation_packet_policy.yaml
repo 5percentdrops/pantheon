@@ -1,0 +1,22 @@
+policy:
+  id: escalation_packet_policy_v8_8
+  applies_to: every_engineer_escalation_to_marcus_or_maxwell
+  schema: Pantheon/schemas/engineer_escalation_packet.schema.json
+  hard_rules:
+    - "Engineer may NOT emit conversational text in place of the packet"
+    - "Marcus's runtime rejects non-conforming payloads (HTTP 400-equiv)"
+    - "Packet must use RTK-compressed error traces (rtk_error_trace field)"
+    - "last_attempted_code_ref is a git SHA or absolute path — NEVER inline code body"
+    - "Empty tdd_red_tests array is forbidden — if no red test exists, agent is escalating without a failure signal and must run RTK red first"
+  rejection_behavior:
+    - "Marcus returns the malformed payload to the engineer with the rejected_packet_reason field populated"
+    - "Engineer's attempt counter does NOT increment on schema-rejection (the failure was the format, not the code)"
+    - "After 2 schema-rejections, escalate to Arthur with rationale 'engineer cannot format escalation packet'"
+  rationale: |
+    Khairallah's multi-agent mistake #2 (no standardised output formats)
+    is the most expensive failure class in this architecture: Opus 4.7
+    burns input tokens parsing raw conversation. A rigid schema converts
+    handoff cost from O(transcript-length) to O(packet-size).
+  observability:
+    rejected_packets_log: workspace/05_QA_Audit_Logs/escalation_packet_rejections.jsonl
+    accepted_packets_log: workspace/05_QA_Audit_Logs/escalation_packets.jsonl

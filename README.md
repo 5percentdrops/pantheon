@@ -139,6 +139,18 @@ When Marcus emits ≥2 tickets with no inter-dependency, Arthur dispatches acros
 
 Arthur-owned cron at `*/30 * * * *` sums per-agent token-proxy bytes, emits WARN at 80% / CRIT at 95% of daily cap. CRIT lands in Arthur's `MEMORY.md` so he reads it on the next dispatch. Zero LLM calls, pure file IO.
 
+### 📦 Rigid escalation contract (V8.8)
+
+When Jack burns 21 attempts and hands to Marcus, the handoff is a strict `engineer_escalation_packet.v1` JSON — RTK-compressed trace, red test IDs, blocked-on enum, git SHA reference. Raw conversational text is rejected. Opus 4.7 stops paying input-token tax on transcript parsing.
+
+### 🌐 Cross-agent learning (V8.8)
+
+V8.6 dreaming kept lessons per-agent. V8.8 wires Winston to scrape every home at 04:00 UTC, dedup by sha256, and write a single `workspace/wiki/lessons_learned.md` that engineers pre-read before TDD. Jack stops relearning what Marcus already knew. **Live: 42 lessons extracted on first run.**
+
+### 🔥 Maxwell override grading (V8.8)
+
+Maxwell (Opus 4.7 Max) is the most expensive agent. His overrides used to auto-merge. Now Cody (GPT-5.5) re-grades against the **same** outcome rubric Clara used on Jack. Max 2 iterations → Magnus (architecture review) if the override still fails. No more silent acceptance of confident-wrong senior fixes.
+
 ### 🎛 Stack you control
 
 ```
@@ -268,6 +280,7 @@ Three layers stop it: per-agent budget caps, dual PR review (Clara + Cody), and 
 
 - [`README_INSTALL.md`](README_INSTALL.md) — full install guide, OS matrix, key setup
 - [`SMOKE_SCALE.md`](SMOKE_SCALE.md) — phased 3→33 agent ramp (don't fire all 33 on day one)
+- [`PATCH_NOTES_V8_8.md`](PATCH_NOTES_V8_8.md) — escalation packet schema + cross-agent learning + Maxwell override grading
 - [`PATCH_NOTES_V8_7.md`](PATCH_NOTES_V8_7.md) — outcome rubric + fan-out + budget watcher + CMA burst
 - [`PATCH_NOTES_V8_6.md`](PATCH_NOTES_V8_6.md) — mid-pipeline QA + per-agent Dreaming
 - [`PATCH_NOTES_V8_5.md`](PATCH_NOTES_V8_5.md) — Hermes-as-harness rollout

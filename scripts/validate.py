@@ -21,6 +21,8 @@ validators = [
     "validate_dreaming.py",
     # V8.7: outcome rubric + fan-out + budget watcher + Claude MA burst + smoke ramp
     "validate_v8_7_patches.py",
+    # V8.8: escalation packet schema, cross-agent dream aggregator, Maxwell override grading
+    "validate_v8_8_patches.py",
 ]
 
 failed = []

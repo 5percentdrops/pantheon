@@ -1,0 +1,58 @@
+{
+  "routes": [
+    {
+      "name": "maxwell_override_to_cody_rubric_grade",
+      "trigger": "Maxwell emits a fix after Marcus has exhausted 3 attempts (escalation override)",
+      "path": [
+        "maxwell-opus-max-escalation-engineer",
+        "cody-code-escalation-reviewer",
+        "merge_gate"
+      ],
+      "hard_rule": "Maxwell overrides are NOT auto-merged. Cody grades against the ticket's outcome.schema.json rubric before merge_gate.",
+      "harness": "Hermes",
+      "input_contract": "outcome.schema.json",
+      "output_contract": "outcome_grade.schema.json",
+      "rationale": "V8.8 closes the 'confident-wrong escalation' gap. Maxwell is the most expensive agent on the org (Opus 4.7 Max) — silent acceptance of his fixes is the worst-class failure mode. Cody re-grades against the SAME rubric that gated Jack's implementation, so the merge gate is identical regardless of who wrote the code.",
+      "model_tier": "escalation_grader",
+      "grader_model": "openai/gpt-5.5",
+      "iterations": {
+        "max_iterations": 2,
+        "on_iteration_exhausted": "escalate_to_arthur",
+        "iteration_counter_field": "maxwell_override_grading_iteration"
+      },
+      "fail_action": "return_to_maxwell_with_cody_rubric_notes"
+    },
+    {
+      "name": "cody_grades_maxwell_pass",
+      "trigger": "Cody's outcome_grade.decision == pass_to_cody (rubric satisfied, score >= 0.85)",
+      "path": [
+        "cody-code-escalation-reviewer",
+        "merge_gate"
+      ],
+      "hard_rule": "Pass is gated on outcome_grade.schema.json conditional rule (score >= 0.85).",
+      "harness": "Hermes"
+    },
+    {
+      "name": "cody_grades_maxwell_return",
+      "trigger": "Cody's outcome_grade.decision == return_to_jack (here re-routed to Maxwell as the implementer)",
+      "path": [
+        "cody-code-escalation-reviewer",
+        "maxwell-opus-max-escalation-engineer"
+      ],
+      "hard_rule": "Cody must populate per_criterion[] + return_notes; vague rejection is not allowed.",
+      "harness": "Hermes",
+      "iteration_counter_field": "maxwell_override_grading_iteration"
+    },
+    {
+      "name": "cody_escalates_maxwell_failure",
+      "trigger": "Cody's outcome_grade.decision == escalate (Maxwell + Cody together cannot satisfy rubric)",
+      "path": [
+        "cody-code-escalation-reviewer",
+        "arthur-project-manager",
+        "magnus-architecture-escalation"
+      ],
+      "hard_rule": "After 2 Maxwell+Cody iterations, the architecture itself is suspect — Magnus reviews approach.",
+      "harness": "Hermes"
+    }
+  ]
+}

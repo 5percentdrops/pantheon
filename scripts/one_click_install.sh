@@ -170,6 +170,13 @@ if [ "$SKIP_DREAMING" = "0" ] && [ "$SKIP_BOOTSTRAP" = "0" ]; then
     echo
 fi
 
+# Step 7c: install Winston cross-agent dream aggregator (V8.8 NEW)
+if [ "$SKIP_DREAMING" = "0" ] && [ "$SKIP_BOOTSTRAP" = "0" ]; then
+    echo "==> Step 7c/8: Install Winston cross-agent dream aggregator cron"
+    bash scripts/install_dream_aggregator.sh
+    echo
+fi
+
 # Step 7: import company to Paperclip
 echo "==> Step 8/8: Import Pantheon company to Paperclip"
 echo

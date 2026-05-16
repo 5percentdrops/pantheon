@@ -32,7 +32,7 @@
     "Nadia",
     "Arthur"
   ],
-  "version": "8.7",
+  "version": "8.8",
   "pantheon_parallel_escalation": {
     "arthur": "GPT-5 mini under Hermes",
     "jack": "DeepSeek V4 Pro under Hermes",
@@ -481,7 +481,7 @@
     "pipeline_dispatch_enabled": true,
     "budget_caps_checked": true
   },
-  "schema_version": "pantheon.v8.7",
+  "schema_version": "pantheon.v8.8",
   "v8_2_patch": {
     "arthur_model_purged": true,
     "retry_ladder_canonical": "engineering_escalation_ladder_v8_2",
@@ -580,5 +580,33 @@
       "max_parallel_children": 5
     },
     "smoke_ramp_doc": "SMOKE_SCALE.md"
+  },
+  "v8_8_patch": {
+    "engineer_escalation_packet": {
+      "schema": "Pantheon/schemas/engineer_escalation_packet.schema.json",
+      "policy": "Pantheon/policies/escalation_packet_policy.yaml",
+      "rejection_behavior": "Marcus runtime rejects non-conforming payloads; attempt counter does not increment on schema-rejection",
+      "enforced_format_version": "engineer_escalation_packet.v1"
+    },
+    "cross_agent_learning": {
+      "aggregator": "scripts/dream_aggregator.py",
+      "installer": "scripts/install_dream_aggregator.sh",
+      "policy": "Pantheon/policies/cross_agent_learning_policy.yaml",
+      "owner": "winston-director-knowledge-architecture",
+      "cadence": "0 4 * * * UTC",
+      "output": "workspace/wiki/lessons_learned.md",
+      "reads_scope_excludes_winston_writes": true,
+      "pre_read_by_engineers": true
+    },
+    "maxwell_override_grading": {
+      "routes": "Pantheon/routes/maxwell_grade_routes.json",
+      "pipeline": "Pantheon/pipelines/maxwell_override_grading_pipeline.yaml",
+      "grader": "cody-code-escalation-reviewer",
+      "grader_model": "openai/gpt-5.5",
+      "rubric": "outcome.schema.json",
+      "max_iterations": 2,
+      "escalation_on_persistent_fail": "magnus-architecture-escalation",
+      "rationale": "Maxwell overrides do not auto-merge; closes confident-wrong escalation gap"
+    }
   }
 }
