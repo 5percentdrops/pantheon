@@ -1,125 +1,214 @@
-# Pantheon
+<div align="center">
 
-> AI-native software studio. 33 agents. One company. Runs on **Paperclip** (control plane) + **Hermes** (per-agent runtime).
+# 🏛 Pantheon
+
+### **33 AI agents. One company. Zero humans in the loop.**
+
+*Your software house ships PRs while you sleep.*
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![OS](https://img.shields.io/badge/OS-Linux%20%7C%20macOS%20%7C%20WSL-brightgreen)](README_INSTALL.md)
+[![Models](https://img.shields.io/badge/Models-Anthropic%20%7C%20OpenAI%20%7C%20Google%20%7C%20DeepSeek-blue)](#-the-pantheon)
+[![Install](https://img.shields.io/badge/Install-One%20Click-orange)](#-quick-start)
+[![Stars](https://img.shields.io/github/stars/5percentdrops/pantheon?style=social)](https://github.com/5percentdrops/pantheon/stargazers)
 
 ```
-Paperclip     →   company / control plane (1 instance)
-hermes_local  →   external Paperclip adapter (npm: hermes-paperclip-adapter)
-HERMES_HOME   →   per-agent identity root  (~/.hermes-<slug>, 32 active homes)
-hermes        →   runtime invoked per task with HERMES_HOME injected
-LLM models    →   Anthropic, OpenAI, Google, DeepSeek, Moonshot — passed through
+You write the PRD.   Pantheon ships the PR.
 ```
 
-Every agent has its own `SOUL.md`, `MEMORY.md`, `USER.md`, persistent session, and self-improving skill library. Identity survives heartbeats, machine moves, and company re-imports.
+</div>
 
 ---
 
-## Quick start
+## ⚡ Install in 30 seconds
+
+```bash
+git clone https://github.com/5percentdrops/pantheon.git && cd pantheon && bash scripts/one_click_install.sh -y --setup-keys
+```
+
+That's it. 32 AI engineers wake up. Each has a name, a personality, a memory, and a job.
+
+---
+
+## 💥 Why this exists
+
+**Problem:** You're a solo dev with the ambition of a 30-person studio.
+You can't hire. You can't clone yourself. You can prompt an LLM — once, for one task, with no memory.
+
+**Pantheon:** A persistent 33-agent software studio that runs locally, remembers everything, reviews its own code, and merges its own PRs. Each agent is a distinct identity with its own home, soul, memory, and skill library. They report up an org chart. They escalate when stuck. They learn from their mistakes.
+
+It's not a wrapper. It's a **company**.
+
+---
+
+## 🎯 The 30-second pitch
+
+| | Before Pantheon | With Pantheon |
+|---|---|---|
+| **Writing a feature** | You + ChatGPT, one tab, no memory | PRD → Arthur routes → Marcus designs → Jack codes → Clara reviews → Cody re-reviews → merge |
+| **Code review** | "Looks fine to me" | Dual-pass Claude Opus 4.7 + GPT-5.5 Codex, with conditional escalation to specialists |
+| **Memory** | Vanishes when tab closes | Per-agent `SOUL.md` + `MEMORY.md` + skill library, persistent forever |
+| **Learning** | You re-prompt the same fix daily | Cody writes a skill the first time, applies it the next 1000 |
+| **Scaling** | You hire engineers | You add API keys |
+
+---
+
+## 🏛 The Pantheon
+
+33 named agents, each with a job, a model, and a will.
+
+```
+                            👤 YOU (Board / Final Approval)
+                                         ↓
+                            🎯 Arthur — Project Manager
+                                         ↓
+                         ┌───────────────┼───────────────┐
+                         ↓               ↓               ↓
+                  🏗 Architecture     🔨 Build      🧪 Quality
+                  Marcus, Priya     Jack, Ben...   Nadia, Stone
+                                         ↓
+                                    📜 PR opened
+                                         ↓
+                              👀 Clara (Opus 4.7)
+                                         ↓
+                              👀 Cody (GPT-5.5 Codex)
+                                         ↓
+                         🔐 Safiya · 🏛 Priya · 🧪 Nadia
+                                         ↓
+                              🔥 Maxwell (Opus Max)  ← if Cody fails ×2
+                                         ↓
+                              ✅ Arthur merges
+                                         ↓
+                              📚 Winston archives
+```
+
+| Role | Agents |
+|---|---|
+| 🎯 **Head** | Arthur (PM, GPT-5 mini) |
+| 🏗 **Architecture** | Marcus, Priya (Opus 4.7) |
+| 🔨 **Senior build** | Marcus · Magnus (Gemini 3.1 Pro) · Maxwell (Opus 4.7 Max) |
+| 👷 **Engineers** | Jack, Ben, Ivan, Theo, Leo, Ellie, Grant (DeepSeek V4 Pro) |
+| 🎨 **Specialists** | Felix (Pine Script), Henrik, Oscar, Mira, Sonia, Viktor, Dominic, Nathan, Vera, Graham |
+| 👀 **PR review (dual)** | Clara (Claude Opus 4.7) → Cody (GPT-5.5 Codex) |
+| 🛡 **Quality & security** | Nadia (QA), Safiya (Security), Stone (perf), Adrian (release) |
+| 📚 **Knowledge** | Winston (Claude 3.5 Haiku, wiki archive) |
+| 🌐 **Domain** | Chloe, Dante (Kimi K2), Elena (Sonnet 4.6) |
+| 🌒 **Dormant** | Owen (waiting on NotebookLM API) |
+
+**Model spread:** Anthropic 15 · DeepSeek 7 · OpenAI 5 · Google 3 · Moonshot 2.
+**Every agent runs on Hermes.** One harness, 33 identities, total isolation.
+
+---
+
+## 🧠 What makes this different
+
+### 🪞 Each agent has a soul
+
+```
+~/.hermes-marcus/
+  ├── SOUL.md       ← who they are
+  ├── MEMORY.md     ← what they've learned (grows forever)
+  ├── USER.md       ← who they report to (you)
+  ├── skills/       ← skills they wrote themselves
+  └── sessions/     ← FTS5-searchable session history
+```
+
+Fire up the same machine next year. Marcus remembers the architecture decision he pushed back on in March. Clara still knows the bug pattern she flagged in your auth flow. Cody still has the skill he wrote the first time he saw a race condition.
+
+### ♻️ Self-improving loop
+
+Agents write skills *to themselves* after solving a problem. The next agent to hit the same pattern reads it and skips the discovery phase. Your studio gets smarter every week, not slower.
+
+### 🎛 Stack you control
+
+```
+Paperclip    →  company / control plane (1 instance)
+hermes_local →  external Paperclip adapter (npm: hermes-paperclip-adapter)
+HERMES_HOME  →  per-agent identity root
+hermes       →  runtime invoked per task
+LLMs         →  whatever you put your money on
+```
+
+No vendor lock. No hidden state. No SaaS. **Your machine, your models, your keys, your agents.**
+
+---
+
+## 🚀 Quick start
+
+### 1. Prereqs (5 min, one time)
+
+```bash
+node --version          # ≥ 20
+python3 --version       # ≥ 3.11
+npm install -g paperclipai      # ≥ 2026.513.0
+# Install hermes per https://github.com/NousResearch/hermes-agent
+```
+
+### 2. Pull Pantheon
 
 ```bash
 git clone https://github.com/5percentdrops/pantheon.git
-cd agent-studio
+cd pantheon
+```
+
+### 3. Fire it up
+
+```bash
 bash scripts/one_click_install.sh -y --setup-keys
 ```
 
-That's it. Installer does: validate → convert → bootstrap 32 Hermes homes → register `hermes_local` adapter → `paperclipai company import`.
+The installer will:
 
-**Prereqs:** `bash`, `python3 ≥ 3.11`, `node ≥ 20`, `npm`, `git`, `curl`, [paperclipai](https://www.npmjs.com/package/paperclipai) `≥ 2026.513.0`, [hermes](https://github.com/NousResearch/hermes-agent).
+1. ✅ Validate (15+ checks)
+2. ⚙️  Convert to `agentcompanies/v1` package
+3. 🏠 Bootstrap **32 per-agent Hermes homes**
+4. 🔌 Register `hermes_local` adapter
+5. 🔑 Securely prompt for API keys (hidden input, `chmod 600`, zero network)
+6. 🏛 Import the Pantheon into Paperclip
 
-**OS:** Linux ✅ · macOS ✅ · WSL2 ✅ · Windows native ❌ (use WSL — see [`README_INSTALL.md`](README_INSTALL.md))
-
----
-
-## The company
-
-33 agents organised under **Arthur** (Project Manager / Head). Domain leads, junior/senior engineers, dual PR review, escalation ladders, governance gates.
-
-| Layer | Agents |
-|---|---|
-| **Head** | Arthur (PM, GPT-5 mini) |
-| **Architecture** | Marcus (Opus 4.7), Priya (Opus 4.7) |
-| **Build (senior)** | Marcus, Magnus (Gemini 3.1 Pro), Maxwell (Opus 4.7 Max) |
-| **Build (engineers)** | Jack, Ben, Ivan, Theo, Leo, Ellie, Grant (DeepSeek V4 Pro) |
-| **Specialists** | Felix (Pine Script), Henrik, Oscar, Mira, Sonia, Viktor, Dominic, Nathan, Vera, Graham |
-| **PR review (dual)** | Clara (Claude Opus 4.7) → Cody (GPT-5.5 Codex) |
-| **Quality & security** | Nadia (QA), Safiya (Security), Stone (perf), Adrian (release) |
-| **Knowledge** | Winston (Claude 3.5 Haiku, wiki archive) |
-| **Domain** | Chloe, Dante (Kimi K2), Elena (Sonnet 4.6) |
-| **Skipped (no API)** | Owen (NotebookLM — re-enable when API ships) |
-
-Model spread: Anthropic 15 · DeepSeek 7 · OpenAI 5 · Google 3 · Moonshot 2.
-
----
-
-## What ships
+### 4. Ship something
 
 ```
-scripts/                  38 files — one_click_install, validators, converters,
-                          bootstrap, adapter installer, secure key setup
-Pantheon/            270 files — agents, routes, contracts, pipelines,
-                          paperclip company import, skills, schemas, templates
-docs/                     architecture, escalation patterns, model map
-manifest.json             canonical org spec (33 agents, v8.5)
-PATCH_NOTES_V8_*.md       version history (V8 → V8.5)
-ROLLBACK_TO_V8_4.md       revert path
-README_INSTALL.md         full install guide + OS matrix
+Open Paperclip → Pantheon → Arthur
+Send: "Build a CLI tool that counts unique words in a file."
+Watch 6 agents collaborate. Get a merged PR.
 ```
 
 ---
 
-## Pipeline
+## 🛡 Security posture
 
-```
-USER PRD
-   ↓
-Arthur (approval gate)
-   ↓
-Marcus  ─→  SDD  →  Feature Tickets  →  Task-level TDD
-   ↓
-Jack (sequential execution; green-before-next)
-   ↓
-PR opened
-   ↓
-Clara (Claude Opus first-line review)
-   ↓
-Cody (Codex second-line + pattern learning)
-   ↓
-[conditional] Safiya (security) · Priya (arch) · Nadia (QA)
-   ↓
-[escalation] Maxwell (Opus Max) if Cody fails ×2
-   ↓
-Arthur (merge readiness)
-   ↓
-Winston (archive to wiki)
-```
-
-Hard gates: context-pack before non-trivial work · architecture before tickets · tests before code · green before next task · green + reviewed before merge · human approval for governance, merge, deploy, prod trading rules, API-key permission changes.
+- 🔒 `setup_api_keys.sh` — `umask 077` · `chmod 600` · `read -s` (no echo) · atomic writes · zero network
+- 🚫 No keys, `.env`, or PEM files in repo (`.gitignore` enforces)
+- 🚷 `production trading keys forbidden in general agents` — policy-enforced
+- 🧱 Per-agent isolation: `--per-agent` mode for env separation
+- 🔐 Dual PR review + conditional security escalation to Safiya
 
 ---
 
-## Security
-
-- `setup_api_keys.sh`: `umask 077`, files `chmod 600`, `read -s` (no echo), atomic temp→rename, idempotent, zero network calls
-- No keys, no `.env`, no PEM in repo — `.gitignore` blocks them
-- `production trading keys forbidden in general agents` enforced at policy layer
-- Per-agent isolation: each `~/.hermes-<slug>/` is independent; `--per-agent` mode for env separation
-
----
-
-## Verify install
+## 📊 Verify the install
 
 ```bash
-paperclipai adapters list | grep hermes_local         # adapter registered
-paperclipai company list                              # Pantheon present
-ls -d ~/.hermes-* | wc -l                             # 32 (Owen skipped)
-python3 scripts/validate_hermes_local_package.py      # OK: 32 routed
+paperclipai adapters list | grep hermes_local         # ✅ adapter registered
+paperclipai company list                              # ✅ Pantheon present
+ls -d ~/.hermes-* | wc -l                             # ✅ 32 (Owen skipped)
+python3 scripts/validate_hermes_local_package.py      # ✅ 32 routed
 ```
-
-Then smoke-test in the Paperclip UI: send Arthur the PRD `"Build a CLI tool that counts unique words in a file."` and watch the routing.
 
 ---
 
-## Re-run flags
+## 🌍 OS matrix
+
+| OS | Status |
+|---|---|
+| 🐧 Linux | ✅ |
+| 🍏 macOS | ✅ |
+| 🪟 Windows (WSL2) | ✅ |
+| 🪟 Windows native | ❌ — use WSL (full reason in [`README_INSTALL.md`](README_INSTALL.md)) |
+
+---
+
+## 🗺 Re-run flags
 
 ```bash
 bash scripts/one_click_install.sh -y --validate-only        # validators only
@@ -132,7 +221,29 @@ bash scripts/one_click_install.sh -y --setup-keys           # add secure key pro
 
 ---
 
-## Docs
+## ❓ FAQ
+
+**Q: Is this AGI?**
+No. It's a coordination layer over the LLMs you already pay for, with persistent identity per agent.
+
+**Q: How much will it cost to run?**
+Token usage scales with the work, not the agent count. An idle agent burns nothing. Heavy day ≈ a few dollars of Anthropic + OpenAI traffic.
+
+**Q: Can I add my own agent?**
+Yes. Drop a `.md` file in the company tree, give them a model, run the converter. They wake up next install.
+
+**Q: Why "Pantheon"?**
+33 named entities with distinct powers, organised under one head, reporting to a higher authority. Sound familiar?
+
+**Q: Can the agents see my code?**
+Only the code you give them. Each agent runs in its own `~/.hermes-<slug>/` sandbox.
+
+**Q: What if an agent goes off the rails?**
+Three layers stop it: per-agent budget caps, dual PR review (Clara + Cody), and human approval gates on merge / deploy / production trading rules.
+
+---
+
+## 📚 Deeper docs
 
 - [`README_INSTALL.md`](README_INSTALL.md) — full install guide, OS matrix, key setup
 - [`PATCH_NOTES_V8_5.md`](PATCH_NOTES_V8_5.md) — Hermes-as-harness rollout
@@ -144,12 +255,22 @@ bash scripts/one_click_install.sh -y --setup-keys           # add secure key pro
 
 ---
 
-## Boundary
+## 🚧 Boundary
 
-This repo **does not** install Paperclip, Hermes, OpenClaw, provider API keys, or production trading keys. It stages a company/org package for Paperclip + Hermes-based workers. Bring your own runtime, bring your own keys, opt-in via `setup_api_keys.sh`.
+Pantheon **does not** install Paperclip, Hermes, OpenClaw, provider API keys, or production trading keys. It stages a company/org package. **Bring your own runtime, your own keys, your own ambition.**
 
 ---
 
-## License
+## 📜 License
 
 MIT — see [`LICENSE`](LICENSE).
+
+---
+
+<div align="center">
+
+### 🌟 If Pantheon ships its first PR for you, [drop a star.](https://github.com/5percentdrops/pantheon/stargazers)
+
+*Make AI work for you, not the other way around.*
+
+</div>
