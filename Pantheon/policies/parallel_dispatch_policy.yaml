@@ -1,0 +1,31 @@
+policy:
+  id: parallel_dispatch_policy_v8_7
+  applies_to: marcus_emitted_feature_tickets
+  description: |
+    Fan-out engineer pool. When Marcus emits ≥2 tickets whose
+    dependency_graph entries do not block each other, Arthur may
+    dispatch them in parallel across the engineer pool instead of
+    serialising on Jack.
+  enabled_by_default: false                # opt-in: enable per project after Phase 5 smoke
+  engineers_pool:
+    - jack-backend-developer               # primary
+    - ben-backend-engineer
+    - ivan-backend-engineer
+    - theo-backend-engineer
+    - leo-backend-engineer
+    - ellie-backend-engineer
+    - grant-backend-engineer
+  max_parallel_lanes: 4                    # Arthur's standing "≤2 lanes" rule relaxed to 4 only when fan-out active
+  dispatch_rules:
+    - "Only dispatch tickets where dependency_graph.depends_on == []"
+    - "Serial fallback on shared-file lock contention (detected via git index)"
+    - "Each parallel lane gets its own outcome rubric instance"
+    - "Clara grades all lanes; aggregated grades roll up to one PR"
+  budget:
+    per_lane_token_cap_pct_of_ticket: 100  # parallel lanes do not increase per-ticket budget
+    parallel_overhead_budget_pct: 5        # 5% headroom for fan-out coordination
+  observability:
+    lane_assignment_log: workspace/06_Project_Repos/lane_assignments.jsonl
+    contention_log: workspace/07_Finalization/parallel_contention.log
+  rollback:
+    disable_via: "set enabled_by_default: false; Arthur reverts to serial dispatch on next ticket"

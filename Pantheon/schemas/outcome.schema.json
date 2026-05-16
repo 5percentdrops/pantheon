@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "outcome.schema.json",
+  "title": "Per-ticket Outcome rubric (V8.7)",
+  "description": "Machine-checkable success criteria attached to a ticket. Clara grades the implementation against this rubric and auto-iterates with Jack up to max_iterations before passing to Cody. Replaces the previous 'looks fine to me' review surface.",
+  "type": "object",
+  "required": ["ticket_id", "prd_ref", "must_have", "rubric_score_min", "grader", "max_iterations"],
+  "properties": {
+    "ticket_id":     { "type": "string", "pattern": "^TKT-[A-Z0-9-]+$" },
+    "prd_ref":       { "type": "string" },
+    "must_have": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" },
+      "description": "Statements that MUST be true for the PR to pass. Each is independently graded by Clara."
+    },
+    "must_not": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Anti-criteria (e.g. 'touches files outside ticket.scope_paths')."
+    },
+    "scope_paths": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Glob list of files this ticket is allowed to modify. Enforced via must_not by default."
+    },
+    "rubric_score_min":  {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Minimum weighted score (0.0–1.0) Clara requires to mark this rubric satisfied. Default 0.85."
+    },
+    "grader":            { "enum": ["clara-claude-pr-review-lead"] },
+    "iterate_on_fail":   { "type": "boolean", "default": true },
+    "max_iterations":    { "type": "integer", "minimum": 1, "maximum": 5 },
+    "escalation_on_persistent_fail": {
+      "type": "string",
+      "description": "Agent canonical_id to escalate to after iterations exhausted. Default: cody-code-escalation-reviewer."
+    }
+  }
+}

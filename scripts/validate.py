@@ -19,6 +19,8 @@ validators = [
     # V8.6: mid-pipeline Nadia QA + Dreaming subsystem
     "validate_mid_pipeline_qa.py",
     "validate_dreaming.py",
+    # V8.7: outcome rubric + fan-out + budget watcher + Claude MA burst + smoke ramp
+    "validate_v8_7_patches.py",
 ]
 
 failed = []

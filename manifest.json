@@ -32,7 +32,7 @@
     "Nadia",
     "Arthur"
   ],
-  "version": "8.6",
+  "version": "8.7",
   "pantheon_parallel_escalation": {
     "arthur": "GPT-5 mini under Hermes",
     "jack": "DeepSeek V4 Pro under Hermes",
@@ -481,7 +481,7 @@
     "pipeline_dispatch_enabled": true,
     "budget_caps_checked": true
   },
-  "schema_version": "pantheon.v8.6",
+  "schema_version": "pantheon.v8.7",
   "v8_2_patch": {
     "arthur_model_purged": true,
     "retry_ladder_canonical": "engineering_escalation_ladder_v8_2",
@@ -548,5 +548,37 @@
     "max_iterations": 2,
     "escalation": "arthur-project-manager",
     "dreaming_added": true
+  },
+  "v8_7_patch": {
+    "outcome_rubric": {
+      "schema": "Pantheon/schemas/outcome.schema.json",
+      "grade_schema": "Pantheon/schemas/outcome_grade.schema.json",
+      "policy": "Pantheon/policies/outcome_grading_policy.yaml",
+      "grader": "clara-claude-pr-review-lead",
+      "default_score_min": 0.85,
+      "default_max_iterations": 3
+    },
+    "parallel_dispatch": {
+      "policy": "Pantheon/policies/parallel_dispatch_policy.yaml",
+      "enabled_by_default": false,
+      "engineers_pool_size": 7,
+      "max_parallel_lanes": 4
+    },
+    "budget_watcher": {
+      "script": "scripts/budget_watcher.py",
+      "installer": "scripts/install_budget_watcher.sh",
+      "cadence_minutes": 30,
+      "owner_home": "~/.hermes-arthur",
+      "warn_threshold_pct": 80,
+      "crit_threshold_pct": 95
+    },
+    "claude_managed_burst": {
+      "spec": "Pantheon/harnesses/claude_managed_burst.yaml",
+      "adapter_stub": "scripts/claude_managed_burst_adapter.py",
+      "status": "spec_only_pending_anthropic_cma_endpoint",
+      "trigger_threshold_subsystems": 8,
+      "max_parallel_children": 5
+    },
+    "smoke_ramp_doc": "SMOKE_SCALE.md"
   }
 }

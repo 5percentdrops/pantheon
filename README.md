@@ -127,6 +127,18 @@ At 03:00 UTC every agent runs a Dreaming pass in its own home: 7 days of session
 
 Marcus's SDD doesn't reach Jack's TDD block until Nadia (Senior QA, Opus 4.7 XHigh) signs it off against the PRD. Max 2 return cycles before Arthur escalates. Catches PRD-to-SDD drift at design time, not at PR review.
 
+### 📐 Rubric-graded reviews (V8.7)
+
+Clara grades implementations against a per-ticket `outcome.schema.json` rubric — `must_have` criteria, `must_not` anti-criteria, score floor 0.85 — with cited file:line evidence per criterion. Jack auto-iterates against the rubric before Cody ever sees the PR. End of "looks fine to me."
+
+### ⚡ Fan-out engineer pool (V8.7)
+
+When Marcus emits ≥2 tickets with no inter-dependency, Arthur dispatches across 4 parallel DeepSeek engineers (Jack/Ben/Ivan/Theo/Leo/Ellie/Grant) instead of serialising. Serial fallback on git-index contention. Opt-in per project after the smoke ramp.
+
+### 💰 Per-host budget watcher (V8.7)
+
+Arthur-owned cron at `*/30 * * * *` sums per-agent token-proxy bytes, emits WARN at 80% / CRIT at 95% of daily cap. CRIT lands in Arthur's `MEMORY.md` so he reads it on the next dispatch. Zero LLM calls, pure file IO.
+
 ### 🎛 Stack you control
 
 ```
@@ -255,6 +267,8 @@ Three layers stop it: per-agent budget caps, dual PR review (Clara + Cody), and 
 ## 📚 Deeper docs
 
 - [`README_INSTALL.md`](README_INSTALL.md) — full install guide, OS matrix, key setup
+- [`SMOKE_SCALE.md`](SMOKE_SCALE.md) — phased 3→33 agent ramp (don't fire all 33 on day one)
+- [`PATCH_NOTES_V8_7.md`](PATCH_NOTES_V8_7.md) — outcome rubric + fan-out + budget watcher + CMA burst
 - [`PATCH_NOTES_V8_6.md`](PATCH_NOTES_V8_6.md) — mid-pipeline QA + per-agent Dreaming
 - [`PATCH_NOTES_V8_5.md`](PATCH_NOTES_V8_5.md) — Hermes-as-harness rollout
 - [`ROLLBACK_TO_V8_4.md`](ROLLBACK_TO_V8_4.md) — one-command revert

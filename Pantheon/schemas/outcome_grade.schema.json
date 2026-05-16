@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "outcome_grade.schema.json",
+  "title": "Clara's grade of an implementation against an outcome rubric (V8.7)",
+  "type": "object",
+  "required": ["ticket_id", "rubric_ref", "implementation_ref", "iteration", "score", "decision", "timestamp_utc"],
+  "properties": {
+    "ticket_id":          { "type": "string", "pattern": "^TKT-[A-Z0-9-]+$" },
+    "rubric_ref":         { "type": "string", "description": "Path to outcome.schema.json instance" },
+    "implementation_ref": { "type": "string", "description": "Commit SHA or PR number" },
+    "iteration":          { "type": "integer", "minimum": 1, "maximum": 5 },
+    "score":              { "type": "number", "minimum": 0, "maximum": 1 },
+    "per_criterion": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["criterion", "passed"],
+        "properties": {
+          "criterion":  { "type": "string" },
+          "passed":     { "type": "boolean" },
+          "evidence":   { "type": "string", "description": "Concrete file:line or commit-hash citation for the grade." },
+          "weight":     { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "decision":           { "enum": ["pass_to_cody", "return_to_jack", "escalate"] },
+    "return_notes":       { "type": "string" },
+    "grader":             { "const": "clara-claude-pr-review-lead" },
+    "timestamp_utc":      { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "decision": { "const": "pass_to_cody" } } },
+      "then": { "properties": { "score": { "minimum": 0.85 } } }
+    },
+    {
+      "if": { "properties": { "decision": { "const": "return_to_jack" } } },
+      "then": { "required": ["return_notes", "per_criterion"] }
+    }
+  ]
+}

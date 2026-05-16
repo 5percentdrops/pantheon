@@ -1,0 +1,64 @@
+# claude_managed_burst.yaml — V8.7
+#
+# Declarative spec for a Claude Managed Agents (CMA) burst lane that
+# Marcus can invoke for unusually large SDDs. Hermes remains the
+# persistent identity layer for all 33 agents; CMA is *borrowed* purely
+# for parallel infra on Anthropic-model bursts, then results are merged
+# back into Marcus's home via the synthesis stage.
+#
+# This file is the contract Marcus's runtime reads when deciding whether
+# to escalate to CMA. The actual CMA invocation glue lives in
+# scripts/claude_managed_burst_adapter.py (stub today; real wiring
+# requires an Anthropic API client + Claude MA endpoint).
+
+harness:
+  id: claude_managed_burst_v8_7
+  type: claude_managed_agents
+  purpose: burst_parallel_anthropic_only
+  identity_layer_unchanged: hermes_local           # CMA does not own identity; Hermes does.
+
+trigger:
+  source_agent: marcus-senior-backend-developer
+  condition: sdd_subsystem_count_gt_threshold
+  threshold: 8                                     # >8 subsystems = consider burst
+  fallback_if_disabled: marcus_sequential_decomposition
+
+parallel:
+  max_children: 5                                  # CMA's documented max parallel slot
+  children_model: anthropic/claude-opus-4-7
+  children_role: subsystem_analysis_only           # narrow scope — no merge authority
+  children_token_cap_each: 60_000
+
+merge:
+  strategy: marcus_synthesis
+  merge_model: anthropic/claude-opus-4-7           # Marcus's standard model
+  reject_if_children_disagree: false               # surface disagreement, don't suppress
+  attach_full_child_outputs_to_sdd: true
+
+return_path:
+  destination: hermes_lane                         # results land back in Marcus's home
+  output_contract: prd_to_sdd_pipeline.schema.json # same schema as serial path; downstream agents see no difference
+  marcus_memory_update_required: true              # Marcus writes a memory entry noting the burst was used
+
+guardrails:
+  - "CMA children may not write to ~/.hermes-marcus/ directly"
+  - "CMA children may not invoke other Pantheon agents"
+  - "Burst lane disabled when budget_watcher reports CRIT alerts"
+  - "Maximum 1 active burst at a time per host (avoid Anthropic concurrency limit collisions)"
+  - "Falls back to serial Marcus decomposition on CMA API failure"
+
+observability:
+  log_sink: workspace/07_Finalization/claude_managed_burst.jsonl
+  metrics_to_track:
+    - burst_invoked_count_per_day
+    - children_completion_seconds
+    - synthesis_acceptance_rate
+    - fallback_to_serial_count
+
+status:
+  shipped: spec_only
+  adapter_implementation: scripts/claude_managed_burst_adapter.py (stub)
+  enable_when:
+    - "Anthropic publishes the stable CMA endpoint URL"
+    - "ANTHROPIC_API_KEY in ~/.hermes/.env is provisioned"
+    - "validate_claude_managed_burst.py reports adapter is live"

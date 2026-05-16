@@ -1,0 +1,19 @@
+policy:
+  id: outcome_grading_policy_v8_7
+  scope: every_ticket_emitted_by_marcus
+  rubric_required: true                    # Marcus must attach outcome.schema.json per ticket
+  default_rubric:
+    rubric_score_min: 0.85
+    max_iterations: 3
+    grader: clara-claude-pr-review-lead
+    iterate_on_fail: true
+    escalation_on_persistent_fail: cody-code-escalation-reviewer
+  hard_rules:
+    - "Clara's grade is machine-checkable, not opinion-based"
+    - "Each criterion needs concrete evidence (file:line or commit-hash)"
+    - "Scope_paths breach is a must_not (auto-fail)"
+    - "Grader cannot be the implementer (no Jack grading Jack)"
+  observability:
+    grade_log_sink: workspace/05_QA_Audit_Logs/outcome_grades.jsonl
+    iteration_count_field: outcome_iteration_count
+    cost_attribution: per_ticket_token_budget

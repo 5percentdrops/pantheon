@@ -163,6 +163,13 @@ else
     echo
 fi
 
+# Step 7b: install per-host budget watcher (V8.7 NEW, Arthur-owned)
+if [ "$SKIP_DREAMING" = "0" ] && [ "$SKIP_BOOTSTRAP" = "0" ]; then
+    echo "==> Step 7b/8: Install per-host budget watcher cron (Arthur-owned)"
+    bash scripts/install_budget_watcher.sh
+    echo
+fi
+
 # Step 7: import company to Paperclip
 echo "==> Step 8/8: Import Pantheon company to Paperclip"
 echo
