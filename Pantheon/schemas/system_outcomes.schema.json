@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "system_outcomes.schema.json",
+  "title": "Pantheon System-level Outcomes (V8.9)",
+  "description": "Org-wide success criteria, evaluated weekly by the system_outcomes_tracker. Per-ticket outcomes (V8.7 outcome.schema.json) grade individual implementations; THIS schema grades the COMPANY. Failing system outcomes triggers Arthur escalation to the human board.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_utc",
+    "window_days",
+    "pipeline_completion",
+    "iteration_efficiency",
+    "escalation_health",
+    "budget_health",
+    "learning_compounding",
+    "verdict"
+  ],
+  "properties": {
+    "schema_version": { "const": "system_outcomes.v1" },
+    "snapshot_utc":   { "type": "string", "format": "date-time" },
+    "window_days":    { "type": "integer", "minimum": 1, "maximum": 30 },
+
+    "pipeline_completion": {
+      "type": "object",
+      "required": ["target_pct", "actual_pct", "passed"],
+      "properties": {
+        "target_pct":   { "type": "number", "minimum": 0, "maximum": 100, "default": 90 },
+        "actual_pct":   { "type": "number", "minimum": 0, "maximum": 100 },
+        "tickets_attempted": { "type": "integer", "minimum": 0 },
+        "tickets_merged":    { "type": "integer", "minimum": 0 },
+        "passed":            { "type": "boolean" }
+      }
+    },
+
+    "iteration_efficiency": {
+      "type": "object",
+      "required": ["target_max_avg_iterations", "actual_avg_iterations", "passed"],
+      "properties": {
+        "target_max_avg_iterations": { "type": "number", "minimum": 1, "default": 2.0 },
+        "actual_avg_iterations":     { "type": "number", "minimum": 1 },
+        "passed":                    { "type": "boolean" }
+      }
+    },
+
+    "escalation_health": {
+      "type": "object",
+      "required": ["target_max_escalation_rate_pct", "actual_escalation_rate_pct", "passed"],
+      "properties": {
+        "target_max_escalation_rate_pct": { "type": "number", "minimum": 0, "maximum": 100, "default": 15 },
+        "actual_escalation_rate_pct":     { "type": "number", "minimum": 0, "maximum": 100 },
+        "packet_rejection_rate_pct":      { "type": "number", "minimum": 0, "maximum": 100 },
+        "maxwell_override_rate_pct":      { "type": "number", "minimum": 0, "maximum": 100 },
+        "passed":                         { "type": "boolean" }
+      }
+    },
+
+    "budget_health": {
+      "type": "object",
+      "required": ["target_max_crit_alerts_week", "actual_crit_alerts_week", "passed"],
+      "properties": {
+        "target_max_crit_alerts_week": { "type": "integer", "minimum": 0, "default": 0 },
+        "actual_crit_alerts_week":     { "type": "integer", "minimum": 0 },
+        "warn_alerts_week":            { "type": "integer", "minimum": 0 },
+        "passed":                      { "type": "boolean" }
+      }
+    },
+
+    "learning_compounding": {
+      "type": "object",
+      "required": ["target_min_multi_agent_lessons_pct", "actual_multi_agent_lessons_pct", "passed"],
+      "properties": {
+        "target_min_multi_agent_lessons_pct": { "type": "number", "minimum": 0, "maximum": 100, "default": 20 },
+        "actual_multi_agent_lessons_pct":     { "type": "number", "minimum": 0, "maximum": 100 },
+        "lessons_total":                      { "type": "integer", "minimum": 0 },
+        "lessons_reinforced":                 { "type": "integer", "minimum": 0 },
+        "passed":                             { "type": "boolean" }
+      }
+    },
+
+    "verdict": { "enum": ["healthy", "watch", "escalate_to_board"] },
+
+    "failed_criteria": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "notes": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "verdict": { "const": "escalate_to_board" } } },
+      "then": { "required": ["failed_criteria"], "properties": { "failed_criteria": { "minItems": 1 } } }
+    }
+  ]
+}

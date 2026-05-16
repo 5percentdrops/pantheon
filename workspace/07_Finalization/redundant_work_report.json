@@ -1,0 +1,1341 @@
+{
+  "agents_evaluated": 32,
+  "agents_skipped_null_model": 1,
+  "findings": {
+    "cost_redundancy_same_model": [
+      {
+        "agents": [
+          "Leo",
+          "Ellie"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.524
+      },
+      {
+        "agents": [
+          "Leo",
+          "Theo"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.467
+      },
+      {
+        "agents": [
+          "Leo",
+          "Ben"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.484
+      },
+      {
+        "agents": [
+          "Leo",
+          "Ivan"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.467
+      },
+      {
+        "agents": [
+          "Leo",
+          "Grant"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.49
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Dominic"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.626
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Mira"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.523
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Viktor"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.445
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Felix"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.485
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Nadia"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.474
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Oscar"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.434
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Henrik"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.482
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Nathan"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.515
+      },
+      {
+        "agents": [
+          "Ellie",
+          "Theo"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.472
+      },
+      {
+        "agents": [
+          "Ellie",
+          "Ben"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.474
+      },
+      {
+        "agents": [
+          "Ellie",
+          "Ivan"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.459
+      },
+      {
+        "agents": [
+          "Ellie",
+          "Grant"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.48
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Mira"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.621
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Viktor"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.495
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Felix"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.516
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Nadia"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.514
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Oscar"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.469
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Henrik"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.539
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Nathan"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.568
+      },
+      {
+        "agents": [
+          "Mira",
+          "Viktor"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.435
+      },
+      {
+        "agents": [
+          "Mira",
+          "Felix"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.505
+      },
+      {
+        "agents": [
+          "Mira",
+          "Nadia"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.505
+      },
+      {
+        "agents": [
+          "Mira",
+          "Oscar"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.461
+      },
+      {
+        "agents": [
+          "Mira",
+          "Henrik"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.529
+      },
+      {
+        "agents": [
+          "Mira",
+          "Nathan"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.522
+      },
+      {
+        "agents": [
+          "Theo",
+          "Ben"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.474
+      },
+      {
+        "agents": [
+          "Theo",
+          "Ivan"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.472
+      },
+      {
+        "agents": [
+          "Theo",
+          "Grant"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.479
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Felix"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.462
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Nadia"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.429
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Oscar"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.394
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Henrik"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.436
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Nathan"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.49
+      },
+      {
+        "agents": [
+          "Ben",
+          "Ivan"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.458
+      },
+      {
+        "agents": [
+          "Ben",
+          "Grant"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.658
+      },
+      {
+        "agents": [
+          "Felix",
+          "Nadia"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.48
+      },
+      {
+        "agents": [
+          "Felix",
+          "Oscar"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.462
+      },
+      {
+        "agents": [
+          "Felix",
+          "Henrik"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.505
+      },
+      {
+        "agents": [
+          "Felix",
+          "Nathan"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.628
+      },
+      {
+        "agents": [
+          "Ivan",
+          "Grant"
+        ],
+        "harness": "Hermes",
+        "model": "deepseek/deepseek-v4-pro",
+        "role_similarity": 0.479
+      },
+      {
+        "agents": [
+          "Nadia",
+          "Oscar"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.395
+      },
+      {
+        "agents": [
+          "Nadia",
+          "Henrik"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.491
+      },
+      {
+        "agents": [
+          "Nadia",
+          "Nathan"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.51
+      },
+      {
+        "agents": [
+          "Oscar",
+          "Henrik"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.462
+      },
+      {
+        "agents": [
+          "Oscar",
+          "Nathan"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.476
+      },
+      {
+        "agents": [
+          "Henrik",
+          "Nathan"
+        ],
+        "harness": "Hermes",
+        "model": "anthropic/claude-opus-4.7",
+        "role_similarity": 0.521
+      }
+    ],
+    "handoff_overlap": [
+      {
+        "agents": [
+          "Leo",
+          "Nadia"
+        ],
+        "shared_downstream": [
+          "functional-tester",
+          "qa"
+        ],
+        "shared_upstream": [
+          "senior-frontend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Dominic"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-qa"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Mira"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Viktor"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Felix"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Nadia"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Priya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-qa"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Sonia",
+          "Safiya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-qa"
+        ],
+        "shared_upstream": [
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Ellie",
+          "Nadia"
+        ],
+        "shared_downstream": [
+          "functional-tester",
+          "qa"
+        ],
+        "shared_upstream": [
+          "senior-mobile-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Dante"
+        ],
+        "shared_downstream": [
+          "mobile-dev"
+        ],
+        "shared_upstream": [
+          "senior-mobile-designer"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Mira"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Viktor"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Felix"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Nadia"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Priya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-qa"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Dominic",
+          "Safiya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-qa"
+        ],
+        "shared_upstream": [
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Mira",
+          "Viktor"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Mira",
+          "Felix"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Mira",
+          "Nadia"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Mira",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Mira",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Mira",
+          "Priya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-mobile-dev"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Theo",
+          "Safiya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-devops"
+        ],
+        "shared_upstream": [
+          "senior-devops"
+        ]
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Felix"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Nadia"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Priya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-backend-dev"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Viktor",
+          "Safiya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-backend-dev"
+        ],
+        "shared_upstream": [
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Clara",
+          "Ben"
+        ],
+        "shared_downstream": [
+          "backtester",
+          "senior-pinescript-dev"
+        ],
+        "shared_upstream": [
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Clara",
+          "Nadia"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Clara",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "backtester",
+          "project-manager",
+          "senior-pinescript-dev"
+        ],
+        "shared_upstream": [
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Clara",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-pinescript-dev"
+        ],
+        "shared_upstream": [
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Ben",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "backtester",
+          "senior-pinescript-dev"
+        ],
+        "shared_upstream": [
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Ben",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "senior-pinescript-dev"
+        ],
+        "shared_upstream": [
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Felix",
+          "Nadia"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Felix",
+          "Elena"
+        ],
+        "shared_downstream": [
+          "pinescript-dev"
+        ],
+        "shared_upstream": [
+          "senior-data-analyst"
+        ]
+      },
+      {
+        "agents": [
+          "Felix",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-data-analyst"
+        ]
+      },
+      {
+        "agents": [
+          "Felix",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-backtester"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-backtester"
+        ]
+      },
+      {
+        "agents": [
+          "Felix",
+          "Priya"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Chloe",
+          "Ivan"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-qa"
+        ],
+        "shared_upstream": [
+          "backend-dev",
+          "frontend-dev",
+          "mobile-dev",
+          "senior-qa"
+        ]
+      },
+      {
+        "agents": [
+          "Chloe",
+          "Safiya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-qa"
+        ],
+        "shared_upstream": [
+          "senior-qa"
+        ]
+      },
+      {
+        "agents": [
+          "Ivan",
+          "Safiya"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-qa"
+        ],
+        "shared_upstream": [
+          "senior-qa"
+        ]
+      },
+      {
+        "agents": [
+          "Nadia",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Nadia",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Nadia",
+          "Priya"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Nadia",
+          "Safiya"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "senior-backend-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Elena",
+          "Oscar"
+        ],
+        "shared_downstream": [
+          "backtester"
+        ],
+        "shared_upstream": [
+          "senior-data-analyst"
+        ]
+      },
+      {
+        "agents": [
+          "Oscar",
+          "Henrik"
+        ],
+        "shared_downstream": [
+          "project-manager",
+          "senior-pinescript-dev"
+        ],
+        "shared_upstream": [
+          "project-manager",
+          "senior-pinescript-dev"
+        ]
+      },
+      {
+        "agents": [
+          "Oscar",
+          "Priya"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      },
+      {
+        "agents": [
+          "Henrik",
+          "Priya"
+        ],
+        "shared_downstream": [
+          "project-manager"
+        ],
+        "shared_upstream": [
+          "project-manager"
+        ]
+      }
+    ],
+    "role_near_duplicates": [
+      {
+        "a_role": "Frontend Developer",
+        "agents": [
+          "Leo",
+          "Ellie"
+        ],
+        "b_role": "Mobile Developer",
+        "jaccard": 0.524
+      },
+      {
+        "a_role": "Frontend Developer",
+        "agents": [
+          "Leo",
+          "Dante"
+        ],
+        "b_role": "Mobile UI Developer",
+        "jaccard": 0.564
+      },
+      {
+        "a_role": "Senior Frontend Developer",
+        "agents": [
+          "Sonia",
+          "Dominic"
+        ],
+        "b_role": "Senior Mobile Developer",
+        "jaccard": 0.626
+      },
+      {
+        "a_role": "Senior Frontend Developer",
+        "agents": [
+          "Sonia",
+          "Mira"
+        ],
+        "b_role": "Senior Mobile Designer",
+        "jaccard": 0.523
+      },
+      {
+        "a_role": "Senior Frontend Developer",
+        "agents": [
+          "Sonia",
+          "Nathan"
+        ],
+        "b_role": "Senior Quantower C# Architect",
+        "jaccard": 0.515
+      },
+      {
+        "a_role": "Senior Mobile Developer",
+        "agents": [
+          "Dominic",
+          "Mira"
+        ],
+        "b_role": "Senior Mobile Designer",
+        "jaccard": 0.621
+      },
+      {
+        "a_role": "Senior Mobile Developer",
+        "agents": [
+          "Dominic",
+          "Felix"
+        ],
+        "b_role": "Senior PineScript Developer",
+        "jaccard": 0.516
+      },
+      {
+        "a_role": "Senior Mobile Developer",
+        "agents": [
+          "Dominic",
+          "Nadia"
+        ],
+        "b_role": "Senior Qa",
+        "jaccard": 0.514
+      },
+      {
+        "a_role": "Senior Mobile Developer",
+        "agents": [
+          "Dominic",
+          "Henrik"
+        ],
+        "b_role": "Senior Data Analyst",
+        "jaccard": 0.539
+      },
+      {
+        "a_role": "Senior Mobile Developer",
+        "agents": [
+          "Dominic",
+          "Nathan"
+        ],
+        "b_role": "Senior Quantower C# Architect",
+        "jaccard": 0.568
+      },
+      {
+        "a_role": "Senior Mobile Designer",
+        "agents": [
+          "Mira",
+          "Felix"
+        ],
+        "b_role": "Senior PineScript Developer",
+        "jaccard": 0.505
+      },
+      {
+        "a_role": "Senior Mobile Designer",
+        "agents": [
+          "Mira",
+          "Nadia"
+        ],
+        "b_role": "Senior Qa",
+        "jaccard": 0.505
+      },
+      {
+        "a_role": "Senior Mobile Designer",
+        "agents": [
+          "Mira",
+          "Henrik"
+        ],
+        "b_role": "Senior Data Analyst",
+        "jaccard": 0.529
+      },
+      {
+        "a_role": "Senior Mobile Designer",
+        "agents": [
+          "Mira",
+          "Nathan"
+        ],
+        "b_role": "Senior Quantower C# Architect",
+        "jaccard": 0.522
+      },
+      {
+        "a_role": "PineScript Developer",
+        "agents": [
+          "Ben",
+          "Grant"
+        ],
+        "b_role": "Quantower C# Automation Developer",
+        "jaccard": 0.658
+      },
+      {
+        "a_role": "Senior PineScript Developer",
+        "agents": [
+          "Felix",
+          "Henrik"
+        ],
+        "b_role": "Senior Data Analyst",
+        "jaccard": 0.505
+      },
+      {
+        "a_role": "Senior PineScript Developer",
+        "agents": [
+          "Felix",
+          "Nathan"
+        ],
+        "b_role": "Senior Quantower C# Architect",
+        "jaccard": 0.628
+      },
+      {
+        "a_role": "Senior Qa",
+        "agents": [
+          "Nadia",
+          "Nathan"
+        ],
+        "b_role": "Senior Quantower C# Architect",
+        "jaccard": 0.51
+      },
+      {
+        "a_role": "Senior Data Analyst",
+        "agents": [
+          "Henrik",
+          "Nathan"
+        ],
+        "b_role": "Senior Quantower C# Architect",
+        "jaccard": 0.521
+      }
+    ],
+    "seed_skill_duplicates": []
+  },
+  "jaccard_threshold": 0.5,
+  "snapshot_utc": "2026-05-16T20:44:08Z",
+  "total_findings": 125
+}

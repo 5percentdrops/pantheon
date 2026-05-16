@@ -1,0 +1,41 @@
+{
+  "budget_health": {
+    "actual_crit_alerts_week": 0,
+    "passed": true,
+    "target_max_crit_alerts_week": 0,
+    "warn_alerts_week": 0
+  },
+  "escalation_health": {
+    "actual_escalation_rate_pct": 0.0,
+    "maxwell_override_rate_pct": 0.0,
+    "packet_rejection_rate_pct": 0.0,
+    "passed": true,
+    "target_max_escalation_rate_pct": 15
+  },
+  "failed_criteria": [
+    "multi_agent_lessons_pct 11.9% < 20%"
+  ],
+  "iteration_efficiency": {
+    "actual_avg_iterations": 1.0,
+    "passed": true,
+    "target_max_avg_iterations": 2.0
+  },
+  "learning_compounding": {
+    "actual_multi_agent_lessons_pct": 11.9,
+    "lessons_reinforced": 5,
+    "lessons_total": 42,
+    "passed": false,
+    "target_min_multi_agent_lessons_pct": 20
+  },
+  "pipeline_completion": {
+    "actual_pct": 0,
+    "passed": true,
+    "target_pct": 90,
+    "tickets_attempted": 0,
+    "tickets_merged": 0
+  },
+  "schema_version": "system_outcomes.v1",
+  "snapshot_utc": "2026-05-16T20:44:08Z",
+  "verdict": "watch",
+  "window_days": 7
+}

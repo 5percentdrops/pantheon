@@ -32,7 +32,7 @@
     "Nadia",
     "Arthur"
   ],
-  "version": "8.8",
+  "version": "8.9",
   "pantheon_parallel_escalation": {
     "arthur": "GPT-5 mini under Hermes",
     "jack": "DeepSeek V4 Pro under Hermes",
@@ -481,7 +481,7 @@
     "pipeline_dispatch_enabled": true,
     "budget_caps_checked": true
   },
-  "schema_version": "pantheon.v8.8",
+  "schema_version": "pantheon.v8.9",
   "v8_2_patch": {
     "arthur_model_purged": true,
     "retry_ladder_canonical": "engineering_escalation_ladder_v8_2",
@@ -608,5 +608,38 @@
       "escalation_on_persistent_fail": "magnus-architecture-escalation",
       "rationale": "Maxwell overrides do not auto-merge; closes confident-wrong escalation gap"
     }
+  },
+  "v8_9_patch": {
+    "metrics_dashboard": {
+      "script": "scripts/metrics_summary.py",
+      "installer": "scripts/install_metrics_cron.sh",
+      "cadence_minutes": 15,
+      "owner": "arthur-project-manager",
+      "output_md": "workspace/07_Finalization/metrics_dashboard.md",
+      "output_json": "workspace/07_Finalization/metrics_dashboard.json"
+    },
+    "system_outcomes": {
+      "schema": "Pantheon/schemas/system_outcomes.schema.json",
+      "tracker": "scripts/system_outcomes_tracker.py",
+      "cadence_weekly": "0 6 * * 1 UTC",
+      "owner": "winston-director-knowledge-architecture",
+      "verdict_enum": [
+        "healthy",
+        "watch",
+        "escalate_to_board"
+      ],
+      "escalate_to_board_on_3plus_failed_criteria": true
+    },
+    "redundant_work_detector": {
+      "script": "scripts/redundant_work_detector.py",
+      "cadence_weekly": "0 5 * * 0 UTC",
+      "owner": "winston-director-knowledge-architecture",
+      "jaccard_threshold": 0.5,
+      "advisory_only": true
+    },
+    "observability_pipeline": "Pantheon/pipelines/observability_pipeline.yaml",
+    "observability_policy": "Pantheon/policies/observability_policy.yaml",
+    "cron_installer": "scripts/install_observability_crons.sh",
+    "hard_rule": "observability NEVER calls LLM, NEVER mutates hermes homes (except Arthur MEMORY.md on escalate_to_board)"
   }
 }

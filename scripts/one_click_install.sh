@@ -177,6 +177,13 @@ if [ "$SKIP_DREAMING" = "0" ] && [ "$SKIP_BOOTSTRAP" = "0" ]; then
     echo
 fi
 
+# Step 7d: install V8.9 observability crons (Arthur + Winston homes)
+if [ "$SKIP_DREAMING" = "0" ] && [ "$SKIP_BOOTSTRAP" = "0" ]; then
+    echo "==> Step 7d/8: Install V8.9 observability crons (metrics, system outcomes, redundant work)"
+    bash scripts/install_observability_crons.sh
+    echo
+fi
+
 # Step 7: import company to Paperclip
 echo "==> Step 8/8: Import Pantheon company to Paperclip"
 echo

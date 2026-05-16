@@ -1,0 +1,49 @@
+policy:
+  id: observability_policy_v8_9
+  owner: arthur-project-manager
+  description: |
+    V8.6–V8.8 emitted alerts and grades to scattered sinks. V8.9 makes
+    the article's Step 7 ("Monitoring is not optional") real: one
+    dashboard, one weekly scorecard, one redundancy report. All driven
+    by pure file IO across the existing sinks — no LLM calls in the
+    observability layer.
+  cadence:
+    metrics_summary:   "*/15 * * * *"     # rollup every 15 min (Arthur cron)
+    system_outcomes:   "0 6 * * 1"        # weekly Mon 06:00 UTC (Winston cron)
+    redundant_work:    "0 5 * * 0"        # weekly Sun 05:00 UTC (Winston cron)
+  inputs_readonly:
+    - workspace/07_Finalization/budget_alerts.jsonl
+    - workspace/05_QA_Audit_Logs/escalation_packet_rejections.jsonl
+    - workspace/05_QA_Audit_Logs/escalation_packets.jsonl
+    - workspace/05_QA_Audit_Logs/maxwell_override_grades.jsonl
+    - workspace/05_QA_Audit_Logs/outcome_grades.jsonl
+    - workspace/wiki/lessons_learned.index.json
+    - ~/.hermes-*/logs/dream-*.log
+    - ~/.hermes-*/sessions/                 # size only, no body parsing
+    - Pantheon/paperclip/agents.json
+  outputs:
+    - workspace/07_Finalization/metrics_dashboard.md
+    - workspace/07_Finalization/metrics_dashboard.json
+    - workspace/07_Finalization/system_outcomes_weekly.md
+    - workspace/07_Finalization/system_outcomes_weekly.json
+    - workspace/07_Finalization/redundant_work_report.md
+    - workspace/07_Finalization/redundant_work_report.json
+  hard_rules:
+    - "Observability scripts NEVER call an LLM"
+    - "Observability scripts NEVER mutate ~/.hermes-* homes (read-only across)"
+    - "system_outcomes verdict == escalate_to_board appends one line to Arthur's MEMORY.md"
+    - "Failing system outcomes do NOT auto-pause the pipeline — they surface to the board for decision"
+  thresholds:
+    pipeline_completion_pct: 90
+    max_avg_iterations: 2.0
+    max_escalation_rate_pct: 15
+    max_crit_budget_alerts_per_week: 0
+    min_multi_agent_lesson_pct: 20
+    redundant_work_jaccard_threshold: 0.5
+  rationale: |
+    Article Step 7 names four failure modes for multi-agent: handoff
+    failures, redundant work, quality degradation, token bloat. V8.7
+    covered token bloat; V8.8 covered handoff schema rejection; V8.9
+    covers quality degradation (system_outcomes_tracker) and redundant
+    work (redundant_work_detector), and rolls all four into one
+    dashboard.

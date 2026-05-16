@@ -23,6 +23,8 @@ validators = [
     "validate_v8_7_patches.py",
     # V8.8: escalation packet schema, cross-agent dream aggregator, Maxwell override grading
     "validate_v8_8_patches.py",
+    # V8.9: observability layer (metrics dashboard + system outcomes + redundant work)
+    "validate_v8_9_patches.py",
 ]
 
 failed = []

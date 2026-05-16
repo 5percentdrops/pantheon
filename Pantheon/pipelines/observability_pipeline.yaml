@@ -1,0 +1,41 @@
+pipeline:
+  id: observability_v8_9
+  pattern: scheduled_rollup
+  dispatch_events:
+    - cron_metrics_summary
+    - cron_system_outcomes_weekly
+    - cron_redundant_work_weekly
+  hard_gates:
+    - observability_never_calls_llm
+    - observability_never_mutates_hermes_homes
+    - failing_system_outcomes_surfaces_to_board_does_not_auto_pause
+  stages:
+    - id: metrics_rollup
+      schedule: "*/15 * * * * UTC"
+      runner: scripts/metrics_summary.py
+      owner: arthur-project-manager
+      input_contract: null
+      output_contract: null
+      writes:
+        - workspace/07_Finalization/metrics_dashboard.md
+        - workspace/07_Finalization/metrics_dashboard.json
+    - id: system_outcomes_weekly
+      schedule: "0 6 * * 1 UTC"
+      runner: scripts/system_outcomes_tracker.py
+      owner: winston-director-knowledge-architecture
+      output_contract: system_outcomes.schema.json
+      writes:
+        - workspace/07_Finalization/system_outcomes_weekly.md
+        - workspace/07_Finalization/system_outcomes_weekly.json
+      escalation_on_verdict_escalate_to_board: human_board
+    - id: redundant_work_weekly
+      schedule: "0 5 * * 0 UTC"
+      runner: scripts/redundant_work_detector.py
+      owner: winston-director-knowledge-architecture
+      writes:
+        - workspace/07_Finalization/redundant_work_report.md
+        - workspace/07_Finalization/redundant_work_report.json
+  invariants:
+    - "No LLM calls anywhere in this pipeline"
+    - "No write to ~/.hermes-* EXCEPT system_outcomes_tracker appending one line to ~/.hermes-arthur/MEMORY.md on escalate_to_board"
+    - "All inputs are pre-existing files written by V8.6–V8.8 watchers; nothing new is required upstream"

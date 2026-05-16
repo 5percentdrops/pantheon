@@ -151,6 +151,18 @@ V8.6 dreaming kept lessons per-agent. V8.8 wires Winston to scrape every home at
 
 Maxwell (Opus 4.7 Max) is the most expensive agent. His overrides used to auto-merge. Now Cody (GPT-5.5) re-grades against the **same** outcome rubric Clara used on Jack. Max 2 iterations → Magnus (architecture review) if the override still fails. No more silent acceptance of confident-wrong senior fixes.
 
+### 📊 Central observability dashboard (V8.9)
+
+V8.7 wired token-bloat alerts. V8.8 wired handoff-schema rejections. V8.9 closes the two remaining article failure modes — **quality degradation** and **redundant work** — and rolls all four into `workspace/07_Finalization/metrics_dashboard.md`. Arthur cron at `*/15` reads every alert sink across V8.6–V8.8 and emits a watch list with explicit triggers.
+
+### 🏛 System-level Outcomes (V8.9)
+
+Per-ticket outcomes (V8.7) grade Jack's PRs. System outcomes (V8.9) grade the **company**. Weekly scorecard checks pipeline completion ≥ 90%, avg iterations ≤ 2, escalation rate ≤ 15%, zero CRIT budget alerts, ≥ 20% multi-agent lesson reinforcement. Verdict `escalate_to_board` lands in Arthur's `MEMORY.md` so the human board sees it on next dispatch.
+
+### 🔁 Redundant-work detector (V8.9)
+
+Winston Sunday-night scan flags two agents doing the same job — by role Jaccard, by handoff overlap, by shared seed-skill, by shared model+harness. Advisory only; never blocks the pipeline. First scan on the 33-agent roster surfaced 125 findings — concrete triage signal for tightening role scopes.
+
 ### 🎛 Stack you control
 
 ```
@@ -280,6 +292,7 @@ Three layers stop it: per-agent budget caps, dual PR review (Clara + Cody), and 
 
 - [`README_INSTALL.md`](README_INSTALL.md) — full install guide, OS matrix, key setup
 - [`SMOKE_SCALE.md`](SMOKE_SCALE.md) — phased 3→33 agent ramp (don't fire all 33 on day one)
+- [`PATCH_NOTES_V8_9.md`](PATCH_NOTES_V8_9.md) — central observability (dashboard + system outcomes + redundant work)
 - [`PATCH_NOTES_V8_8.md`](PATCH_NOTES_V8_8.md) — escalation packet schema + cross-agent learning + Maxwell override grading
 - [`PATCH_NOTES_V8_7.md`](PATCH_NOTES_V8_7.md) — outcome rubric + fan-out + budget watcher + CMA burst
 - [`PATCH_NOTES_V8_6.md`](PATCH_NOTES_V8_6.md) — mid-pipeline QA + per-agent Dreaming
