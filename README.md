@@ -152,4 +152,4 @@ This repo **does not** install Paperclip, Hermes, OpenClaw, provider API keys, o
 
 ## License
 
-See repo settings. Internal use — verify before redistribution.
+MIT — see [`LICENSE`](LICENSE).
