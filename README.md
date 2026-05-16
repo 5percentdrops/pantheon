@@ -17,8 +17,8 @@ Every agent has its own `SOUL.md`, `MEMORY.md`, `USER.md`, persistent session, a
 ## Quick start
 
 ```bash
-git clone https://github.com/5percentdrops/software-house-v8.5.git
-cd software-house-v8.5
+git clone https://github.com/5percentdrops/agent-studio.git
+cd agent-studio
 bash scripts/one_click_install.sh -y --setup-keys
 ```
 
