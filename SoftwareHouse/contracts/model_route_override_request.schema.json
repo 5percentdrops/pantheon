@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "override_id",
+    "requested_by_agent_id",
+    "target_agent_id",
+    "current_model",
+    "requested_model",
+    "reason",
+    "budget_impact",
+    "approval_status"
+  ],
+  "properties": {
+    "override_id": {
+      "type": "string"
+    },
+    "requested_by_agent_id": {
+      "type": "string"
+    },
+    "target_agent_id": {
+      "type": "string"
+    },
+    "current_model": {
+      "type": "string"
+    },
+    "requested_model": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "budget_impact": {
+      "type": "object"
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "approved",
+        "rejected",
+        "expired"
+      ]
+    },
+    "approved_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

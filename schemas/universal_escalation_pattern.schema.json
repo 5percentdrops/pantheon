@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "required": [
+    "organisation",
+    "standard_agent",
+    "router",
+    "attempts"
+  ],
+  "properties": {
+    "organisation": {
+      "type": "string"
+    },
+    "standard_agent": {
+      "type": "string"
+    },
+    "router": {
+      "type": "string"
+    },
+    "attempts": {
+      "type": "object",
+      "properties": {
+        "standard": {
+          "type": "number",
+          "const": 15
+        },
+        "senior": {
+          "type": "number",
+          "const": 3
+        },
+        "maxwell": {
+          "type": "number",
+          "const": 2
+        }
+      }
+    },
+    "cody_review": {
+      "type": "boolean"
+    },
+    "magnus_review": {
+      "type": "boolean"
+    },
+    "all_returns_through_router": {
+      "type": "boolean"
+    }
+  }
+}

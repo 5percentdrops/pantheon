@@ -1,0 +1,19 @@
+budget_policy:
+  version: v8.1
+  default_monthly_cap_usd: 300
+  warning_threshold_pct: 70
+  hard_stop_threshold_pct: 100
+  hard_stop_action: pause_agent_and_escalate_to_arthur_then_human_board
+  per_agent_caps_usd:
+    arthur-project-manager: 25
+    jack-backend-developer: 35
+    marcus-senior-backend-developer: 45
+    maxwell-staff-escalation-engineer: 60
+    cody-code-escalation-reviewer: 50
+    magnus-principal-solution-architect: 60
+    winston-director-knowledge-architecture: 20
+  runaway_loop_controls:
+    max_heartbeats_per_issue: 8
+    max_retries_per_failed_run: 2
+    retry_definition: runtime_retry_only_not_engineering_escalation_ladder
+    require_comment_for_rewake_after_failure: true

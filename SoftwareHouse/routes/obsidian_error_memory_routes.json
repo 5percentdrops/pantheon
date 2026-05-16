@@ -1,0 +1,57 @@
+{
+  "routes": [
+    {
+      "name": "standard_blocker_log",
+      "trigger": "standard developer fails after 10 self-fix attempts",
+      "path": [
+        "standard-developer",
+        "wiki/errors/BLOCKER_LOG",
+        "relevant-senior-owner"
+      ],
+      "hard_rule": "standard developer writes BLOCKER_LOG in same shared Obsidian error folder",
+      "harness": "Hermes",
+      "llm_module": "DeepSeek V4 Pro under Hermes",
+      "model": "deepseek/deepseek-v4-pro",
+      "standard_developer_model": "DeepSeek V4 Pro under Hermes",
+      "deepseek_v4_pro_enabled": true,
+      "model_tier": "standard"
+    },
+    {
+      "name": "senior_solution_log",
+      "trigger": "senior developer gives solution attempt",
+      "path": [
+        "relevant-senior-owner",
+        "wiki/errors/SOLUTION_LOG",
+        "standard-developer"
+      ],
+      "hard_rule": "senior logs every solution attempt and marks result WORKED or FAILED",
+      "harness": "Hermes",
+      "llm_module": "Opus 4.7 X High under Hermes",
+      "model": "anthropic/claude-opus-4.7",
+      "model_tier": "senior",
+      "reasoning_effort": "x-high"
+    },
+    {
+      "name": "cody_code_fix_log",
+      "trigger": "Cody provides code diagnosis/fix",
+      "path": [
+        "cody-code-escalation-reviewer",
+        "wiki/errors/CODE_FIX_LOG",
+        "arthur-project-manager"
+      ],
+      "hard_rule": "Cody logs code fix and result in same shared folder",
+      "harness": "Hermes"
+    },
+    {
+      "name": "magnus_approach_solution_log",
+      "trigger": "Magnus provides approach/architecture solution",
+      "path": [
+        "magnus-principal-solution-architect",
+        "wiki/errors/APPROACH_SOLUTION_LOG",
+        "arthur-project-manager"
+      ],
+      "hard_rule": "Magnus logs approach solution and result in same shared folder",
+      "harness": "Hermes"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "required": [
+    "lane",
+    "standard_developer",
+    "senior_developer",
+    "blocker",
+    "senior_attempts",
+    "maxwell_attempts",
+    "final_status"
+  ],
+  "properties": {
+    "lane": {
+      "type": "string"
+    },
+    "standard_developer": {
+      "type": "string"
+    },
+    "senior_developer": {
+      "type": "string"
+    },
+    "blocker": {
+      "type": "string"
+    },
+    "standard_attempts": {
+      "type": "array",
+      "maxItems": 10
+    },
+    "senior_attempts": {
+      "type": "array",
+      "maxItems": 3
+    },
+    "maxwell_attempts": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "properties": {
+          "attempt": {
+            "type": "number"
+          },
+          "solution": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "WORKED",
+              "FAILED",
+              "PENDING"
+            ]
+          }
+        }
+      }
+    },
+    "final_status": {
+      "type": "string",
+      "enum": [
+        "WORKED",
+        "FAILED_ESCALATE_TO_CODY"
+      ]
+    },
+    "cody_handoff_packet": {
+      "type": "string"
+    }
+  }
+}

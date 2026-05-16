@@ -1,0 +1,10 @@
+name: universal_wiki_wrapper
+type: executable_tool
+description: Automatically wraps raw codebase files of any language into .md format for Wiki indexing.
+handler:
+  executable: "scripts/universal_wiki_wrapper.sh"
+parameters:
+  target_dir: string
+constraints:
+  do_not_load_code_into_memory: true
+  output_root: "./wiki/codebase"

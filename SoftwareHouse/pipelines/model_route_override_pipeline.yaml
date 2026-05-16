@@ -1,0 +1,26 @@
+pipeline:
+  id: model_route_override_v8_2
+  pattern: governance_gate
+  dispatch_events:
+    - model_route_override_requested
+  hard_gates:
+    - human_approval_required_when_budget_or_governance_affected
+    - cannot_change_arthur_canonical_model_without_board_approval
+  stages:
+    - id: validate_override_request
+      agent: arthur-project-manager
+      input_contract: model_route_override_request.schema.json
+      output_contract: paperclip_issue.schema.json
+    - id: budget_impact_review
+      agent: arthur-project-manager
+      output_contract: budget_event.schema.json
+    - id: board_approval
+      agent: arthur-project-manager
+      gate: human_board_required
+      output_contract: user_approval_gate.schema.json
+    - id: apply_override
+      agent: arthur-project-manager
+      output_contract: model_route.schema.json
+    - id: archive_override
+      agent: winston-director-knowledge-architecture
+      output_contract: memory_update.schema.json

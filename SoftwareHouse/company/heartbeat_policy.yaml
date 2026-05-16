@@ -1,0 +1,18 @@
+heartbeat_policy:
+  default:
+    cadence: manual_or_issue_comment
+    max_runtime_minutes: 30
+    checkpoint_enabled: true
+    transcript_required: true
+  scheduled_routines:
+    weekly_memory_hygiene:
+      cadence: "0 8 * * MON"
+      assigned_agent: winston-director-knowledge-architecture
+      supervised_by: arthur-project-manager
+      output_contract: memory_update.schema.json
+      human_approval_required_for_governance_changes: true
+    daily_ci_triage:
+      cadence: "0 9 * * MON-FRI"
+      assigned_agent: cody-code-escalation-reviewer
+      supervised_by: arthur-project-manager
+      output_contract: ci_triage.schema.json

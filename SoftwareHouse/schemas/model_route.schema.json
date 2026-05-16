@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "task_type",
+    "agent_id",
+    "harness",
+    "model_alias",
+    "route_reason",
+    "approval_required"
+  ],
+  "properties": {
+    "task_type": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "harness": {
+      "type": "string"
+    },
+    "model_alias": {
+      "type": "string"
+    },
+    "route_reason": {
+      "type": "string"
+    },
+    "approval_required": {
+      "type": "boolean"
+    },
+    "fallback_agent_id": {
+      "type": "string"
+    }
+  }
+}

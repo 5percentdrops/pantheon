@@ -1,0 +1,23 @@
+pipeline:
+  id: audit_logging_v8_2
+  pattern: scheduled_pipeline
+  dispatch_events:
+    - agent_heartbeat
+  cadence: every_agent_heartbeat
+  assigned_producer: paperclip_heartbeat_logger
+  supervised_by: arthur-project-manager
+  stages:
+    - id: emit_heartbeat
+      producer: paperclip_heartbeat_logger
+      output_contract: heartbeat.schema.json
+    - id: emit_transcript
+      producer: paperclip_transcript_logger
+      output_contract: transcript.schema.json
+    - id: emit_budget_event
+      producer: paperclip_budget_meter
+      output_contract: budget_event.schema.json
+  consumer: paperclip_audit_log
+  runtime_boundary: |
+    This repo declares the pipeline shape. Actual heartbeat/transcript/budget
+    emission must be wired in Paperclip/Hermes runtime; this repo does not
+    install or configure those runtimes.

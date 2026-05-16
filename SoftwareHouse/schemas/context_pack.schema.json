@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "project",
+    "task",
+    "current_state",
+    "relevant_memory",
+    "source_files_to_read",
+    "hard_rules",
+    "blockers"
+  ],
+  "properties": {
+    "project": {
+      "type": "string"
+    },
+    "task": {
+      "type": "string"
+    },
+    "repo": {
+      "type": "string"
+    },
+    "current_state": {
+      "type": "object"
+    },
+    "relevant_memory": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_files_to_read": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hard_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

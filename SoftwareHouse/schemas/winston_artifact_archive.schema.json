@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "source",
+    "destination",
+    "archived_by"
+  ],
+  "properties": {
+    "artifact_type": {
+      "type": "string",
+      "enum": [
+        "PRD",
+        "SDD",
+        "FEATURE_TICKET",
+        "TDD_LOOP",
+        "ERROR_LOG",
+        "SOLUTION_LOG",
+        "CODEBASE"
+      ]
+    },
+    "source": {
+      "type": "string"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "archived_by": {
+      "type": "string",
+      "const": "Winston"
+    },
+    "markdown_output": {
+      "type": "boolean"
+    },
+    "context_mode_index_ready": {
+      "type": "boolean"
+    }
+  }
+}

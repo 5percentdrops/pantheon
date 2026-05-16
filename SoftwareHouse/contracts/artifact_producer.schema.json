@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "producer_id",
+    "produces",
+    "cadence_or_trigger",
+    "consumer",
+    "required"
+  ],
+  "properties": {
+    "producer_id": {
+      "type": "string"
+    },
+    "produces": {
+      "type": "string"
+    },
+    "cadence_or_trigger": {
+      "type": "string"
+    },
+    "consumer": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  }
+}

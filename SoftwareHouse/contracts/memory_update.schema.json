@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "summary",
+    "decisions",
+    "mistakes",
+    "proposed_memory_updates",
+    "proposed_rule_updates",
+    "next_actions"
+  ],
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mistakes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "proposed_memory_updates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "proposed_rule_updates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

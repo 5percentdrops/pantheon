@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": [
+    "verdict",
+    "holes_found",
+    "required_fixes",
+    "send_back_to_graham"
+  ],
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "revise",
+        "reject_recommendation"
+      ]
+    },
+    "holes_found": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_fixes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "send_back_to_graham": {
+      "type": "boolean"
+    }
+  }
+}

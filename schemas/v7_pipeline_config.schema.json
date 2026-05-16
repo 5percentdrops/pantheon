@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEPRECATED V7 Pipeline Config Schema",
+  "deprecated": true,
+  "canonical_source": "SoftwareHouse/routes/engineering_escalation_ladder_v8_2.json",
+  "description": "This schema is retained for legacy readers only. The canonical retry ladder lives at engineering_escalation_ladder_v8_2.json. Numbers asserted as const here will not be enforced by V8.2+ validators."
+}

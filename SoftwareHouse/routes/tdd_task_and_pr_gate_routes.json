@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "name": "task_tdd_green_to_next_task",
+      "trigger": "Jack completes current task and task-level TDD/checks pass",
+      "path": [
+        "jack-backend-developer",
+        "next-task"
+      ],
+      "hard_rule": "No task green, no next task.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "pr_green_and_approved_to_merge",
+      "trigger": "Feature/ticket complete, GitHub PR checks green, required approval received",
+      "path": [
+        "jack-backend-developer",
+        "merge"
+      ],
+      "hard_rule": "No PR green and approval, no merge.",
+      "harness": "Hermes"
+    }
+  ]
+}

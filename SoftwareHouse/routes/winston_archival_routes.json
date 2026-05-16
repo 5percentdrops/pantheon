@@ -1,0 +1,45 @@
+{
+  "routes": [
+    {
+      "name": "arthur_to_winston_prd",
+      "path": [
+        "arthur-project-manager",
+        "winston-director-knowledge-architecture",
+        "wiki/prds"
+      ]
+    },
+    {
+      "name": "arthur_to_winston_sdd",
+      "path": [
+        "arthur-project-manager",
+        "winston-director-knowledge-architecture",
+        "wiki/sdds"
+      ]
+    },
+    {
+      "name": "arthur_to_winston_tickets_tdd",
+      "path": [
+        "arthur-project-manager",
+        "winston-director-knowledge-architecture",
+        "wiki/tickets"
+      ]
+    },
+    {
+      "name": "arthur_to_winston_errors_solutions",
+      "path": [
+        "arthur-project-manager",
+        "winston-director-knowledge-architecture",
+        "wiki/errors"
+      ]
+    },
+    {
+      "name": "arthur_to_winston_codebase_wrapper",
+      "path": [
+        "arthur-project-manager",
+        "winston-director-knowledge-architecture",
+        "universal_wiki_wrapper",
+        "wiki/codebase"
+      ]
+    }
+  ]
+}

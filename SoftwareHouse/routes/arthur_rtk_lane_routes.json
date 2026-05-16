@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "name": "arthur_rtk_squashed_return",
+      "trigger": "Arthur returns any solution/review/approach packet to a standard developer",
+      "path": [
+        "higher-level-agent",
+        "arthur-project-manager",
+        "standard-developer"
+      ],
+      "hard_rule": "Arthur sends only a 3-line RTK-squashed summary plus references."
+    },
+    {
+      "name": "lane_activation_gate",
+      "trigger": "new engineering lane requested",
+      "path": [
+        "arthur-project-manager",
+        "lane-concurrency-check",
+        "activate-or-queue-lane"
+      ],
+      "hard_rule": "Maximum 2 active lanes at once."
+    }
+  ]
+}

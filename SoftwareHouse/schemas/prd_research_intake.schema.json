@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "required": [
+    "raw_idea",
+    "research_pack",
+    "api_bottleneck_report",
+    "feasibility_report",
+    "skeptical_validation_report",
+    "opportunity_report",
+    "user_approval_status"
+  ],
+  "properties": {
+    "raw_idea": {
+      "type": "string"
+    },
+    "research_pack": {
+      "type": "string"
+    },
+    "api_bottleneck_report": {
+      "type": "string"
+    },
+    "feasibility_report": {
+      "type": "string"
+    },
+    "skeptical_validation_report": {
+      "type": "string"
+    },
+    "opportunity_report": {
+      "type": "string"
+    },
+    "user_approval_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "revision_requested",
+        "cancelled"
+      ]
+    }
+  }
+}

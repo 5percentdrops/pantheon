@@ -1,0 +1,48 @@
+{
+  "routes": [
+    {
+      "name": "maxwell_failed_to_cody",
+      "trigger": "Maxwell failed two attempts",
+      "path": [
+        "maxwell-opus-max-escalation-engineer",
+        "arthur-project-manager",
+        "cody-code-escalation-reviewer"
+      ],
+      "hard_rule": "Cody performs code-wise review.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "cody_review_back_to_developer",
+      "trigger": "Cody completes code review",
+      "path": [
+        "cody-code-escalation-reviewer",
+        "arthur-project-manager",
+        "relevant-standard-engineer"
+      ],
+      "hard_rule": "Developer must attempt Cody guidance before Magnus.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "cody_guidance_worked",
+      "trigger": "Developer resolves issue using Cody guidance",
+      "path": [
+        "relevant-standard-engineer",
+        "wiki/errors/CODE_FIX_LOG",
+        "continue-task"
+      ],
+      "hard_rule": "Mark Cody fix as WORKED.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "cody_guidance_failed_to_magnus",
+      "trigger": "Developer still cannot resolve after Cody guidance",
+      "path": [
+        "relevant-standard-engineer",
+        "arthur-project-manager",
+        "magnus-principal-solution-architect"
+      ],
+      "hard_rule": "Magnus reviews approach after Cody path fails.",
+      "harness": "Hermes"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "routes": [
+    {
+      "name": "jack_15_attempts_to_marcus",
+      "trigger": "Jack fails after 15 self-fix attempts",
+      "path": [
+        "jack-backend-developer",
+        "marcus-senior-backend-developer",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Marcus solution attempts return to Jack.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "marcus_3_failed_to_maxwell",
+      "trigger": "Marcus fails 3 solution attempts",
+      "path": [
+        "marcus-senior-backend-developer",
+        "arthur-project-manager",
+        "maxwell-opus-max-escalation-engineer",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Maxwell solution attempts return to Jack.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "maxwell_2_failed_to_cody",
+      "trigger": "Maxwell fails 2 solution attempts",
+      "path": [
+        "maxwell-opus-max-escalation-engineer",
+        "arthur-project-manager",
+        "cody-code-escalation-reviewer",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Cody code review returns to Jack first.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "jack_failed_after_cody_to_magnus",
+      "trigger": "Jack still cannot resolve after Cody review",
+      "path": [
+        "jack-backend-developer",
+        "arthur-project-manager",
+        "magnus-principal-solution-architect"
+      ],
+      "hard_rule": "Magnus reviews approach after Cody guidance fails with Jack.",
+      "harness": "Hermes"
+    }
+  ]
+}

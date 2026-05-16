@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "name": "approved_prd_to_relevant_senior_owner",
+      "trigger": "User approves PRD",
+      "path": [
+        "arthur-project-manager",
+        "relevant-senior-engineer",
+        "relevant-standard-engineer"
+      ],
+      "hard_rule": "Arthur routes to the relevant senior owner, not always Marcus.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "task_red_green_to_next_task",
+      "trigger": "Current task red-first/green-pass TDD completed",
+      "path": [
+        "relevant-standard-engineer",
+        "next-task"
+      ],
+      "hard_rule": "No current task green, no next task.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "green_approved_pr_to_merge",
+      "trigger": "All task checks green, GitHub PR checks green, required approval received",
+      "path": [
+        "relevant-standard-engineer",
+        "merge"
+      ],
+      "hard_rule": "No GitHub PR green and approval, no merge.",
+      "harness": "Hermes"
+    }
+  ]
+}

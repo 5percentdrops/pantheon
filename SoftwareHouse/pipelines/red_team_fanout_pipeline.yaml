@@ -1,0 +1,14 @@
+pipeline:
+  id: red_team_fanout_v8_1
+  pattern: fan_out
+  dispatch_events:
+    - high_risk_pr_opened
+    - architecture_red_team_requested
+  fanout_agents:
+    - cody-code-escalation-reviewer
+    - clara-claude-pr-review-lead
+    - maxwell-staff-escalation-engineer
+    - magnus-principal-solution-architect
+    - winston-director-knowledge-architecture
+  synthesis_agent: arthur-project-manager
+  output_contract: review.schema.json

@@ -1,0 +1,129 @@
+house: software-house
+version: 1
+description: >
+  Multi-agent AI-native software development house. 21 agents across 9 desks.
+  Brain/Hands pattern with Hermes self-learning loop. Receives PRD + SDD + JSX
+  front-end drafts from the user. Outputs working, tested, reviewed software.
+
+desks:
+  governance:
+    head: project-manager
+    agents:
+      - project-manager
+
+  backend:
+    head: senior-backend-dev
+    agents:
+      - senior-backend-dev
+      - backend-dev
+
+  frontend:
+    head: senior-frontend-dev
+    agents:
+      - senior-frontend-dev
+      - frontend-dev
+
+  mobile:
+    head: senior-mobile-dev
+    agents:
+      - senior-mobile-dev
+      - mobile-dev
+
+  mobile-design:
+    head: senior-mobile-designer
+    agents:
+      - senior-mobile-designer
+      - mobile-ui-dev
+
+  devops:
+    head: senior-devops
+    agents:
+      - senior-devops
+      - devops-dev
+
+  pinescript:
+    head: senior-pinescript-dev
+    agents:
+      - senior-pinescript-dev
+      - pinescript-dev
+      - indicator-tester
+
+  qa:
+    head: senior-qa
+    agents:
+      - senior-qa
+      - qa
+      - functional-tester
+
+  data:
+    head: senior-data-analyst
+    agents:
+      - senior-data-analyst
+      - data-analyst
+      - senior-backtester
+      - backtester
+
+agent_index:
+  # Governance
+  project-manager: { name: Arthur, desk: governance, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+
+  # Backend
+  senior-backend-dev: { name: Marcus, desk: backend, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  backend-dev: { name: Jack, desk: backend, tier: executor, runtime: hermes, model: claude-opus-4-6 }
+
+  # Frontend
+  senior-frontend-dev: { name: Sonia, desk: frontend, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  frontend-dev: { name: Leo, desk: frontend, tier: executor, runtime: hermes, model: claude-opus-4-6 }
+
+  # Mobile
+  senior-mobile-dev: { name: Dominic, desk: mobile, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  mobile-dev: { name: Ellie, desk: mobile, tier: executor, runtime: hermes, model: claude-sonnet-4-6 }
+
+  # Mobile Design
+  senior-mobile-designer: { name: Mira, desk: mobile-design, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  mobile-ui-dev: { name: Dante, desk: mobile-design, tier: executor, runtime: hermes, model: moonshotai/kimi-k2-6 }
+
+  # DevOps
+  senior-devops: { name: Viktor, desk: devops, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  devops-dev: { name: Theo, desk: devops, tier: executor, runtime: hermes, model: claude-haiku-4-5 }
+
+  # PineScript
+  senior-pinescript-dev: { name: Felix, desk: pinescript, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  pinescript-dev: { name: Ben, desk: pinescript, tier: executor, runtime: hermes, model: claude-opus-4-6 }
+  indicator-tester: { name: Clara, desk: pinescript, tier: executor, runtime: hermes, model: moonshotai/kimi-k2-5 }
+
+  # QA
+  senior-qa: { name: Nadia, desk: qa, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  qa: { name: Ivan, desk: qa, tier: executor, runtime: hermes, model: moonshotai/kimi-k2-5 }
+  functional-tester: { name: Chloe, desk: qa, tier: executor, runtime: hermes, model: moonshotai/kimi-k2-5 }
+
+  # Data
+  senior-data-analyst: { name: Henrik, desk: data, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  data-analyst: { name: Elena, desk: data, tier: executor, runtime: hermes, model: claude-sonnet-4-6 }
+  senior-backtester: { name: Oscar, desk: data, tier: advisor, runtime: hermes, model: claude-opus-4-7 }
+  backtester: { name: Atlas, desk: data, tier: executor, runtime: openclaw, model: none }
+
+runtime_summary:
+  hermes:
+    total: 20
+    advisors: 10   # all Opus 4.7
+    executors: 10
+  openclaw:
+    total: 1       # Backtester (no LLM)
+
+model_distribution:
+  claude-opus-4-7: 10   # all senior advisors + project manager
+  claude-opus-4-6: 3    # backend-dev, frontend-dev, pinescript-dev
+  claude-sonnet-4-6: 2  # mobile-dev, data-analyst
+  claude-haiku-4-5: 1   # devops-dev
+  moonshotai/kimi-k2-6: 1  # mobile-ui-dev
+  moonshotai/kimi-k2-5: 3  # indicator-tester, qa, functional-tester
+  none: 1               # backtester
+
+infrastructure:
+  orchestration: paperclip
+  brain_harness: hermes        # includes self-learning skill library
+  hands_harness: Hermes      # tool calls, file ops, deployments, pure-compute backtester
+  state: supabase
+
+total_agents: 21

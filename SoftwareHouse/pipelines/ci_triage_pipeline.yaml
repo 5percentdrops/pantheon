@@ -1,0 +1,12 @@
+pipeline:
+  id: ci_triage_v8_1
+  pattern: pipeline
+  dispatch_events:
+    - ci_failed
+  stages:
+    - id: ci_log_triage
+      agent: cody-code-escalation-reviewer
+      output_contract: ci_triage.schema.json
+    - id: fix_ticket_or_escalation
+      agent: arthur-project-manager
+      output_contract: paperclip_issue.schema.json

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "route"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "revision_requested",
+        "cancelled"
+      ]
+    },
+    "route": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

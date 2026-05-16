@@ -1,0 +1,46 @@
+{
+  "routes": [
+    {
+      "name": "standard_to_senior",
+      "trigger": "standard agent fails after 15 attempts",
+      "path": [
+        "standard-agent",
+        "router-project-manager",
+        "relevant-senior-owner",
+        "router-project-manager",
+        "standard-agent"
+      ]
+    },
+    {
+      "name": "senior_failed_to_maxwell",
+      "trigger": "senior owner fails 3 attempts",
+      "path": [
+        "relevant-senior-owner",
+        "router-project-manager",
+        "maxwell-staff-escalation-engineer",
+        "router-project-manager",
+        "standard-agent"
+      ]
+    },
+    {
+      "name": "maxwell_failed_to_cody",
+      "trigger": "Maxwell fails 2 attempts",
+      "path": [
+        "maxwell-staff-escalation-engineer",
+        "router-project-manager",
+        "cody-code-reviewer",
+        "router-project-manager",
+        "standard-agent"
+      ]
+    },
+    {
+      "name": "cody_failed_to_magnus",
+      "trigger": "standard agent still fails after Cody guidance",
+      "path": [
+        "standard-agent",
+        "router-project-manager",
+        "magnus-principal-engineer"
+      ]
+    }
+  ]
+}

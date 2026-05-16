@@ -1,0 +1,39 @@
+pipeline:
+  id: feature_delivery_v8_1
+  pattern: pipeline
+  dispatch_events:
+    - prd_created
+    - context_pack_requested
+  hard_gates:
+    - context_pack_before_non_trivial_work
+    - architecture_before_tickets
+    - tests_before_code
+  stages:
+    - id: context_pack
+      agent: winston-director-knowledge-architecture
+      output_contract: context_pack.schema.json
+      required: true
+    - id: prd_validation
+      agent: arthur-project-manager
+      input_contract: prd.schema.json
+      output_contract: paperclip_issue.schema.json
+    - id: sdd_architecture
+      agent: marcus-senior-backend-developer
+      input_contract: prd.schema.json
+      output_contract: prd_to_sdd_pipeline.schema.json
+    - id: tdd_block
+      agent: marcus-senior-backend-developer
+      output_contract: task_tdd_block.schema.json
+    - id: implementation
+      agent: jack-backend-developer
+      input_contract: task_tdd_block.schema.json
+      output_contract: implementation_report.schema.json
+    - id: dual_review_clara
+      agent: clara-claude-pr-review-lead
+      output_contract: merge_review.schema.json
+    - id: dual_review_cody
+      agent: cody-code-escalation-reviewer
+      output_contract: merge_review.schema.json
+    - id: memory_update
+      agent: winston-director-knowledge-architecture
+      output_contract: memory_update.schema.json

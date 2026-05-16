@@ -1,0 +1,58 @@
+{
+  "routes": [
+    {
+      "name": "tradingview_pinescript_route",
+      "match_any": [
+        "TradingView",
+        "Pine Script",
+        "PineScript",
+        "indicator",
+        "alertcondition"
+      ],
+      "path": [
+        "arthur-project-manager",
+        "felix-senior-pinescript-developer",
+        "ben-pinescript-developer"
+      ],
+      "hard_rule": "TradingView/Pine work routes to Pine specialists, not backend devs.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "quantower_csharp_route",
+      "match_any": [
+        "Quantower",
+        "C#",
+        ".NET",
+        "csharp",
+        "automation script",
+        "trading algorithm"
+      ],
+      "path": [
+        "arthur-project-manager",
+        "nathan-senior-quantower-csharp-architect",
+        "grant-quantower-csharp-automation-developer"
+      ],
+      "hard_rule": "Quantower/C# work routes to Quantower C# specialists.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "backend_route",
+      "match_any": [
+        "backend",
+        "API service",
+        "Rust",
+        "Node",
+        "Python service",
+        "Supabase",
+        "database"
+      ],
+      "path": [
+        "arthur-project-manager",
+        "marcus-senior-backend-developer",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Backend work routes to Marcus/Jack.",
+      "harness": "Hermes"
+    }
+  ]
+}

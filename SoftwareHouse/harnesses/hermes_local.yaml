@@ -1,0 +1,29 @@
+harness:
+  id: hermes_local
+  name: Hermes Local
+  type: hermes_agent_runtime
+  adapter: hermes-paperclip-adapter
+  description: >
+    Hermes is the harness/runtime over LLM models. It supplies memory, skills,
+    sessions, tools, MCP integration and model-provider execution. It is not
+    the model and it is not the Paperclip company/control plane.
+  expected_capabilities:
+    - persistent_memory
+    - skill_execution
+    - session_search
+    - file_tools
+    - git_tools
+    - shell_tools_with_approval
+    - mcp_optional
+    - provider_model_routing
+  model_aliases:
+    arthur: GPT-5 mini under Hermes
+    standard_developer: DeepSeek V4 Pro under Hermes
+    senior_developer: Opus 4.7 XHigh under Hermes
+    staff_escalation: Opus 4.7 Max under Hermes
+    codex_reviewer: GPT-5.5 / latest Codex Reviewer under Hermes
+    principal_architect: Gemini Pro 3.1 under Hermes
+  boundary:
+    configured_by_this_repo: false
+    described_by_this_repo: true
+    mutates_hermes_internals: false

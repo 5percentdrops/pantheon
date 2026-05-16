@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "required": [
+    "linked_blocker_log",
+    "cody_diagnosis",
+    "checks",
+    "fix_guidance",
+    "developer_result"
+  ],
+  "properties": {
+    "linked_blocker_log": {
+      "type": "string"
+    },
+    "linked_maxwell_report": {
+      "type": "string"
+    },
+    "cody_diagnosis": {
+      "type": "string"
+    },
+    "checks": {
+      "type": "object",
+      "properties": {
+        "bugs": {
+          "type": "boolean"
+        },
+        "security_issues": {
+          "type": "boolean"
+        },
+        "breaks_or_regressions": {
+          "type": "boolean"
+        },
+        "tests": {
+          "type": "boolean"
+        },
+        "runtime_config_dependency": {
+          "type": "boolean"
+        },
+        "missing_implementation": {
+          "type": "boolean"
+        }
+      }
+    },
+    "fix_guidance": {
+      "type": "string"
+    },
+    "files_implicated": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tests_to_run": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "developer_result": {
+      "type": "string",
+      "enum": [
+        "WORKED",
+        "FAILED",
+        "PENDING"
+      ]
+    },
+    "escalate_to_magnus": {
+      "type": "boolean"
+    }
+  }
+}

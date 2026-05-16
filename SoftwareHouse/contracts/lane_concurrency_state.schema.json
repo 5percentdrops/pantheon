@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "active_lanes",
+    "queued_lanes",
+    "max_active_lanes"
+  ],
+  "properties": {
+    "active_lanes": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "queued_lanes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "max_active_lanes": {
+      "type": "number",
+      "const": 2
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "routes": [
+    {
+      "name": "jack_blocker_log",
+      "path": [
+        "jack-backend-developer",
+        "wiki/errors/BLOCKER_LOG",
+        "arthur-project-manager"
+      ],
+      "hard_rule": "Jack logs blocker after 15 failed attempts.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "marcus_solution_log",
+      "path": [
+        "marcus-senior-backend-developer",
+        "wiki/errors/SOLUTION_LOG",
+        "arthur-project-manager",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Marcus logs solution; Arthur returns to Jack.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "maxwell_solution_log",
+      "path": [
+        "maxwell-opus-max-escalation-engineer",
+        "wiki/errors/SOLUTION_LOG",
+        "arthur-project-manager",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Maxwell logs solution; Arthur returns to Jack.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "cody_code_fix_log",
+      "path": [
+        "cody-code-escalation-reviewer",
+        "wiki/errors/CODE_FIX_LOG",
+        "arthur-project-manager",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Cody logs code fix; Arthur returns to Jack.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "magnus_approach_solution_log",
+      "path": [
+        "magnus-principal-solution-architect",
+        "wiki/errors/APPROACH_SOLUTION_LOG",
+        "arthur-project-manager",
+        "relevant-senior-engineer",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Magnus logs approach solution; Arthur routes back.",
+      "harness": "Hermes"
+    }
+  ]
+}

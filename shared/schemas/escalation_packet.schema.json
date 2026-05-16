@@ -1,0 +1,13 @@
+{
+  "task_id": "string",
+  "origin_agent": "machine_id",
+  "origin_harness": "OpenClaw",
+  "target_agent": "machine_id",
+  "target_harness": "Hermes",
+  "escalation_type": "missing_input|tool_error|ambiguous_decision|quality_failure|security_risk|strategy_conflict|route_unknown|execution_blocked|learning_candidate",
+  "status": "blocked",
+  "summary": "string",
+  "evidence": "object",
+  "requested_decision": "string",
+  "blocking": "boolean"
+}

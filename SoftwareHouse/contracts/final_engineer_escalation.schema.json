@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "required": [
+    "standard_developer",
+    "senior_developer",
+    "maxwell_attempts",
+    "cody_review",
+    "magnus_required"
+  ],
+  "properties": {
+    "standard_developer": {
+      "type": "string"
+    },
+    "standard_attempt_budget": {
+      "type": "number",
+      "const": 15
+    },
+    "senior_developer": {
+      "type": "string"
+    },
+    "senior_attempt_budget": {
+      "type": "number",
+      "const": 3
+    },
+    "maxwell_attempts": {
+      "type": "number",
+      "const": 2
+    },
+    "cody_review": {
+      "type": "boolean"
+    },
+    "cody_returned_to_standard_developer": {
+      "type": "boolean"
+    },
+    "magnus_required": {
+      "type": "boolean"
+    },
+    "reason_for_magnus": {
+      "type": "string"
+    }
+  }
+}

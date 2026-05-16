@@ -1,0 +1,522 @@
+{
+  "name": "SoftwareHouse",
+  "display_name": "Software House",
+  "ethos": "AI-native software studio for groundbreaking financial-market systems.",
+  "main_contact": {
+    "name": "Arthur",
+    "role": "Project Manager / Head employee inside Paperclip",
+    "harness": "Hermes",
+    "model": "GPT-5 mini"
+  },
+  "agent_count": 33,
+  "harness_counts": {
+    "Hermes": 33,
+    "OpenClaw": 0
+  },
+  "dual_pr_review": true,
+  "first_line_reviewer": {
+    "agent": "Clara",
+    "role": "Claude PR Review Lead",
+    "harness": "Hermes",
+    "underlying_engine": "Claude Code Review / Opus 4.7"
+  },
+  "second_line_reviewer": {
+    "agent": "Cody",
+    "role": "Hermes Codex PR Reviewer",
+    "harness": "Hermes",
+    "underlying_engine": "Latest available Codex coding model; prefer GPT-5.2-Codex when available"
+  },
+  "conditional_escalation": [
+    "Safiya",
+    "Priya",
+    "Nadia",
+    "Arthur"
+  ],
+  "version": "8.5",
+  "software_house_parallel_escalation": {
+    "arthur": "GPT-5 mini under Hermes",
+    "jack": "DeepSeek V4 Pro under Hermes",
+    "marcus": "Opus 4.7 XHigh under Hermes",
+    "cody": "GPT-5.5 / latest Codex Reviewer under Hermes",
+    "magnus": "Gemini Pro 3.1 under Hermes",
+    "maxwell": "Opus 4.7 Max under Hermes",
+    "winston": "Claude 3.5 Haiku under Hermes",
+    "hard_rule": "Paperclip owns company control; Arthur manages work; Hermes is the harness/runtime."
+  },
+  "prd_sdd_ticket_tdd_pipeline": {
+    "arthur_user_approval_gate": true,
+    "marcus_prd_to_sdd": true,
+    "marcus_feature_tickets": true,
+    "marcus_task_level_tdd": true,
+    "jack_sequential_execution": true,
+    "green_before_next_task": true,
+    "green_before_merge": true,
+    "superpowers_tdd_skill_allowed": true,
+    "research_notebooklm_pipeline_added": false
+  },
+  "technical_domain_routing": {
+    "arthur_routes_by_domain": true,
+    "tradingview_pinescript": [
+      "Felix",
+      "Ben"
+    ],
+    "quantower_csharp": [
+      "Nathan",
+      "Grant"
+    ],
+    "backend": [
+      "Marcus",
+      "Jack"
+    ]
+  },
+  "tdd_pr_green_gate": {
+    "task_green_before_next_task": true,
+    "github_pr_green_before_merge": true,
+    "github_pr_approved_before_merge": true,
+    "pine_agents_confirmed": [
+      [
+        "Ben",
+        "PineScript Developer",
+        "ben-pinescript-developer"
+      ],
+      [
+        "Felix",
+        "Senior PineScript Developer",
+        "felix-senior-pinescript-developer"
+      ],
+      [
+        "Elena",
+        "Data Analyst",
+        "data-analyst"
+      ],
+      [
+        "Oscar",
+        "Senior Backtester",
+        "senior-backtester"
+      ]
+    ]
+  },
+  "universal_engineering_escalation": {
+    "canonical_source": "SoftwareHouse/routes/engineering_escalation_ladder_v8_2.json",
+    "junior_attempts": "1-12",
+    "staff_attempts": "16-17",
+    "forensic_attempt": "18",
+    "architecture_rethink_attempt": "19",
+    "runtime_retry_limits_separate": true,
+    "note": "Attempt ranges live in the canonical source. Do not re-declare them here."
+  },
+  "universal_superpowers_tdd": {
+    "applies_to_all_engineering_lanes": true,
+    "all_senior_engineers_use_superpowers_tdd": true,
+    "prd_to_sdd_to_feature_tickets": true,
+    "feature_tickets_to_task_blocks": true,
+    "task_red_first_green_pass": true,
+    "no_next_task_until_current_task_green": true,
+    "no_merge_without_github_green_and_approval": true,
+    "lanes": {
+      "backend": {
+        "senior": "Marcus",
+        "standard": "Jack"
+      },
+      "frontend": {
+        "senior": "Sonia",
+        "standard": "Leo"
+      },
+      "mobile": {
+        "senior": "Dominic",
+        "standard": "Ellie"
+      },
+      "pinescript_tradingview": {
+        "senior": "Felix",
+        "standard": "Ben"
+      },
+      "quantower_csharp": {
+        "senior": "Nathan",
+        "standard": "Grant"
+      },
+      "devops": {
+        "senior": "Viktor",
+        "standard": "Theo"
+      },
+      "qa": {
+        "senior": "Nadia",
+        "standard": "Ivan"
+      }
+    }
+  },
+  "prd_research_intake_pipeline": {
+    "added": true,
+    "flow": [
+      "Owen",
+      "Vera",
+      "Graham",
+      "Stone",
+      "Graham revision loop if needed",
+      "Adrian",
+      "Arthur",
+      "User approval",
+      "Relevant senior owner"
+    ],
+    "notebooklm_custom_wiki": true,
+    "api_bottleneck_required_before_feasibility": true,
+    "approval_routes_to_relevant_senior_not_default_marcus": true,
+    "model_assignment_discipline": true
+  },
+  "error_learning_log": {
+    "enabled": true,
+    "wiki_folder": "SoftwareHouse/wiki/errors/",
+    "standard_developer_attempts": 10,
+    "senior_solution_attempts": 3,
+    "senior_logs_original_error_before_solution": true,
+    "log_each_solution_attempt": true,
+    "mark_working_solution_as_WORKED": true,
+    "preserve_failed_attempts": true,
+    "escalate_to_arthur_cody_magnus_after_three_failed_senior_attempts": true
+  },
+  "obsidian_error_memory": {
+    "enabled": true,
+    "folder": "SoftwareHouse/wiki/errors/",
+    "single_shared_folder": true,
+    "allowed_log_types": [
+      "BLOCKER_LOG",
+      "SOLUTION_LOG",
+      "CODE_FIX_LOG",
+      "APPROACH_SOLUTION_LOG"
+    ],
+    "standard_devs_write_blocker_logs": true,
+    "seniors_write_solution_logs": true,
+    "cody_writes_code_fix_logs": true,
+    "magnus_writes_approach_solution_logs": true,
+    "worked_solution_marked_WORKED": true,
+    "failed_attempts_preserved": true,
+    "folder_purity_policy": "Only structured error-memory log files belong in wiki/errors/."
+  },
+  "harness_policy": {
+    "agent_harness": "Hermes",
+    "openclaw_as_harness": false,
+    "applies_to_all_agents": true
+  },
+  "opus_max_escalation": {
+    "enabled": true,
+    "agent": "Maxwell",
+    "role": "Opus Max Escalation Engineer",
+    "model": "anthropic/claude-opus-4.7",
+    "attempts": 2,
+    "position": "after senior 3 failed attempts, before Cody",
+    "chain": [
+      "standard developer 7-10 attempts",
+      "senior developer 3 attempts",
+      "Maxwell Opus Max 2 attempts",
+      "Cody code review",
+      "Magnus approach review"
+    ],
+    "harness": "Hermes",
+    "llm_module": "Opus 4.7 Max under Hermes",
+    "model_tier": "escalation",
+    "reasoning_effort": "max",
+    "escalation_developer_model": "Opus 4.7 Max under Hermes"
+  },
+  "cody_review_return_flow": {
+    "enabled": true,
+    "cody_checks": [
+      "bugs",
+      "security issues",
+      "breaks/regressions",
+      "failing tests",
+      "runtime/config/dependency issues",
+      "missing implementation"
+    ],
+    "cody_returns_to_developer_first": true,
+    "developer_attempts_cody_guidance_before_magnus": true,
+    "magnus_after_cody_guidance_fails": true,
+    "harness": "Hermes"
+  },
+  "final_engineer_escalation": {
+    "enabled": true,
+    "harness": "Hermes",
+    "jack_attempts": 15,
+    "marcus_attempts": 3,
+    "maxwell_attempts": 2,
+    "cody_review_pass": 1,
+    "cody_title": "Senior Code Quality & Defect Review Engineer",
+    "maxwell_title": "Staff Escalation Engineer",
+    "magnus_title": "Principal Engineer / Principal Solution Architect",
+    "all_higher_solutions_return_to_standard_developer_first": true,
+    "chain": [
+      "Jack",
+      "Marcus",
+      "Maxwell",
+      "Cody",
+      "Jack attempts Cody guidance",
+      "Magnus if still unresolved"
+    ]
+  },
+  "arthur_mediated_returns": {
+    "enabled": true,
+    "all_higher_level_returns_route_through_arthur": true,
+    "applies_to": [
+      "Marcus",
+      "Maxwell",
+      "Cody",
+      "Magnus"
+    ],
+    "if_worked_jack_continues": true,
+    "if_failed_arthur_routes_next_step": true,
+    "magnus_role_unchanged": "approach-focused with alternative approaches",
+    "harness": "Hermes"
+  },
+  "error_memory_logging_ownership": {
+    "folder": "wiki/errors/",
+    "jack": "BLOCKER_LOG + tested result",
+    "marcus": "SOLUTION_LOG",
+    "maxwell": "SOLUTION_LOG",
+    "cody": "CODE_FIX_LOG",
+    "magnus": "APPROACH_SOLUTION_LOG",
+    "arthur": "logging governance"
+  },
+  "standard_developer_model_policy": {
+    "model": "deepseek/deepseek-v4-pro",
+    "label": "DeepSeek V4 Pro under Hermes",
+    "applies_to": "all standard/junior developer roles",
+    "senior_and_escalation_roles_unchanged": true
+  },
+  "harness": "Hermes",
+  "model_assignment_policy": {
+    "junior_standard_dev": {
+      "label": "DeepSeek V4 Pro under Hermes",
+      "model": "deepseek/deepseek-v4-pro"
+    },
+    "senior_dev": {
+      "label": "Opus 4.7 X High under Hermes",
+      "model": "anthropic/claude-opus-4.7",
+      "reasoning_effort": "x-high"
+    },
+    "escalation_dev": {
+      "label": "Opus 4.7 Max under Hermes",
+      "model": "anthropic/claude-opus-4.7",
+      "reasoning_effort": "max"
+    },
+    "principal_engineer": {
+      "label": "Gemini Pro 3.1 under Hermes",
+      "model": "google/gemini-3.1-pro"
+    }
+  },
+  "universal_escalation_pattern": {
+    "enabled": true,
+    "scope": "all organisations",
+    "standard_attempts": 15,
+    "senior_attempts": 3,
+    "maxwell_attempts": 2,
+    "cody_after_maxwell": true,
+    "magnus_after_cody_failure": true,
+    "all_returns_route_through_router_project_manager": true
+  },
+  "arthur": {
+    "model": "GPT-5 mini",
+    "harness": "Hermes",
+    "mode": "single_model",
+    "role": "manager_router_state_controller",
+    "low_confidence_action": "route_to_assigned_senior_or_user",
+    "merge_policy": "gated",
+    "canonical_model": "openai/gpt-5-mini",
+    "model_alias": "openai/gpt-5-mini",
+    "llm_module": "GPT-5 mini under Hermes"
+  },
+  "lane_concurrency": {
+    "max_active_lanes": 2,
+    "reason": "Mac Mini 16GB RAM / SQLite project memory pressure",
+    "queue_third_lane": true
+  },
+  "winston": {
+    "enabled": true,
+    "role": "Director of Knowledge Architecture",
+    "model": "anthropic/claude-3.5-haiku",
+    "label": "Claude 3.5 Haiku under Hermes",
+    "tools": [
+      "write_wiki_doc",
+      "universal_wiki_wrapper"
+    ]
+  },
+  "v7_namespaced_pipeline": {
+    "version": "7.0",
+    "enabled": true,
+    "workspace_root": "workspace",
+    "budget_target_api_per_day_usd": 6.66,
+    "harness": "Hermes",
+    "rtk_role": "terminal_output_compression_only",
+    "arthur": {
+      "model": "GPT-5 mini under Hermes",
+      "mode": "single_model",
+      "reason": "One-model Arthur is simpler operationally than Watcher/Core split while staying cheaper than Sonnet-class routing."
+    },
+    "attempt_ladder": {
+      "junior": "1-12",
+      "senior": "13-15",
+      "maxwell": "16-17",
+      "cody": "18",
+      "magnus": "19"
+    },
+    "required_paths": [
+      "workspace/01_PRDs",
+      "workspace/02_SDDs",
+      "workspace/03_Feature_Tickets",
+      "workspace/04_TDD_Red_Tests",
+      "workspace/05_QA_Audit_Logs",
+      "workspace/06_Project_Repos",
+      "workspace/07_Finalization"
+    ],
+    "finalization": {
+      "senior_commits": true,
+      "merge_gated": true,
+      "winston_archives": true
+    }
+  },
+  "one_click_install": {
+    "enabled": true,
+    "entrypoint": "scripts/one_click_install.sh",
+    "readme": "ONE_CLICK_INSTALL.md",
+    "version": "7.0",
+    "creates_workspace": true,
+    "runs_validator": true
+  },
+  "caveman_full_policy": {
+    "enabled": true,
+    "default_for_all_agents": true,
+    "mode": "FULL",
+    "lite_allowed": false,
+    "only_exception": "Arthur raw escalation error extract",
+    "exception_label": "CAVEMAN_MODE: EXCEPTION",
+    "reason": "Raw compiler/runtime error must be preserved for Senior Developer diagnosis."
+  },
+  "arthur_escalation_handoff": {
+    "sub_50_line_summary_required": true,
+    "handoff_to_senior_required": true,
+    "rtk_error_extract": {
+      "head_lines": 150,
+      "tail_lines": 150,
+      "middle": "stripped",
+      "send_if_missing_or_partial": true
+    }
+  },
+  "arthur_head": {
+    "title": "Project Manager / Head",
+    "paperclip_ceo_role_renamed_to": "Arthur",
+    "model": "GPT-5 mini under Hermes",
+    "hiring_authority": {
+      "enabled": true,
+      "can_activate_extra_agents": true,
+      "requires_hiring_packet": true,
+      "specialists_available_but_not_auto_active": true,
+      "rule": "Use the smallest safe team first."
+    }
+  },
+  "full_software_house_role_policy": {
+    "default_active_path": [
+      "Arthur",
+      "Marcus",
+      "Jack",
+      "Cody",
+      "Marcus",
+      "Winston"
+    ],
+    "escalation_path": [
+      "Marcus",
+      "Maxwell",
+      "Cody",
+      "Magnus"
+    ],
+    "specialist_activation_owner": "Arthur",
+    "specialist_activation_requires_reason": true
+  },
+  "control_plane": {
+    "name": "Paperclip",
+    "role": "company/control plane",
+    "owns": [
+      "org chart",
+      "goals",
+      "issues",
+      "budgets",
+      "heartbeats",
+      "audit trail",
+      "approval gates"
+    ]
+  },
+  "hermes_runtime": {
+    "role": "harness/runtime over LLM models",
+    "not_the_model": true,
+    "not_the_control_plane": true
+  },
+  "install_boundary": {
+    "installs_paperclip": false,
+    "installs_hermes": false,
+    "mutates_hermes_internals": false,
+    "mutates_openclaw_internals": false,
+    "stages_paperclip_company_import": true
+  },
+  "canonical_agent_ids": {
+    "arthur": "arthur-project-manager",
+    "jack": "jack-backend-developer",
+    "marcus": "marcus-senior-backend-developer",
+    "maxwell": "maxwell-staff-escalation-engineer",
+    "cody": "cody-code-escalation-reviewer",
+    "magnus": "magnus-principal-solution-architect",
+    "winston": "winston-director-knowledge-architecture"
+  },
+  "v8_control_plane_rules": {
+    "context_pack_before_non_trivial_work": true,
+    "typed_handoffs_required": true,
+    "budget_policy_required": true,
+    "heartbeat_policy_required": true,
+    "human_approval_for_governance_changes": true,
+    "production_trading_keys_forbidden_in_general_agents": true,
+    "execution_cannot_invent_trades": true,
+    "automated_sizing_fractional_kelly_only": true
+  },
+  "v8_1_patch": {
+    "arthur_model_collapse": "openai/gpt-5-mini",
+    "canonical_model_field": "model",
+    "schema_source_of_truth": "SoftwareHouse/contracts",
+    "pipeline_dispatch_enabled": true,
+    "budget_caps_checked": true
+  },
+  "schema_version": "software-house.v8.5",
+  "v8_2_patch": {
+    "arthur_model_purged": true,
+    "retry_ladder_canonical": "engineering_escalation_ladder_v8_2",
+    "contracts_canonical": "SoftwareHouse/contracts",
+    "schemas_legacy_mirror": "SoftwareHouse/schemas retained only for backward compatibility"
+  },
+  "hermes_local_adapter": {
+    "adapter_type": "hermes_local",
+    "shipped_as": "builtin",
+    "verified_builtin_on_paperclip_version": "2026.513.0",
+    "fallback_external_package": "hermes-paperclip-adapter",
+    "fallback_external_package_owner": "NousResearch",
+    "fallback_external_package_repo": "https://github.com/NousResearch/hermes-paperclip-adapter",
+    "min_paperclip_version": "2026.513.0",
+    "per_agent_home": "~/.hermes-<slug>",
+    "registration": "~/.paperclip/adapter-plugins.json",
+    "loaded_via": "Paperclip external adapter plugin loader (Board -> Adapter manager)",
+    "session_persistence": "hermes --resume + sessionCodec",
+    "skipped_agents": ["owen"],
+    "reason_skipped": "NotebookLM is a manual product with no API; cannot shell from adapter"
+  },
+  "v8_5_patch": {
+    "uniform_adapter": "hermes_local",
+    "per_agent_hermes_homes": 32,
+    "owen_skipped": true,
+    "rollback_doc": "ROLLBACK_TO_V8_4.md",
+    "patch_notes": "PATCH_NOTES_V8_5.md",
+    "secure_api_key_setup": {
+      "script": "scripts/setup_api_keys.sh",
+      "flag": "--setup-keys",
+      "opt_in": true,
+      "writes_to": "~/.hermes/.env",
+      "perms": "600",
+      "umask": "077",
+      "hidden_input": true,
+      "no_network_calls": true,
+      "idempotent": true
+    }
+  }
+}

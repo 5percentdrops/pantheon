@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "transcript_id",
+    "issue_id",
+    "agent_id",
+    "messages",
+    "artifact_refs"
+  ],
+  "properties": {
+    "transcript_id": {
+      "type": "string"
+    },
+    "issue_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "redactions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

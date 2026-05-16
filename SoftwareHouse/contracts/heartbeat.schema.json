@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "heartbeat_id",
+    "issue_id",
+    "agent_id",
+    "started_at",
+    "ended_at",
+    "status",
+    "transcript_ref"
+  ],
+  "properties": {
+    "heartbeat_id": {
+      "type": "string"
+    },
+    "issue_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "ended_at": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "started",
+        "completed",
+        "failed",
+        "blocked",
+        "paused"
+      ]
+    },
+    "transcript_ref": {
+      "type": "string"
+    },
+    "cost_usd_estimate": {
+      "type": "number"
+    },
+    "artifacts_written": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

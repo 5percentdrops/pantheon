@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": [
+    "highest_upside_viable_version",
+    "wedge",
+    "monetisation_path",
+    "anti_overbuild_notes"
+  ],
+  "properties": {
+    "highest_upside_viable_version": {
+      "type": "string"
+    },
+    "wedge": {
+      "type": "string"
+    },
+    "monetisation_path": {
+      "type": "string"
+    },
+    "growth_loop": {
+      "type": "string"
+    },
+    "expansion_path": {
+      "type": "string"
+    },
+    "anti_overbuild_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

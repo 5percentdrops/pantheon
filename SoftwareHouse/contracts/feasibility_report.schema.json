@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": [
+    "verdict",
+    "recommended_route",
+    "fallback_route",
+    "mvp_route",
+    "cost_complexity_estimate",
+    "risks"
+  ],
+  "properties": {
+    "verdict": {
+      "type": "string"
+    },
+    "recommended_route": {
+      "type": "string"
+    },
+    "fallback_route": {
+      "type": "string"
+    },
+    "mvp_route": {
+      "type": "string"
+    },
+    "cost_complexity_estimate": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "required": [
+    "lane",
+    "standard_owner",
+    "senior_owner",
+    "blocker_packet",
+    "standard_attempts",
+    "senior_attempts",
+    "arthur_dispatch",
+    "selected_route"
+  ],
+  "properties": {
+    "lane": {
+      "type": "string"
+    },
+    "standard_owner": {
+      "type": "string"
+    },
+    "senior_owner": {
+      "type": "string"
+    },
+    "blocker_packet": {
+      "type": "string"
+    },
+    "standard_attempts": {
+      "type": "number"
+    },
+    "senior_attempts": {
+      "type": "number"
+    },
+    "arthur_dispatch": {
+      "type": "object"
+    },
+    "selected_route": {
+      "type": "string"
+    },
+    "return_to_senior_owner": {
+      "type": "boolean"
+    }
+  }
+}

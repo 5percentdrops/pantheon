@@ -1,0 +1,150 @@
+{
+  "version": "8.1",
+  "control_plane": "Paperclip",
+  "head_employee": "arthur-project-manager",
+  "default_harness": "Hermes",
+  "canonical_agent_ids": {
+    "arthur": "arthur-project-manager",
+    "jack": "jack-backend-developer",
+    "marcus": "marcus-senior-backend-developer",
+    "maxwell": "maxwell-staff-escalation-engineer",
+    "cody": "cody-code-escalation-reviewer",
+    "magnus": "magnus-principal-solution-architect",
+    "winston": "winston-director-knowledge-architecture"
+  },
+  "aliases": {
+    "codex-pr-reviewer": "cody-code-escalation-reviewer",
+    "paperclip-ceo": "arthur-project-manager",
+    "arthur-core": "arthur-project-manager",
+    "arthur-watcher": "arthur-project-manager",
+    "cody-forensic-auditor": "cody-code-escalation-reviewer"
+  },
+  "task_type_routes": [
+    {
+      "task_type": "context_pack",
+      "agent": "winston-director-knowledge-architecture",
+      "contract": "context_pack.schema.json",
+      "output_contract": "context_pack.schema.json"
+    },
+    {
+      "task_type": "project_management",
+      "agent": "arthur-project-manager",
+      "contract": "paperclip_issue.schema.json",
+      "output_contract": "paperclip_issue.schema.json"
+    },
+    {
+      "task_type": "sdd_architecture",
+      "agent": "marcus-senior-backend-developer",
+      "contract": "prd_to_sdd_pipeline.schema.json",
+      "output_contract": "prd_to_sdd_pipeline.schema.json"
+    },
+    {
+      "task_type": "implementation",
+      "agent": "jack-backend-developer",
+      "contract": "implementation_report.schema.json",
+      "output_contract": "implementation_report.schema.json"
+    },
+    {
+      "task_type": "staff_escalation",
+      "agent": "maxwell-staff-escalation-engineer",
+      "contract": "code_escalation_report.schema.json",
+      "output_contract": "code_escalation_report.schema.json"
+    },
+    {
+      "task_type": "code_review",
+      "agent": "cody-code-escalation-reviewer",
+      "contract": "merge_review.schema.json",
+      "output_contract": "merge_review.schema.json"
+    },
+    {
+      "task_type": "architecture_rethink",
+      "agent": "magnus-principal-solution-architect",
+      "contract": "model_route.schema.json",
+      "output_contract": "model_route.schema.json"
+    },
+    {
+      "task_type": "memory_hygiene",
+      "agent": "winston-director-knowledge-architecture",
+      "contract": "memory_update.schema.json",
+      "output_contract": "memory_update.schema.json"
+    },
+    {
+      "task_type": "claude_pr_review",
+      "pattern": "review_gate",
+      "agent": "clara-claude-pr-review-lead",
+      "contract": "merge_review.schema.json",
+      "output_contract": "merge_review.schema.json"
+    },
+    {
+      "task_type": "ci_triage",
+      "pattern": "pipeline_stage",
+      "agent": "cody-code-escalation-reviewer",
+      "contract": "ci_triage.schema.json",
+      "output_contract": "ci_triage.schema.json"
+    }
+  ],
+  "hard_gates": [
+    "architecture_before_tickets",
+    "tests_before_code",
+    "green_before_next_task",
+    "green_and_reviewed_before_merge",
+    "human_approval_for_governance_changes",
+    "human_approval_for_production_trading_changes"
+  ],
+  "event_routes": {
+    "prd_created": "feature_delivery_v8_1",
+    "context_pack_requested": "feature_delivery_v8_1",
+    "high_risk_pr_opened": "red_team_fanout_v8_1",
+    "architecture_decision_requested": "architecture_council_v8_1",
+    "weekly_memory_hygiene": "memory_hygiene_v8_1",
+    "ci_failed": "ci_triage_v8_1",
+    "merge_review_requested": "feature_delivery_v8_1",
+    "model_route_override_requested": "model_route_override_v8_2",
+    "agent_heartbeat": "audit_logging_v8_2"
+  },
+  "pipelines": {
+    "feature_delivery_v8_1": "SoftwareHouse/pipelines/feature_delivery_pipeline.yaml",
+    "red_team_fanout_v8_1": "SoftwareHouse/pipelines/red_team_fanout_pipeline.yaml",
+    "architecture_council_v8_1": "SoftwareHouse/pipelines/architecture_council_pipeline.yaml",
+    "memory_hygiene_v8_1": "SoftwareHouse/pipelines/memory_hygiene_pipeline.yaml",
+    "ci_triage_v8_1": "SoftwareHouse/pipelines/ci_triage_pipeline.yaml"
+  },
+  "gates": {
+    "context_pack_required_before": [
+      "prd_draft",
+      "sdd_architecture",
+      "implementation",
+      "code_review",
+      "architecture_rethink"
+    ],
+    "tests_required_before": [
+      "implementation"
+    ],
+    "human_approval_required_before": [
+      "merge_to_main",
+      "production_deploy",
+      "governance_change",
+      "trading_execution_change"
+    ]
+  },
+  "attempt_budget_source": "SoftwareHouse/routes/v7_routing_matrix.json",
+  "budget_policy_note": "max_retries_per_failed_run is a runtime retry guard, not the engineering escalation ladder.",
+  "schema_version": "paperclip-control-plane-routes.v8.2",
+  "artifact_producers": {
+    "heartbeat.schema.json": "paperclip_heartbeat_logger",
+    "transcript.schema.json": "paperclip_transcript_logger",
+    "budget_event.schema.json": "paperclip_budget_meter",
+    "memory_update.schema.json": "hermes_memory_chief"
+  },
+  "role_dispatch": {
+    "cody-code-escalation-reviewer": {
+      "code_review": "cody.review_pr",
+      "forensic_audit": "cody.forensic_audit",
+      "red_team": "cody.red_team_review",
+      "ci_triage": "cody.ci_triage_review"
+    },
+    "clara-claude-pr-review-lead": {
+      "claude_pr_review": "clara.review_pr"
+    }
+  }
+}

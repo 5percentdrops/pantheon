@@ -1,0 +1,24 @@
+artifact_producers:
+  - producer_id: paperclip_heartbeat_logger
+    produces: heartbeat.schema.json
+    cadence_or_trigger: every_agent_heartbeat
+    consumer: paperclip_audit_log
+    required: true
+  - producer_id: paperclip_transcript_logger
+    produces: transcript.schema.json
+    cadence_or_trigger: every_agent_run
+    consumer: paperclip_audit_log
+    required: true
+  - producer_id: paperclip_budget_meter
+    produces: budget_event.schema.json
+    cadence_or_trigger: every_model_call_or_agent_run
+    consumer: budget_policy_enforcer
+    required: true
+  - producer_id: hermes_memory_chief
+    produces: memory_update.schema.json
+    cadence_or_trigger: weekly_memory_hygiene
+    consumer: board_approval_queue
+    required: true
+
+runtime_boundary:
+  note: This repo defines required producer contracts and import payloads; actual runtime metering/logging must be wired in Paperclip/Hermes.

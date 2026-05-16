@@ -1,0 +1,10 @@
+{
+  "task_id": "string",
+  "decision_agent": "machine_id",
+  "decision": "approve|revise|reject|reroute|request_more_info",
+  "instructions": "string",
+  "next_agent": "machine_id|null",
+  "new_status": "string",
+  "skill_update_needed": "boolean",
+  "skill_note": "string|null"
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "ci_status",
+    "merge_allowed",
+    "policy_violations",
+    "required_actions",
+    "review_status",
+    "review_type",
+    "reviewer_agent_id",
+    "verdict"
+  ],
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "conditional"
+      ]
+    },
+    "ci_status": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string"
+    },
+    "merge_allowed": {
+      "type": "boolean"
+    },
+    "required_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "changed_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy_violations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reviewer_agent_id": {
+      "type": "string",
+      "description": "Canonical agent ID that produced this review."
+    },
+    "review_type": {
+      "type": "string",
+      "enum": [
+        "claude_pr",
+        "codex_pr",
+        "forensic",
+        "red_team",
+        "final_merge",
+        "security",
+        "trading_risk",
+        "ci_triage"
+      ]
+    }
+  }
+}

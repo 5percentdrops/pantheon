@@ -1,0 +1,53 @@
+{
+  "routes": [
+    {
+      "name": "senior_failed_to_maxwell",
+      "trigger": "senior developer failed 3 diagnosis/fix attempts",
+      "path": [
+        "relevant-senior-engineer",
+        "arthur-project-manager",
+        "maxwell-opus-max-escalation-engineer",
+        "relevant-standard-engineer"
+      ],
+      "hard_rule": "Maxwell gets 2 attempts before Cody.",
+      "harness": "Hermes",
+      "llm_module": "Opus 4.7 X High under Hermes",
+      "model": "anthropic/claude-opus-4.7",
+      "model_tier": "senior",
+      "reasoning_effort": "x-high"
+    },
+    {
+      "name": "maxwell_attempt_1_failed",
+      "trigger": "Maxwell Solution Attempt 1 failed",
+      "path": [
+        "relevant-standard-engineer",
+        "maxwell-opus-max-escalation-engineer",
+        "relevant-standard-engineer"
+      ],
+      "hard_rule": "Maxwell may produce Solution Attempt 2.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "maxwell_two_attempts_failed_to_cody",
+      "trigger": "Maxwell failed 2 attempts",
+      "path": [
+        "maxwell-opus-max-escalation-engineer",
+        "arthur-project-manager",
+        "cody-code-escalation-reviewer"
+      ],
+      "hard_rule": "Cody performs code-wise review after Maxwell fails.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "cody_code_fine_to_magnus",
+      "trigger": "Cody confirms code is fine or issue is approach-level",
+      "path": [
+        "cody-code-escalation-reviewer",
+        "arthur-project-manager",
+        "magnus-principal-solution-architect"
+      ],
+      "hard_rule": "Magnus reviews approach after Cody code review.",
+      "harness": "Hermes"
+    }
+  ]
+}

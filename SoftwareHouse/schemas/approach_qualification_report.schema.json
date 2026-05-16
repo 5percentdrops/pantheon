@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": [
+    "problem_summary",
+    "options",
+    "recommended_route",
+    "fallback_route",
+    "implementation_notes_for_marcus"
+  ],
+  "properties": {
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "request_summary",
+    "target_platform",
+    "language",
+    "senior_owner",
+    "executor_owner",
+    "route"
+  ],
+  "properties": {
+    "request_summary": {
+      "type": "string"
+    },
+    "target_platform": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "runtime": {
+      "type": "string"
+    },
+    "artifact_type": {
+      "type": "string"
+    },
+    "risk_level": {
+      "type": "string"
+    },
+    "senior_owner": {
+      "type": "string"
+    },
+    "executor_owner": {
+      "type": "string"
+    },
+    "route": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

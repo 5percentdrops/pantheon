@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "event_id",
+    "agent_id",
+    "model",
+    "cost_usd",
+    "timestamp",
+    "issue_id"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "cost_usd": {
+      "type": "number"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "issue_id": {
+      "type": "string"
+    }
+  }
+}

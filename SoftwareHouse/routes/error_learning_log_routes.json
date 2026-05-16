@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "name": "standard_error_to_senior",
+      "trigger": "standard developer fails after 10 attempts",
+      "path": [
+        "standard-developer",
+        "relevant-senior-owner"
+      ],
+      "hard_rule": "standard developer sends error escalation packet",
+      "harness": "Hermes"
+    },
+    {
+      "name": "senior_logs_error_before_solution",
+      "trigger": "senior receives error packet",
+      "path": [
+        "relevant-senior-owner",
+        "wiki/errors",
+        "relevant-senior-owner"
+      ],
+      "hard_rule": "log original error before Solution Attempt 1",
+      "harness": "Hermes",
+      "llm_module": "Opus 4.7 X High under Hermes",
+      "model": "anthropic/claude-opus-4.7",
+      "model_tier": "senior",
+      "reasoning_effort": "x-high"
+    },
+    {
+      "name": "solution_attempt_loop",
+      "trigger": "senior provides solution attempt",
+      "path": [
+        "relevant-senior-owner",
+        "standard-developer",
+        "wiki/errors"
+      ],
+      "hard_rule": "log every solution attempt and result",
+      "harness": "Hermes"
+    },
+    {
+      "name": "three_senior_attempts_failed",
+      "trigger": "three senior attempts failed",
+      "path": [
+        "relevant-senior-owner",
+        "arthur-project-manager",
+        "cody-code-escalation-reviewer",
+        "magnus-principal-solution-architect"
+      ],
+      "hard_rule": "escalate through Arthur",
+      "harness": "Hermes"
+    }
+  ]
+}

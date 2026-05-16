@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "problem",
+    "action",
+    "reference"
+  ],
+  "properties": {
+    "problem": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "max_lines": {
+      "type": "number",
+      "const": 3
+    }
+  }
+}

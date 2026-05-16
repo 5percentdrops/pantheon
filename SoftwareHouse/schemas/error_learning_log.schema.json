@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "lane",
+    "standard_developer",
+    "senior_owner",
+    "original_error",
+    "self_fix_attempts",
+    "senior_solution_attempts"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "WORKED",
+        "UNRESOLVED_ESCALATED"
+      ]
+    },
+    "lane": {
+      "type": "string"
+    },
+    "standard_developer": {
+      "type": "string"
+    },
+    "senior_owner": {
+      "type": "string"
+    },
+    "original_error": {
+      "type": "string"
+    },
+    "self_fix_attempts": {
+      "type": "array",
+      "maxItems": 10
+    },
+    "senior_solution_attempts": {
+      "type": "array",
+      "maxItems": 3
+    },
+    "final_working_solution": {
+      "type": "string"
+    },
+    "reuse_instructions": {
+      "type": "string"
+    }
+  }
+}

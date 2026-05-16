@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "issue_id",
+    "task",
+    "assigned_agent",
+    "harness",
+    "model_alias",
+    "input_artifacts",
+    "output_contract",
+    "forbidden_actions",
+    "definition_of_done"
+  ],
+  "properties": {
+    "issue_id": {
+      "type": "string"
+    },
+    "task": {
+      "type": "string"
+    },
+    "assigned_agent": {
+      "type": "string"
+    },
+    "harness": {
+      "type": "string"
+    },
+    "model_alias": {
+      "type": "string"
+    },
+    "input_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "output_contract": {
+      "type": "string"
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "definition_of_done": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

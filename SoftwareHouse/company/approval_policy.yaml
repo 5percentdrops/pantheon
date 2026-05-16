@@ -1,0 +1,27 @@
+approval_policy:
+  human_board_required:
+    - governance_file_change
+    - production_trading_rule_change
+    - api_key_permission_change
+    - paperclip_budget_increase
+    - tool_permission_expansion
+    - autonomous_routine_creation
+    - merge_to_main
+    - production_deploy
+    - trading_execution_logic_change
+  auto_allowed_when_policy_passes:
+    - read_project_context
+    - create_context_pack
+    - draft_prd
+    - draft_sdd
+    - draft_test_plan
+    - create_review_report
+    - update_progress_log
+    - write_proposed_memory_update
+    - stage_paperclip_import_payload
+  forbidden_by_default:
+    - access_production_exchange_keys
+    - auto_merge_to_main
+    - edit_sovereign_governance_files_without_approval
+    - implement_code_before_tests_exist
+    - create_strategy_or_trade_without_human_instruction

@@ -1,0 +1,34 @@
+id,name,role,harness,llm_module,reports_to,seed_skill_path
+frontend-dev,Leo,Frontend Developer,Hermes,DeepSeek V4 Pro under Hermes,senior-frontend-dev,skills/hermes_seed/skill_frontend-dev_seed.md
+senior-frontend-dev,Sonia,Senior Frontend Developer,Hermes,claude-opus-4-7,project-manager,skills/hermes_seed/skill_senior-frontend-dev_seed.md
+mobile-dev,Ellie,Mobile Developer,Hermes,DeepSeek V4 Pro under Hermes,senior-mobile-dev,skills/hermes_seed/skill_mobile-dev_seed.md
+senior-mobile-dev,Dominic,Senior Mobile Developer,Hermes,claude-opus-4-7,project-manager,skills/hermes_seed/skill_senior-mobile-dev_seed.md
+mobile-ui-dev,Dante,Mobile UI Developer,Hermes,moonshotai/kimi-k2-6,senior-mobile-designer,skills/hermes_seed/skill_mobile-ui-dev_seed.md
+senior-mobile-designer,Mira,Senior Mobile Designer,Hermes,claude-opus-4-7,project-manager,skills/hermes_seed/skill_senior-mobile-designer_seed.md
+devops-dev,Theo,DevOps Developer,Hermes,DeepSeek V4 Pro under Hermes,senior-devops,skills/openclaw_seed/skill_devops-dev_seed.md
+senior-devops,Viktor,Senior DevOps Engineer,Hermes,Opus 4.7 X High under Hermes,project-manager,skills/hermes_seed/skill_senior-devops_seed.md
+clara-claude-pr-review-lead,Clara,Claude PR Review Lead,Hermes,Claude Code Review / Claude Opus 4.7 under Hermes,senior-pinescript-dev,skills/hermes_seed/skill_clara-claude-pr-review-lead_seed.md
+ben-pinescript-developer,Ben,PineScript Developer,Hermes,DeepSeek V4 Pro under Hermes,senior-pinescript-dev,skills/hermes_seed/skill_ben-pinescript-developer_seed.md
+felix-senior-pinescript-developer,Felix,Senior PineScript Developer,Hermes,OPS 4.7 Extra High under Hermes,project-manager,skills/hermes_seed/skill_felix-senior-pinescript-developer_seed.md
+functional-tester,Chloe,Functional Tester,Hermes,moonshotai/kimi-k2-5,senior-qa,skills/openclaw_seed/skill_functional-tester_seed.md
+qa,Ivan,QA Engineer,Hermes,DeepSeek V4 Pro under Hermes,senior-qa,skills/hermes_seed/skill_qa_seed.md
+senior-qa,Nadia,Senior Qa,Hermes,claude-opus-4-7,project-manager,skills/hermes_seed/skill_senior-qa_seed.md
+owen-research-pack-agent,Owen,Research Pack Agent,Hermes,NotebookLM + custom wiki tool layer; model not hard-assigned until automation method is chosen,senior-backtester,skills/hermes_seed/skill_owen-research-pack-agent_seed.md
+data-analyst,Elena,Data Analyst,Hermes,claude-sonnet-4-6,senior-data-analyst,skills/hermes_seed/skill_data-analyst_seed.md
+senior-backtester,Oscar,Senior Backtester,Hermes,claude-opus-4-7,project-manager,skills/hermes_seed/skill_senior-backtester_seed.md
+senior-data-analyst,Henrik,Senior Data Analyst,Hermes,claude-opus-4-7,project-manager,skills/hermes_seed/skill_senior-data-analyst_seed.md
+system-architect,Priya,System Architect,Hermes,claude-opus-4-7,project-manager,skills/hermes_seed/skill_system-architect_seed.md
+security-reviewer,Safiya,Security Reviewer,Hermes,gpt-5.5-thinking,project-manager,skills/hermes_seed/skill_security-reviewer_seed.md
+arthur-project-manager,Arthur,Project Manager / Head,Hermes,GPT-5 mini under Hermes,,skills/hermes_seed/skill_arthur-project-manager_seed.md
+jack-backend-developer,Jack,Backend Developer,Hermes,DeepSeek V4 Pro under Hermes,,skills/hermes_seed/skill_jack-backend-developer_seed.md
+marcus-senior-backend-developer,Marcus,Senior Backend Developer,Hermes,OPS 4.7 Extra High under Hermes,,skills/hermes_seed/skill_marcus-senior-backend-developer_seed.md
+cody-code-escalation-reviewer,Cody,Senior Code Quality & Defect Review Engineer,Hermes,GPT-5.5 / latest Codex Reviewer under Hermes,,skills/hermes_seed/skill_cody-code-escalation-reviewer_seed.md
+magnus-principal-solution-architect,Magnus,Principal Engineer,Hermes,Gemini Pro 3.1 under Hermes,,skills/hermes_seed/skill_magnus-principal-solution-architect_seed.md
+grant-quantower-csharp-automation-developer,Grant,Quantower C# Automation Developer,Hermes,DeepSeek V4 Pro under Hermes,,skills/hermes_seed/skill_grant-quantower-csharp-automation-developer_seed.md
+nathan-senior-quantower-csharp-architect,Nathan,Senior Quantower C# Architect,Hermes,OPS 4.7 Extra High under Hermes,,skills/hermes_seed/skill_nathan-senior-quantower-csharp-architect_seed.md
+vera-api-bottleneck-intelligence-agent,Vera,API & Bottleneck Intelligence Agent,Hermes,Gemini Pro / Gemini Deep Research under Hermes,,skills/hermes_seed/skill_vera-api-bottleneck-intelligence-agent_seed.md
+graham-feasibility-strategist,Graham,Feasibility Strategist,Hermes,Gemini Pro / Gemini Deep Research under Hermes,,skills/hermes_seed/skill_graham-feasibility-strategist_seed.md
+stone-skeptical-validation-agent,Stone,Skeptical Validation Agent,Hermes,GPT-5.5 under Hermes,,skills/hermes_seed/skill_stone-skeptical-validation-agent_seed.md
+adrian-opportunity-architect,Adrian,Opportunity Architect,Hermes,Model not hard-assigned until benchmark/profile justifies this role,,skills/hermes_seed/skill_adrian-opportunity-architect_seed.md
+maxwell-staff-escalation-engineer,Maxwell,Staff Escalation Engineer,Hermes,Opus 4.7 Max under Hermes,,skills/hermes_seed/skill_maxwell-opus-max-escalation-engineer_seed.md
+winston-director-knowledge-architecture,Winston,Director of Knowledge Architecture,Hermes,Claude 3.5 Haiku under Hermes,,skills/hermes_seed/skill_winston-director-knowledge-architecture_seed.md

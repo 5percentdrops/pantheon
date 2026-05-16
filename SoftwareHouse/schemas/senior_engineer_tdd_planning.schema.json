@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "approved_prd",
+    "sdd",
+    "feature_tickets",
+    "task_tdd_plan",
+    "assignment_packets"
+  ],
+  "properties": {
+    "approved_prd": {
+      "type": "string"
+    },
+    "sdd": {
+      "type": "string"
+    },
+    "feature_tickets": {
+      "type": "array"
+    },
+    "task_tdd_plan": {
+      "type": "array"
+    },
+    "assignment_packets": {
+      "type": "array"
+    },
+    "superpowers_tdd_used": {
+      "type": "boolean"
+    }
+  }
+}

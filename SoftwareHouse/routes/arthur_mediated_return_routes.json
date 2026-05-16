@@ -1,0 +1,53 @@
+{
+  "routes": [
+    {
+      "name": "marcus_attempt_through_arthur",
+      "trigger": "Marcus provides solution attempt",
+      "path": [
+        "marcus-senior-backend-developer",
+        "arthur-project-manager",
+        "jack-backend-developer"
+      ],
+      "success": "Jack applies solution; if WORKED, Jack continues.",
+      "failure": "Jack reports FAILED to Arthur; Arthur routes to Marcus again if attempts remain, otherwise Maxwell.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "maxwell_attempt_through_arthur",
+      "trigger": "Maxwell provides solution attempt",
+      "path": [
+        "maxwell-opus-max-escalation-engineer",
+        "arthur-project-manager",
+        "jack-backend-developer"
+      ],
+      "success": "Jack applies solution; if WORKED, Jack continues.",
+      "failure": "Jack reports FAILED to Arthur; Arthur routes to Maxwell again if attempts remain, otherwise Cody.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "cody_review_through_arthur",
+      "trigger": "Cody provides code review return packet",
+      "path": [
+        "cody-code-escalation-reviewer",
+        "arthur-project-manager",
+        "jack-backend-developer"
+      ],
+      "success": "Jack applies Cody guidance; if WORKED, Jack continues.",
+      "failure": "Jack reports FAILED to Arthur; Arthur routes to Magnus.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "magnus_review_through_arthur",
+      "trigger": "Magnus provides approach review",
+      "path": [
+        "magnus-principal-solution-architect",
+        "arthur-project-manager",
+        "relevant-senior-engineer",
+        "jack-backend-developer"
+      ],
+      "success": "Relevant senior updates plan/checklist if needed; Jack applies route. If WORKED, Jack continues.",
+      "failure": "Arthur escalates to user or requests deeper rethink; no endless loop.",
+      "harness": "Hermes"
+    }
+  ]
+}

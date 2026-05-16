@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "required": [
+    "problem_summary",
+    "verdict",
+    "patch_recommendation"
+  ]
+}

@@ -1,0 +1,15 @@
+harness:
+  id: codex_repo_worker
+  type: optional_direct_paperclip_employee
+  description: >
+    Codex or Claude Code can be managed directly by Paperclip for repo patching
+    where that is more practical than routing through Hermes.
+  allowed_use:
+    - implementation_after_tests_exist
+    - scoped_refactor
+    - test_writing_from_approved_test_plan
+  forbidden:
+    - merge_main
+    - modify_governance_files
+    - access_production_secrets
+    - change_scope_without_ticket

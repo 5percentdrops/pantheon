@@ -1,0 +1,9 @@
+name: write_wiki_doc
+type: file_writer
+description: Write structured Markdown documents into the local SoftwareHouse wiki.
+parameters:
+  destination_path: string
+  markdown_content: string
+constraints:
+  allowed_root: "./wiki"
+  file_extension: ".md"

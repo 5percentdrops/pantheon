@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "approved_prd",
+    "sdd",
+    "feature_tickets",
+    "task_tdd_blocks",
+    "jack_assignment_packet"
+  ],
+  "properties": {
+    "approved_prd": {
+      "type": "string"
+    },
+    "sdd": {
+      "type": "string"
+    },
+    "feature_tickets": {
+      "type": "array"
+    },
+    "task_tdd_blocks": {
+      "type": "array"
+    },
+    "jack_assignment_packet": {
+      "type": "object"
+    }
+  }
+}

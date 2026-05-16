@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "name": "task_level_tdd_execution",
+      "trigger": "Marcus has completed SDD, feature tickets, and task-level TDD blocks",
+      "path": [
+        "marcus-senior-backend-developer",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Jack executes one task at a time. Green before next task. Green before merge.",
+      "harness": "Hermes"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+pipeline:
+  id: architecture_council_v8_1
+  pattern: specialist_team
+  dispatch_events:
+    - architecture_decision_requested
+  specialists:
+    - winston-director-knowledge-architecture
+    - marcus-senior-backend-developer
+    - magnus-principal-solution-architect
+    - maxwell-staff-escalation-engineer
+    - cody-code-escalation-reviewer
+  final_decision_agent: arthur-project-manager
+  required_board_approval: true
+  output_contract: model_route.schema.json

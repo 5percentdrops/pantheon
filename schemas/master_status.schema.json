@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Software House V7 Master Status",
+  "type": "object",
+  "required": [
+    "projects"
+  ],
+  "properties": {
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "project",
+          "domain",
+          "stage",
+          "status"
+        ],
+        "properties": {
+          "project": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string"
+          },
+          "active_ticket": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "attempt": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "status": {
+            "type": "string"
+          },
+          "last_updated": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

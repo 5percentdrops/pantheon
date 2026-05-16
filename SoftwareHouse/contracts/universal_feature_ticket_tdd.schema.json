@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "required": [
+    "ticket_id",
+    "lane",
+    "senior_owner",
+    "standard_owner",
+    "tasks",
+    "pr_green_criteria"
+  ],
+  "properties": {
+    "ticket_id": {
+      "type": "string"
+    },
+    "lane": {
+      "type": "string"
+    },
+    "senior_owner": {
+      "type": "string"
+    },
+    "standard_owner": {
+      "type": "string"
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "task_id",
+          "objective",
+          "red_test",
+          "green_target",
+          "task_green_criteria"
+        ],
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "objective": {
+            "type": "string"
+          },
+          "files_to_touch": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "red_test": {
+            "type": "string"
+          },
+          "green_target": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "task_green_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "can_move_to_next_task": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "pr_green_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "merge_allowed": {
+      "type": "boolean"
+    }
+  }
+}

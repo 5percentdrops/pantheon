@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "verdict",
+    "ci_status",
+    "review_status",
+    "merge_allowed",
+    "required_actions",
+    "policy_violations"
+  ],
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "conditional"
+      ]
+    },
+    "ci_status": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string"
+    },
+    "merge_allowed": {
+      "type": "boolean"
+    },
+    "required_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "changed_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy_violations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

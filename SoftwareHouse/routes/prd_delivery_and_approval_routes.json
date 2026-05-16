@@ -1,0 +1,25 @@
+{
+  "routes": [
+    {
+      "name": "prd_revision_requested",
+      "trigger": "user requests revision after PRD delivery",
+      "path": [
+        "arthur-project-manager",
+        "restart-prd-pipeline"
+      ],
+      "hard_rule": "Arthur routes back to the beginning of the pipeline.",
+      "harness": "Hermes"
+    },
+    {
+      "name": "prd_approved_to_engineering",
+      "trigger": "user approves PRD",
+      "path": [
+        "arthur-project-manager",
+        "marcus-senior-backend-developer",
+        "jack-backend-developer"
+      ],
+      "hard_rule": "Arthur cannot override approval; Marcus creates SDD/tickets/TDD before Jack executes.",
+      "harness": "Hermes"
+    }
+  ]
+}

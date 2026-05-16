@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "source_agent",
+    "arthur_received",
+    "returned_to_standard_developer",
+    "result"
+  ],
+  "properties": {
+    "source_agent": {
+      "type": "string",
+      "enum": [
+        "Marcus",
+        "Maxwell",
+        "Cody",
+        "Magnus"
+      ]
+    },
+    "arthur_received": {
+      "type": "boolean"
+    },
+    "returned_to_standard_developer": {
+      "type": "boolean"
+    },
+    "standard_developer": {
+      "type": "string"
+    },
+    "attempt_number": {
+      "type": "number"
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "WORKED",
+        "FAILED",
+        "PENDING"
+      ]
+    },
+    "next_route": {
+      "type": "string"
+    }
+  }
+}

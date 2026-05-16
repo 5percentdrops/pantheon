@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "required": [
+    "actor",
+    "log_type",
+    "folder",
+    "result"
+  ],
+  "properties": {
+    "actor": {
+      "type": "string"
+    },
+    "log_type": {
+      "type": "string",
+      "enum": [
+        "BLOCKER_LOG",
+        "SOLUTION_LOG",
+        "CODE_FIX_LOG",
+        "APPROACH_SOLUTION_LOG"
+      ]
+    },
+    "folder": {
+      "type": "string",
+      "const": "wiki/errors/"
+    },
+    "proposed_solution": {
+      "type": "string"
+    },
+    "tested_by": {
+      "type": "string"
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "WORKED",
+        "FAILED",
+        "PENDING"
+      ]
+    },
+    "arthur_verified": {
+      "type": "boolean"
+    }
+  }
+}
