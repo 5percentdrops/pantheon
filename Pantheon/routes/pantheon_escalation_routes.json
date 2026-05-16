@@ -1,0 +1,23 @@
+{
+  "schema_version": "legacy-route-pointer.v8.2",
+  "deprecated": true,
+  "canonical_source": "Pantheon/routes/engineering_escalation_ladder_v8_2.json",
+  "note": "Retained for backward compatibility only. Do not use as source of truth.",
+  "legacy_snapshot": {
+    "routes": [
+      {
+        "name": "parallel_escalation",
+        "path": [
+          "arthur-project-manager",
+          "cody-code-escalation-reviewer",
+          "magnus-principal-solution-architect",
+          "arthur-project-manager",
+          "marcus-senior-backend-developer",
+          "jack-backend-developer"
+        ],
+        "hard_rule": "Magnus reports to Arthur; Marcus rewrites plan before Jack executes.",
+        "harness": "Hermes"
+      }
+    ]
+  }
+}

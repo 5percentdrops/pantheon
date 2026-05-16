@@ -47,7 +47,7 @@ Replaces V8.4 `install_to_hermes.sh` single-home logic. For each of the 32 activ
 
 1. `mkdir -p ~/.hermes-<slug>`
 2. Write `~/.hermes-<slug>/config.yaml` (model+provider+toolsets from the agent's adapter block)
-3. Copy `SoftwareHouse/skills/hermes_seed/skill_<canonical_id>_seed.md` → `~/.hermes-<slug>/skills/seed.md`
+3. Copy `Pantheon/skills/hermes_seed/skill_<canonical_id>_seed.md` → `~/.hermes-<slug>/skills/seed.md`
 4. Extract agent's AGENTS.md body → `~/.hermes-<slug>/SOUL.md`
 5. Write `~/.hermes-<slug>/MEMORY.md` (seeded with role + `reportsTo` + workflow position)
 6. Write `~/.hermes-<slug>/USER.md` (from `manifest.main_contact`)
@@ -71,7 +71,7 @@ Pre-flight: `paperclipai --version` ≥ `2026.513.0`, `hermes --version` reachab
 
 ### 5. New: `scripts/validate_hermes_local_package.py`
 
-Asserts on the converter output (`software-house/agents/<slug>/.paperclip.yaml`):
+Asserts on the converter output (`pantheon/agents/<slug>/.paperclip.yaml`):
 
 - `adapter.type == "hermes_local"`
 - `adapter.config.model` non-empty
@@ -89,7 +89,7 @@ New step order:
 1. Workspace mkdir
 2. Run all validators (V8.4) + `validate_hermes_local_package.py`
 3. Legacy render (back-compat)
-4. Converter → `software-house/`
+4. Converter → `pantheon/`
 5. **NEW: `bootstrap_hermes_homes.sh`** (creates 32 `~/.hermes-<slug>/`)
 6. **NEW: `install_hermes_adapter_plugin.sh`** (registers `hermes_local` in Paperclip)
 7. `install_to_paperclip.sh` → `paperclipai company import`
@@ -143,7 +143,7 @@ Wired into `one_click_install.sh` via `--setup-keys`. Default behavior unchanged
 ### 8. `manifest.json`
 
 - `version` → `8.5`
-- `schema_version` → `software-house.v8.5`
+- `schema_version` → `pantheon.v8.5`
 - New top-level block `hermes_local_adapter` (pinned package, package version `^0.3.0` — official NousResearch package, min Paperclip `2026.513.0`, per-agent home template, registration path)
 - New top-level block `v8_5_patch` (audit summary)
 
@@ -173,7 +173,7 @@ Run after `one_click_install.sh -y` on the target host:
 
 ```bash
 paperclipai adapters list                       # contains hermes_local
-paperclipai company list                        # contains Software House w/ 33 agents
+paperclipai company list                        # contains Pantheon w/ 33 agents
 ls ~/.hermes-*                                  # 32 dirs (Owen skipped)
 python3 scripts/validate_hermes_local_package.py
 ```

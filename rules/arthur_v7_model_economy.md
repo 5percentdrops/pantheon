@@ -18,4 +18,4 @@ If Arthur's confidence is low, Arthur routes to the assigned Senior or the user.
 
 ## Historical material
 
-The deprecated Watcher/Core design is archived under `SoftwareHouse/deprecated/`.
+The deprecated Watcher/Core design is archived under `Pantheon/deprecated/`.

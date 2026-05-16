@@ -5,8 +5,8 @@ This patch applies the V8.2 audit corrections.
 ## Fixed (Arthur model contradiction, fourth round)
 
 1. **Arthur agent `description` field** in all four agent-record files (`organization.import.json`, `agents.json`, `paperclip_company.import.json`, `.stage/paperclip_company.import.json`) — replaced "Arthur uses Sonnet 4.6 under Hermes." with "Arthur uses GPT-5 mini under Hermes."
-2. **Arthur seed skill model line** (`SoftwareHouse/skills/hermes_seed/skill_arthur-project-manager_seed.md`) — replaced "OPS 4.7 under Hermes." with "openai/gpt-5-mini under Hermes." on the `## Model` line.
-3. **Second Arthur seed file** (`SoftwareHouse/skills/hermes_seed/skill_project-manager_seed.md`) — replaced "Model/module: claude-opus-4-7" with "Model/module: openai/gpt-5-mini (display: GPT-5 mini under Hermes)".
+2. **Arthur seed skill model line** (`Pantheon/skills/hermes_seed/skill_arthur-project-manager_seed.md`) — replaced "OPS 4.7 under Hermes." with "openai/gpt-5-mini under Hermes." on the `## Model` line.
+3. **Second Arthur seed file** (`Pantheon/skills/hermes_seed/skill_project-manager_seed.md`) — replaced "Model/module: claude-opus-4-7" with "Model/module: openai/gpt-5-mini (display: GPT-5 mini under Hermes)".
 
 ## Fixed (Owen / synthetic model identifiers)
 
@@ -15,8 +15,8 @@ This patch applies the V8.2 audit corrections.
 
 ## Fixed (missing pipelines)
 
-6. **`SoftwareHouse/pipelines/model_route_override_pipeline.yaml`** created. Was referenced by `event_routes.model_route_override_requested` but the file didn't exist.
-7. **`SoftwareHouse/pipelines/audit_logging_pipeline.yaml`** created. Was referenced by `event_routes.agent_heartbeat`.
+6. **`Pantheon/pipelines/model_route_override_pipeline.yaml`** created. Was referenced by `event_routes.model_route_override_requested` but the file didn't exist.
+7. **`Pantheon/pipelines/audit_logging_pipeline.yaml`** created. Was referenced by `event_routes.agent_heartbeat`.
 
 ## Fixed (model identifier format)
 
@@ -35,7 +35,7 @@ This patch applies the V8.2 audit corrections.
 
 ## Fixed (orphan harness)
 
-14. **`SoftwareHouse/harnesses/codex_repo_worker.yaml`** moved to `SoftwareHouse/deprecated/harnesses/`. No active agent uses it; keeping it in `harnesses/` advertises a runtime that doesn't exist.
+14. **`Pantheon/harnesses/codex_repo_worker.yaml`** moved to `Pantheon/deprecated/harnesses/`. No active agent uses it; keeping it in `harnesses/` advertises a runtime that doesn't exist.
 
 ## Added
 
@@ -59,7 +59,7 @@ PASS: V8.2 Arthur purge, contracts, producers, retry ladder, and route checks va
 PASS: V8.1 Paperclip control-plane layer validated.
 PASS: V7 namespaced pipeline validated.
 PASS: Caveman full policy and Arthur escalation handoff validated.
-PASS: Full Software House Arthur head and hiring authority validated.
+PASS: Full Pantheon Arthur head and hiring authority validated.
 PASS: all 9 event_routes resolve to existing pipeline files.
 ALL VALIDATORS PASS
 ```

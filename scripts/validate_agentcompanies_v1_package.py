@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Validate the generated agentcompanies/v1 package at software-house/.
+Validate the generated agentcompanies/v1 package at pantheon/.
 
 Checks:
   1. Required files exist (COMPANY.md, README.md, LICENSE, .paperclip.yaml).
@@ -17,12 +17,12 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PKG = ROOT / "software-house"
+PKG = ROOT / "pantheon"
 
 if not PKG.exists():
     # The package is generated on demand by scripts/convert_to_agentcompanies_v1.py.
     # If it hasn't been generated yet, this check is a no-op rather than a failure.
-    print("SKIP: software-house/ not generated yet (run convert_to_agentcompanies_v1.py first).")
+    print("SKIP: pantheon/ not generated yet (run convert_to_agentcompanies_v1.py first).")
     sys.exit(0)
 
 VALID_ADAPTERS = {
@@ -72,8 +72,8 @@ if not company_front:
     fail("COMPANY.md missing frontmatter")
 elif company_front.get("schema") != "agentcompanies/v1":
     fail(f"COMPANY.md schema must be 'agentcompanies/v1', got {company_front.get('schema')!r}")
-elif company_front.get("slug") != "software-house":
-    fail(f"COMPANY.md slug must be 'software-house', got {company_front.get('slug')!r}")
+elif company_front.get("slug") != "pantheon":
+    fail(f"COMPANY.md slug must be 'pantheon', got {company_front.get('slug')!r}")
 
 # 3 + 4 + 5. Agent dirs
 agents_dir = PKG / "agents"
@@ -166,10 +166,10 @@ for f in PKG.rglob("*.md"):
             break
 
 if failures:
-    print(f"FAIL: {len(failures)} issue(s) in software-house/:")
+    print(f"FAIL: {len(failures)} issue(s) in pantheon/:")
     for m in failures:
         print(f"  {m}")
     sys.exit(1)
 
-print(f"PASS: software-house/ is a valid agentcompanies/v1 package "
+print(f"PASS: pantheon/ is a valid agentcompanies/v1 package "
       f"with {len(agent_slugs)} agents and proper reporting structure.")

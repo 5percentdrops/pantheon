@@ -1,4 +1,4 @@
-# Software House V8.5 — Install Guide
+# Pantheon V8.5 — Install Guide
 
 ## Correct stack model (V8.5)
 
@@ -89,11 +89,11 @@ hermes model    # interactive: pick claude-opus-4.7, gpt-5-mini, gemini-3.1-pro,
                 #              deepseek-v4-pro, kimi-k2 — each should connect
 ```
 
-### 3. Install Software House V8.5
+### 3. Install Pantheon V8.5
 
 ```bash
-unzip SoftwareHouse_V8_5_OneClickInstall_HermesHarness.zip
-cd SoftwareHouse_V8_5_OneClickInstall_HermesHarness
+unzip pantheon.zip
+cd pantheon
 bash scripts/one_click_install.sh -y
 ```
 
@@ -102,7 +102,7 @@ Internally:
 1. Workspace mkdir.
 2. Run all validators (14 of them).
 3. Render legacy V8.x payload (back-compat).
-4. Convert to `agentcompanies/v1` tree at `./software-house/` with `hermes_local` adapter for all 32 active agents + Owen-skip.
+4. Convert to `agentcompanies/v1` tree at `./pantheon/` with `hermes_local` adapter for all 32 active agents + Owen-skip.
 4b. Post-convert validators (package + hermes_local schema).
 5. Bootstrap 32 `~/.hermes-<slug>/` homes (config.yaml + SOUL.md + MEMORY.md + USER.md + skills/seed.md).
 6. Register `hermes_local` adapter plugin in `~/.paperclip/adapter-plugins.json`.
@@ -112,7 +112,7 @@ Internally:
 
 ```bash
 paperclipai adapters list | grep hermes_local         # hermes_local present
-paperclipai company list                              # "Software House" present
+paperclipai company list                              # "Pantheon" present
 ls -d ~/.hermes-* | wc -l                             # 32 (Owen skipped)
 python3 scripts/validate_hermes_local_package.py      # OK: 32 routed, 1 skipped
 ```
@@ -120,7 +120,7 @@ python3 scripts/validate_hermes_local_package.py      # OK: 32 routed, 1 skipped
 ### 5. First real task (smoke)
 
 In the Paperclip UI:
-1. Open the `Software House` company.
+1. Open the `Pantheon` company.
 2. Locate `arthur` (Project Manager, top of org chart).
 3. Send a small PRD: `"Build a CLI tool that counts unique words in a file."`
 4. Watch Arthur route. Expect:
@@ -171,7 +171,7 @@ Generated outputs:
 
 ```text
 .stage/paperclip_company.import.json
-SoftwareHouse/paperclip/paperclip_company.import.json
+Pantheon/paperclip/paperclip_company.import.json
 ```
 
 ## Compatibility installer
@@ -198,7 +198,7 @@ V8.1 fixes the V8 audit issues:
 - `model` is now the canonical model field.
 - Arthur is collapsed to `openai/gpt-5-mini` under Hermes.
 - `llm_module` is display-only and derived from `model`.
-- `SoftwareHouse/contracts/` is the canonical schema directory.
+- `Pantheon/contracts/` is the canonical schema directory.
 - Routes and pipelines are validated against contracts.
 - Pipelines are dispatchable through `event_routes`.
 - Context-pack-first is validated structurally.

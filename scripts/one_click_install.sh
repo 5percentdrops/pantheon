@@ -49,7 +49,7 @@ for arg in "$@"; do
 done
 
 echo "==================================================================="
-echo " Software House V8.5 — Full Installer"
+echo " Pantheon V8.5 — Full Installer"
 echo "==================================================================="
 echo " Paperclip = company/control plane (the 33 agents run here)"
 echo " Hermes    = per-agent harness (32 ~/.hermes-<slug>/ homes; Owen skipped)"
@@ -109,14 +109,14 @@ echo "==> Step 4/7: Convert to agentcompanies/v1 directory tree (V8.5 hermes_loc
 python3 scripts/convert_to_agentcompanies_v1.py
 echo
 
-# Step 4b: post-convert validation (validators above skip when software-house/ absent)
+# Step 4b: post-convert validation (validators above skip when pantheon/ absent)
 echo "==> Step 4b/7: Validate generated package"
 python3 scripts/validate_agentcompanies_v1_package.py
 python3 scripts/validate_hermes_local_package.py
 echo
 
 if [ "$MODE_CONVERT_ONLY" = "1" ]; then
-    echo "Convert-only mode. Package staged at: $ROOT/software-house"
+    echo "Convert-only mode. Package staged at: $ROOT/pantheon"
     exit 0
 fi
 
@@ -151,7 +151,7 @@ else
 fi
 
 # Step 7: import company to Paperclip
-echo "==> Step 7/7: Import Software House company to Paperclip"
+echo "==> Step 7/7: Import Pantheon company to Paperclip"
 echo
 
 if [ "$SKIP_PAPERCLIP" = "0" ]; then
@@ -183,7 +183,7 @@ echo
 echo " Artifacts:"
 echo "   workspace/                            — local PRD/SDD/ticket tree"
 echo "   .stage/paperclip_company.import.json  — legacy V8.x payload"
-echo "   software-house/                       — agentcompanies/v1 package (hermes_local)"
+echo "   pantheon/                       — agentcompanies/v1 package (hermes_local)"
 echo "   ~/.hermes-<slug>/                     — 32 per-agent Hermes homes"
 echo "   ~/.paperclip/adapter-plugins.json     — registers hermes_local adapter"
 echo

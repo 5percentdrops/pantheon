@@ -2,11 +2,11 @@
 #
 # install_to_paperclip.sh  (V8.5)
 #
-# Installs the SoftwareHouse company into a local Paperclip instance.
+# Installs the Pantheon company into a local Paperclip instance.
 #
 # What this does:
 #   1. Verifies Paperclip CLI and Hermes CLI are reachable.
-#   2. Runs the V8.5 converter to produce ./software-house/ (agentcompanies/v1)
+#   2. Runs the V8.5 converter to produce ./pantheon/ (agentcompanies/v1)
 #      with uniform hermes_local adapter blocks.
 #   3. Runs `paperclipai company import --dry-run` so you see the preview.
 #   4. Prompts for confirmation, then runs the real import.
@@ -23,10 +23,10 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PKG_DIR="$REPO_ROOT/software-house"
-COMPANY_NAME="${COMPANY_NAME:-Software House}"
+PKG_DIR="$REPO_ROOT/pantheon"
+COMPANY_NAME="${COMPANY_NAME:-Pantheon}"
 
-echo "==> SoftwareHouse V8.5 -> Paperclip installer"
+echo "==> Pantheon V8.5 -> Paperclip installer"
 echo
 
 # Step 1a: locate the Paperclip CLI

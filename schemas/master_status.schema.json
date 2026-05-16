@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Software House V7 Master Status",
+  "title": "Pantheon V7 Master Status",
   "type": "object",
   "required": [
     "projects"

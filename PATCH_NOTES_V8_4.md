@@ -6,10 +6,10 @@ This is the patch that turns the V8.3 specification repo into an actual one-clic
 
 ### 1. New converter: `scripts/convert_to_agentcompanies_v1.py`
 
-Reads `SoftwareHouse/paperclip/organization.import.json` and the Hermes seed skills. Emits a `software-house/` directory in the format Paperclip's `paperclipai company import` command expects:
+Reads `Pantheon/paperclip/organization.import.json` and the Hermes seed skills. Emits a `pantheon/` directory in the format Paperclip's `paperclipai company import` command expects:
 
 ```
-software-house/
+pantheon/
   COMPANY.md          # YAML frontmatter: schema=agentcompanies/v1, name, slug, goals, license
   README.md           # human-readable overview, org chart, getting-started
   LICENSE             # MIT
@@ -49,7 +49,7 @@ Real Paperclip import. Resolves the Paperclip CLI (`paperclipai`, `pnpm papercli
 
 ### 4. New installer: `scripts/install_to_hermes.sh`
 
-Wires the seed skills into a single Hermes installation as external read-only skills via `~/.hermes/config.yaml -> skills.external_dirs`. Copies skills to `~/.agents/skills/software-house/` and prints the YAML block to paste.
+Wires the seed skills into a single Hermes installation as external read-only skills via `~/.hermes/config.yaml -> skills.external_dirs`. Copies skills to `~/.agents/skills/pantheon/` and prints the YAML block to paste.
 
 This is explicitly **not** a multi-agent Hermes install. Hermes runs one identity per `HERMES_HOME`. For multi-agent Hermes you'd run 33 separate Hermes installations with different `HERMES_HOME` values, or build a custom Paperclip adapter. The installer notes this.
 
@@ -76,10 +76,10 @@ bash scripts/one_click_install.sh -y               # non-interactive, apply ever
 
 ### 6. New validator: `scripts/validate_agentcompanies_v1_package.py`
 
-Validates the generated `software-house/` package:
+Validates the generated `pantheon/` package:
 
 1. Required files present (COMPANY.md, README.md, LICENSE, .paperclip.yaml).
-2. COMPANY.md frontmatter has `schema: agentcompanies/v1` and `slug: software-house`.
+2. COMPANY.md frontmatter has `schema: agentcompanies/v1` and `slug: pantheon`.
 3. Every agent directory has an AGENTS.md with frontmatter (name, slug, title, description, reportsTo, skills).
 4. Exactly one root (`reportsTo: null`) — must be Arthur.
 5. All `reportsTo` slugs resolve to actual agent directories.
@@ -115,10 +115,10 @@ $ bash scripts/one_click_install.sh --convert-only
   wrote 33 AGENTS.md files
   wrote 33 SKILL.md files
   wrote .paperclip.yaml
-Convert-only mode. Package staged at: ./software-house
+Convert-only mode. Package staged at: ./pantheon
 ```
 
-The `software-house/` directory is what you point `paperclipai company import --from ./software-house` at.
+The `pantheon/` directory is what you point `paperclipai company import --from ./pantheon` at.
 
 ## Sources
 

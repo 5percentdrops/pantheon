@@ -18,7 +18,7 @@ roles={a.get("role"):a for a in agents}
 for role, model in required.items():
     if role not in roles: errors.append(f"missing role {role}")
     elif model not in roles[role].get("llm_module",""): errors.append(f"model mismatch {role}")
-for p in ROOT.rglob("software_house_escalation_routes.json"):
+for p in ROOT.rglob("pantheon_escalation_routes.json"):
     route=json.loads(p.read_text())["routes"][0]["path"]
     for i in range(len(route)-1):
         if route[i]=="magnus-principal-solution-architect" and route[i+1]=="jack-backend-developer":

@@ -30,8 +30,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SH = ROOT / "SoftwareHouse"
-PKG = ROOT / "software-house"
+SH = ROOT / "Pantheon"
+PKG = ROOT / "pantheon"
 MANIFEST = ROOT / "manifest.json"
 
 SKIPPED_SLUGS = {"owen"}  # see PATCH_NOTES_V8_5.md
@@ -179,7 +179,7 @@ def write_user_md(home, main_contact):
         "",
         f"Main contact: {contact_line}",
         "",
-        "The user is the human operator overseeing the Software House. "
+        "The user is the human operator overseeing the Pantheon. "
         "Arthur (Project Manager) is the in-company manager; the human contact is the ultimate "
         "approver for governance, merges, deploys, and trading rule changes.",
         "",

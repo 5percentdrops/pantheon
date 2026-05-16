@@ -1,4 +1,4 @@
-# Software House
+# Pantheon
 
 > AI-native software studio. 33 agents. One company. Runs on **Paperclip** (control plane) + **Hermes** (per-agent runtime).
 
@@ -17,7 +17,7 @@ Every agent has its own `SOUL.md`, `MEMORY.md`, `USER.md`, persistent session, a
 ## Quick start
 
 ```bash
-git clone https://github.com/5percentdrops/agent-studio.git
+git clone https://github.com/5percentdrops/pantheon.git
 cd agent-studio
 bash scripts/one_click_install.sh -y --setup-keys
 ```
@@ -56,7 +56,7 @@ Model spread: Anthropic 15 · DeepSeek 7 · OpenAI 5 · Google 3 · Moonshot 2.
 ```
 scripts/                  38 files — one_click_install, validators, converters,
                           bootstrap, adapter installer, secure key setup
-SoftwareHouse/            270 files — agents, routes, contracts, pipelines,
+Pantheon/            270 files — agents, routes, contracts, pipelines,
                           paperclip company import, skills, schemas, templates
 docs/                     architecture, escalation patterns, model map
 manifest.json             canonical org spec (33 agents, v8.5)
@@ -110,7 +110,7 @@ Hard gates: context-pack before non-trivial work · architecture before tickets 
 
 ```bash
 paperclipai adapters list | grep hermes_local         # adapter registered
-paperclipai company list                              # Software House present
+paperclipai company list                              # Pantheon present
 ls -d ~/.hermes-* | wc -l                             # 32 (Owen skipped)
 python3 scripts/validate_hermes_local_package.py      # OK: 32 routed
 ```
@@ -138,9 +138,9 @@ bash scripts/one_click_install.sh -y --setup-keys           # add secure key pro
 - [`PATCH_NOTES_V8_5.md`](PATCH_NOTES_V8_5.md) — Hermes-as-harness rollout
 - [`ROLLBACK_TO_V8_4.md`](ROLLBACK_TO_V8_4.md) — one-command revert
 - [`docs/PAPERCLIP_HERMES_CONTROL_PLANE_V8.md`](docs/PAPERCLIP_HERMES_CONTROL_PLANE_V8.md)
-- [`docs/FULL_SOFTWARE_HOUSE_ARTHUR_HEAD.md`](docs/FULL_SOFTWARE_HOUSE_ARTHUR_HEAD.md)
+- [`docs/FULL_PANTHEON_ARTHUR_HEAD.md`](docs/FULL_PANTHEON_ARTHUR_HEAD.md)
 - [`docs/UNIVERSAL_ORGANISATION_ESCALATION_PATTERN.md`](docs/UNIVERSAL_ORGANISATION_ESCALATION_PATTERN.md)
-- [`docs/FINAL_SOFTWARE_HOUSE_MODEL_MAP.md`](docs/FINAL_SOFTWARE_HOUSE_MODEL_MAP.md)
+- [`docs/FINAL_PANTHEON_MODEL_MAP.md`](docs/FINAL_PANTHEON_MODEL_MAP.md)
 
 ---
 

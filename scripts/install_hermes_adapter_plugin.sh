@@ -16,7 +16,7 @@
 #   - Install Paperclip itself.
 #   - Install Hermes itself.
 #   - Bootstrap the per-agent Hermes homes (see bootstrap_hermes_homes.sh).
-#   - Import the Software House company (see install_to_paperclip.sh).
+#   - Import the Pantheon company (see install_to_paperclip.sh).
 
 set -euo pipefail
 
@@ -36,7 +36,7 @@ AUTO_RESTART="${AUTO_RESTART:-0}"
 # The script does no special handling for file: vs npm names — Paperclip's
 # loader accepts both. The value is written verbatim into adapter-plugins.json.
 
-echo "==> SoftwareHouse V8.5 -> install hermes_local adapter plugin"
+echo "==> Pantheon V8.5 -> install hermes_local adapter plugin"
 echo
 
 # ---- Step 1: pre-flight ----

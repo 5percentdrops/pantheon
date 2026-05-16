@@ -1,6 +1,6 @@
 {
-  "name": "SoftwareHouse",
-  "display_name": "Software House",
+  "name": "Pantheon",
+  "display_name": "Pantheon",
   "ethos": "AI-native software studio for groundbreaking financial-market systems.",
   "main_contact": {
     "name": "Arthur",
@@ -33,7 +33,7 @@
     "Arthur"
   ],
   "version": "8.5",
-  "software_house_parallel_escalation": {
+  "pantheon_parallel_escalation": {
     "arthur": "GPT-5 mini under Hermes",
     "jack": "DeepSeek V4 Pro under Hermes",
     "marcus": "Opus 4.7 XHigh under Hermes",
@@ -97,7 +97,7 @@
     ]
   },
   "universal_engineering_escalation": {
-    "canonical_source": "SoftwareHouse/routes/engineering_escalation_ladder_v8_2.json",
+    "canonical_source": "Pantheon/routes/engineering_escalation_ladder_v8_2.json",
     "junior_attempts": "1-12",
     "staff_attempts": "16-17",
     "forensic_attempt": "18",
@@ -164,7 +164,7 @@
   },
   "error_learning_log": {
     "enabled": true,
-    "wiki_folder": "SoftwareHouse/wiki/errors/",
+    "wiki_folder": "Pantheon/wiki/errors/",
     "standard_developer_attempts": 10,
     "senior_solution_attempts": 3,
     "senior_logs_original_error_before_solution": true,
@@ -175,7 +175,7 @@
   },
   "obsidian_error_memory": {
     "enabled": true,
-    "folder": "SoftwareHouse/wiki/errors/",
+    "folder": "Pantheon/wiki/errors/",
     "single_shared_folder": true,
     "allowed_log_types": [
       "BLOCKER_LOG",
@@ -410,7 +410,7 @@
       "rule": "Use the smallest safe team first."
     }
   },
-  "full_software_house_role_policy": {
+  "full_pantheon_role_policy": {
     "default_active_path": [
       "Arthur",
       "Marcus",
@@ -475,16 +475,16 @@
   "v8_1_patch": {
     "arthur_model_collapse": "openai/gpt-5-mini",
     "canonical_model_field": "model",
-    "schema_source_of_truth": "SoftwareHouse/contracts",
+    "schema_source_of_truth": "Pantheon/contracts",
     "pipeline_dispatch_enabled": true,
     "budget_caps_checked": true
   },
-  "schema_version": "software-house.v8.5",
+  "schema_version": "pantheon.v8.5",
   "v8_2_patch": {
     "arthur_model_purged": true,
     "retry_ladder_canonical": "engineering_escalation_ladder_v8_2",
-    "contracts_canonical": "SoftwareHouse/contracts",
-    "schemas_legacy_mirror": "SoftwareHouse/schemas retained only for backward compatibility"
+    "contracts_canonical": "Pantheon/contracts",
+    "schemas_legacy_mirror": "Pantheon/schemas retained only for backward compatibility"
   },
   "hermes_local_adapter": {
     "adapter_type": "hermes_local",

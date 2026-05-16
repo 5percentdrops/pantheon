@@ -7,7 +7,7 @@ This patch applies the audit feedback from the V8 review.
 1. Arthur model contradiction removed. Arthur is `openai/gpt-5-mini` under Hermes everywhere canonical.
 2. Every imported agent now has a non-empty canonical `model` field.
 3. `llm_module` is display-only and derived from `model`.
-4. All schemas referenced by routes/pipelines resolve from `SoftwareHouse/contracts/`.
+4. All schemas referenced by routes/pipelines resolve from `Pantheon/contracts/`.
 5. `prd.schema.json`, `heartbeat.schema.json`, `transcript.schema.json`, and `budget_event.schema.json` added.
 6. Pipelines are wired into `event_routes`.
 7. Clara dual-review route restored.
@@ -17,6 +17,6 @@ This patch applies the audit feedback from the V8 review.
 
 ## Still intentional
 
-- `SoftwareHouse/schemas/` remains as a legacy mirror for compatibility.
-- `SoftwareHouse/contracts/` is the canonical runtime/validation source.
+- `Pantheon/schemas/` remains as a legacy mirror for compatibility.
+- `Pantheon/contracts/` is the canonical runtime/validation source.
 - Paperclip and Hermes are not installed by this repo; this repo imports/stages org configuration.

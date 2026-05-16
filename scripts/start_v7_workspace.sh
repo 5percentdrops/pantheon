@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-echo "== Software House V7 Workspace =="
+echo "== Pantheon V7 Workspace =="
 echo "PRDs:              workspace/01_PRDs/"
 echo "SDDs:              workspace/02_SDDs/"
 echo "Feature tickets:  workspace/03_Feature_Tickets/"

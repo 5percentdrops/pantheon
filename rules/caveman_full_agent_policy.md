@@ -2,7 +2,7 @@
 
 ## Decision
 
-Every Software House agent uses **Caveman full version** by default.
+Every Pantheon agent uses **Caveman full version** by default.
 
 ```text
 Caveman Mode = FULL

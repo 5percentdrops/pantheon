@@ -2,7 +2,7 @@
 import re, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
-text = (ROOT/'SoftwareHouse/company/budget_policy.yaml').read_text(encoding='utf-8')
+text = (ROOT/'Pantheon/company/budget_policy.yaml').read_text(encoding='utf-8')
 cap = int(re.search(r'default_monthly_cap_usd:\s*(\d+)', text).group(1))
 section = re.search(r'per_agent_caps(?:_usd)?:\n(?P<body>(?:\s{4}[A-Za-z0-9_-]+:\s*\d+\n)+)', text)
 if not section:

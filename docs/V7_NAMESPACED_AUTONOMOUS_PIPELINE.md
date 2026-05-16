@@ -1,6 +1,6 @@
 > V8.1 note: canonical Arthur model is `openai/gpt-5-mini` under Hermes. Older Watcher/Core or DeepSeek/Opus Arthur claims are deprecated.
 
-# Software House V7.0 — Namespaced Autonomous Pipeline
+# Pantheon V7.0 — Namespaced Autonomous Pipeline
 
 **Version:** 7.0  
 **Architecture:** Global namespaced workspace  
@@ -10,7 +10,7 @@
 
 ## 1. Core Decision
 
-Software House keeps the large org-chart, but operates with a smaller active squad by default.
+Pantheon keeps the large org-chart, but operates with a smaller active squad by default.
 
 Default active squad:
 
@@ -66,7 +66,7 @@ Global_Workspace/
 Arthur model = openai/gpt-5-mini under Hermes
 ```
 
-Arthur is a single-model manager/router/state-controller. If confidence is low, Arthur routes to the assigned Senior or the user instead of guessing. The historical Watcher/Core split is deprecated; see `SoftwareHouse/deprecated/` for the archived design.
+Arthur is a single-model manager/router/state-controller. If confidence is low, Arthur routes to the assigned Senior or the user instead of guessing. The historical Watcher/Core split is deprecated; see `Pantheon/deprecated/` for the archived design.
 
 ## 4. Retry Ladder
 
@@ -159,9 +159,9 @@ Arthur is responsible for hiring or activating any additional specialist agents 
 Arthur must not silently expand the team.  
 If a specialist is needed, Arthur writes a hiring packet and records the explicit project requirement.
 
-## Full Software House Specialist Activation
+## Full Pantheon Specialist Activation
 
-The full Software House may include frontend, mobile, Pine Script, Quantower/C#, DevOps, QA, and research specialists.
+The full Pantheon may include frontend, mobile, Pine Script, Quantower/C#, DevOps, QA, and research specialists.
 
 They are not automatically active on every project.
 

@@ -11,7 +11,7 @@
 ## Reason
 
 - Why this specialist is needed:
-- Why the default Software House team cannot safely handle it:
+- Why the default Pantheon team cannot safely handle it:
 - What happens if we do not activate this specialist:
 
 ## Expected Output

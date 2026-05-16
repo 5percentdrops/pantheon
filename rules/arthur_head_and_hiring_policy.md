@@ -1,8 +1,8 @@
-# Arthur Head and Hiring Policy — Full Software House
+# Arthur Head and Hiring Policy — Full Pantheon
 
 ## Decision
 
-Arthur is the head of the full Software House.
+Arthur is the head of the full Pantheon.
 
 In Paperclip terms, Arthur occupies the top setup role that would normally be called the CEO.  
 In this organisation, the title is changed.
@@ -26,9 +26,9 @@ Arthur owns:
 - Winston archive handoff
 - activation of extra specialist agents when needed
 
-## Full Software House Rule
+## Full Pantheon Rule
 
-The full Software House contains specialist agents, but Arthur controls when they are activated.
+The full Pantheon contains specialist agents, but Arthur controls when they are activated.
 
 Specialists are available as modules, not automatically active on every project.
 

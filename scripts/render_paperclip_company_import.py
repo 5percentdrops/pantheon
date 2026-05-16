@@ -3,7 +3,7 @@ import json, argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "SoftwareHouse"
+BASE = ROOT / "Pantheon"
 
 def read(path):
     return Path(path).read_text(encoding="utf-8")
@@ -19,7 +19,7 @@ def main():
     payload = {
         "kind": "paperclip_company_import",
         "version": "v8",
-        "source": "SoftwareHouse_V8_OneClickInstall_ArthurHead_PaperclipHermes",
+        "source": "Pantheon_V8_OneClickInstall_ArthurHead_PaperclipHermes",
         "organization": org.get("organization", {}),
         "control_plane": org.get("control_plane", {}),
         "hermes_runtime": org.get("hermes_runtime", {}),

@@ -1,7 +1,7 @@
 # Universal Organisation Escalation Pattern
 
 ## Purpose
-The Software House escalation routine applies across every organisation.
+The Pantheon escalation routine applies across every organisation.
 
 Each organisation adapts the same pattern to its own standard agents, senior owners, reviewers, and principal/approach reviewers.
 

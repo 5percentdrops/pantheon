@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SH = ROOT / "SoftwareHouse"
+SH = ROOT / "Pantheon"
 
 def fail(msg):
     print("FAIL:", msg)
@@ -14,7 +14,7 @@ def load_json(p):
 
 org = SH / "paperclip" / "organization.import.json"
 if not org.exists():
-    fail("missing SoftwareHouse/paperclip/organization.import.json")
+    fail("missing Pantheon/paperclip/organization.import.json")
 data = load_json(org)
 
 rules = data.get("rules", {})

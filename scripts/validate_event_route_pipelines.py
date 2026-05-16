@@ -10,7 +10,7 @@ import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SH = ROOT / "SoftwareHouse"
+SH = ROOT / "Pantheon"
 
 routes = json.loads((SH / "routes" / "paperclip_control_plane_routes.json").read_text(encoding="utf-8"))
 event_routes = routes.get("event_routes", {})

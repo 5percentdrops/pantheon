@@ -4,7 +4,7 @@ from pathlib import Path
 from collections import Counter
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "SoftwareHouse"
+BASE = ROOT / "Pantheon"
 
 def fail(msg):
     print(f"FAIL: {msg}")
@@ -17,30 +17,30 @@ def load_json(p):
         fail(f"Invalid JSON {p}: {e}")
 
 required = [
-    "SoftwareHouse/company/paperclip_company.yaml",
-    "SoftwareHouse/company/approval_policy.yaml",
-    "SoftwareHouse/company/budget_policy.yaml",
-    "SoftwareHouse/company/heartbeat_policy.yaml",
-    "SoftwareHouse/harnesses/hermes_local.yaml",
-    "SoftwareHouse/contracts/context_pack.schema.json",
-    "SoftwareHouse/contracts/paperclip_issue.schema.json",
-    "SoftwareHouse/contracts/model_route.schema.json",
-    "SoftwareHouse/contracts/harness_assignment.schema.json",
-    "SoftwareHouse/contracts/merge_review.schema.json",
-    "SoftwareHouse/contracts/implementation_report.schema.json",
-    "SoftwareHouse/contracts/memory_update.schema.json",
-    "SoftwareHouse/contracts/ci_triage.schema.json",
-    "SoftwareHouse/contracts/prd.schema.json",
-    "SoftwareHouse/contracts/heartbeat.schema.json",
-    "SoftwareHouse/contracts/transcript.schema.json",
-    "SoftwareHouse/contracts/budget_event.schema.json",
-    "SoftwareHouse/pipelines/feature_delivery_pipeline.yaml",
-    "SoftwareHouse/pipelines/red_team_fanout_pipeline.yaml",
-    "SoftwareHouse/pipelines/architecture_council_pipeline.yaml",
-    "SoftwareHouse/pipelines/memory_hygiene_pipeline.yaml",
-    "SoftwareHouse/routes/paperclip_control_plane_routes.json",
-    "SoftwareHouse/policies/canonical_model_policy_v8_1.md",
-    "SoftwareHouse/policies/model_route_override_policy.md",
+    "Pantheon/company/paperclip_company.yaml",
+    "Pantheon/company/approval_policy.yaml",
+    "Pantheon/company/budget_policy.yaml",
+    "Pantheon/company/heartbeat_policy.yaml",
+    "Pantheon/harnesses/hermes_local.yaml",
+    "Pantheon/contracts/context_pack.schema.json",
+    "Pantheon/contracts/paperclip_issue.schema.json",
+    "Pantheon/contracts/model_route.schema.json",
+    "Pantheon/contracts/harness_assignment.schema.json",
+    "Pantheon/contracts/merge_review.schema.json",
+    "Pantheon/contracts/implementation_report.schema.json",
+    "Pantheon/contracts/memory_update.schema.json",
+    "Pantheon/contracts/ci_triage.schema.json",
+    "Pantheon/contracts/prd.schema.json",
+    "Pantheon/contracts/heartbeat.schema.json",
+    "Pantheon/contracts/transcript.schema.json",
+    "Pantheon/contracts/budget_event.schema.json",
+    "Pantheon/pipelines/feature_delivery_pipeline.yaml",
+    "Pantheon/pipelines/red_team_fanout_pipeline.yaml",
+    "Pantheon/pipelines/architecture_council_pipeline.yaml",
+    "Pantheon/pipelines/memory_hygiene_pipeline.yaml",
+    "Pantheon/routes/paperclip_control_plane_routes.json",
+    "Pantheon/policies/canonical_model_policy_v8_1.md",
+    "Pantheon/policies/model_route_override_policy.md",
 ]
 missing = [p for p in required if not (ROOT / p).exists()]
 if missing:
@@ -136,7 +136,7 @@ for r in route_entries:
         fail(f"Route references unknown agent: {aid}")
     c = r.get("contract") or r.get("output_contract")
     if c and c not in contracts:
-        fail(f"Route references contract not found in SoftwareHouse/contracts: {c}")
+        fail(f"Route references contract not found in Pantheon/contracts: {c}")
 
 # Pipelines must be dispatchable through event_routes and their contracts must resolve.
 event_routes = routes.get("event_routes") or {}

@@ -17,7 +17,7 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PKG_DIR="$REPO_ROOT/software-house"
+PKG_DIR="$REPO_ROOT/pantheon"
 
 SKIP_DOCTOR=0
 SKIP_CONVERTER=0
@@ -38,11 +38,11 @@ while [ $# -gt 0 ]; do
     shift
 done
 
-echo "==> SoftwareHouse V8.5 -> bootstrap Hermes homes"
+echo "==> Pantheon V8.5 -> bootstrap Hermes homes"
 echo
 
 if [ "$SKIP_CONVERTER" = "0" ] && [ ! -d "$PKG_DIR" ]; then
-    echo "==> Step 1/3: Generate software-house/ via converter"
+    echo "==> Step 1/3: Generate pantheon/ via converter"
     python3 "$REPO_ROOT/scripts/convert_to_agentcompanies_v1.py"
     echo
 fi

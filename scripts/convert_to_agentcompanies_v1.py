@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-Convert SoftwareHouse V8.3 payload to agentcompanies/v1 directory tree.
+Convert Pantheon V8.3 payload to agentcompanies/v1 directory tree.
 V8.5: uniform hermes_local adapter, per-agent HERMES_HOME.
 
-Reads: SoftwareHouse/paperclip/organization.import.json (canonical source)
-       SoftwareHouse/skills/hermes_seed/*.md           (seed skills)
-       SoftwareHouse/company/*.yaml                    (governance policies)
-       SoftwareHouse/policies/*.md                     (operating rules)
+Reads: Pantheon/paperclip/organization.import.json (canonical source)
+       Pantheon/skills/hermes_seed/*.md           (seed skills)
+       Pantheon/company/*.yaml                    (governance policies)
+       Pantheon/policies/*.md                     (operating rules)
 
-Writes: software-house/                                (importable package)
+Writes: pantheon/                                (importable package)
          COMPANY.md
          README.md
          LICENSE
@@ -34,8 +34,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SH = ROOT / "SoftwareHouse"
-OUT = ROOT / "software-house"
+SH = ROOT / "Pantheon"
+OUT = ROOT / "pantheon"
 
 # V8.5: uniform hermes_local adapter for every agent.
 # hermes_local is provided by the hermes-paperclip-adapter npm package,
@@ -149,14 +149,14 @@ def write_company_md():
     approval_yaml = (SH / "company" / "approval_policy.yaml").read_text(encoding="utf-8")
     budget_yaml = (SH / "company" / "budget_policy.yaml").read_text(encoding="utf-8")
 
-    name = company.get("display_name") or "Software House"
+    name = company.get("display_name") or "Pantheon"
     description = company.get("description") or company.get("ethos") or \
         "AI-native software studio for building financial-market systems with architecture-first, test-first, security-aware execution."
 
     body = f"""---
 schema: agentcompanies/v1
 name: {yaml_str(name)}
-slug: software-house
+slug: pantheon
 description: {yaml_str(description[:200])}
 version: 8.4.0
 license: MIT
@@ -175,7 +175,7 @@ tags:
   - autonomous
 ---
 
-# Software House
+# Pantheon
 
 AI-native software studio for building groundbreaking financial-market systems. Architecture-first. Test-first. Security-aware. Human approval for governance, merge, deploy, production trading changes, and API-key permissions.
 
@@ -255,7 +255,7 @@ The full approval policy is in `.paperclip.yaml.governance`. Highlights:
 ## Getting started
 
 ```bash
-paperclipai company import ./software-house --target new --new-company-name "Software House" --include company,agents,skills --dry-run
+paperclipai company import ./pantheon --target new --new-company-name "Pantheon" --include company,agents,skills --dry-run
 ```
 
 Drop the `--dry-run` once the preview looks right.
@@ -271,9 +271,9 @@ Drop the `--dry-run` once the preview looks right.
 
 
 def write_readme():
-    body = """# Software House — Paperclip company package
+    body = """# Pantheon — Paperclip company package
 
-This is the importable `agentcompanies/v1` package for the Software House organization. It contains:
+This is the importable `agentcompanies/v1` package for the Pantheon organization. It contains:
 
 - `COMPANY.md` — company metadata, goals, hard rules, org chart
 - `agents/<slug>/AGENTS.md` — one per agent (33 total)
@@ -284,10 +284,10 @@ This is the importable `agentcompanies/v1` package for the Software House organi
 
 ```bash
 # Preview
-paperclipai company import . --target new --new-company-name "Software House" --include company,agents,skills --dry-run
+paperclipai company import . --target new --new-company-name "Pantheon" --include company,agents,skills --dry-run
 
 # Apply
-paperclipai company import . --target new --new-company-name "Software House" --include company,agents,skills --yes
+paperclipai company import . --target new --new-company-name "Pantheon" --include company,agents,skills --yes
 ```
 
 ## Prerequisites
@@ -495,7 +495,7 @@ def write_agents():
             "",
             "## Role",
             "",
-            description if description else f"{name} is the {role} in the Software House.",
+            description if description else f"{name} is the {role} in the Pantheon.",
             "",
         ]
 
@@ -733,7 +733,7 @@ description: Seed skill for {slug} ({a.get('role','')}) — operational procedur
 version: 1.0.0
 metadata:
   hermes:
-    tags: [software-house, {slug}]
+    tags: [pantheon, {slug}]
     category: organizational
 ---
 
@@ -857,7 +857,7 @@ def main():
     write_skills()
     write_paperclip_yaml()
     print(f"\nDone. Package ready at: {OUT}")
-    print(f"Import with: paperclipai company import {OUT.name} --target new --new-company-name 'Software House' --include company,agents,skills --dry-run")
+    print(f"Import with: paperclipai company import {OUT.name} --target new --new-company-name 'Pantheon' --include company,agents,skills --dry-run")
 
 
 if __name__ == "__main__":

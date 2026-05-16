@@ -1,4 +1,4 @@
-# Software House V8 — Paperclip + Hermes Corrected Architecture
+# Pantheon V8 — Paperclip + Hermes Corrected Architecture
 
 ## Correct model
 

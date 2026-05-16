@@ -25,7 +25,7 @@ import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SH = ROOT / 'SoftwareHouse'
+SH = ROOT / 'Pantheon'
 
 CANONICAL_MODEL = "openai/gpt-5-mini"
 CANONICAL_DISPLAY = "GPT-5 mini under Hermes"

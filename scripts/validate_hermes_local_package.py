@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-V8.5: validate that the generated software-house/ package routes every active
+V8.5: validate that the generated pantheon/ package routes every active
 agent through the hermes_local adapter with a per-agent HERMES_HOME.
 
-Checks (against software-house/.paperclip.yaml):
+Checks (against pantheon/.paperclip.yaml):
   1. Every agent block (except Owen) has adapter.type == hermes_local.
   2. adapter.config.model is non-empty (provider/model format).
   3. adapter.config.provider is non-empty and in the known set.
   4. adapter.config.env.HERMES_HOME == ~/.hermes-<slug>  (slug must match).
   5. Owen has no adapter block (intentional skip, see manifest.json).
   6. Every canonical agent in manifest.canonical_agent_ids has a corresponding
-     directory under software-house/agents/.
+     directory under pantheon/agents/.
 
 Exit code 0 = green; 1 = at least one failure.
 """
@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PKG = ROOT / "software-house"
+PKG = ROOT / "pantheon"
 YAML = PKG / ".paperclip.yaml"
 MANIFEST = ROOT / "manifest.json"
 
@@ -112,7 +112,7 @@ def main():
     failures = []
 
     if not PKG.exists():
-        print("SKIP: software-house/ not generated yet (run convert_to_agentcompanies_v1.py first).")
+        print("SKIP: pantheon/ not generated yet (run convert_to_agentcompanies_v1.py first).")
         sys.exit(0)
 
     if not YAML.exists():

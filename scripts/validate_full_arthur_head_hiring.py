@@ -11,7 +11,7 @@ def fail(msg):
 
 required = [
     "rules/arthur_head_and_hiring_policy.md",
-    "docs/FULL_SOFTWARE_HOUSE_ARTHUR_HEAD.md",
+    "docs/FULL_PANTHEON_ARTHUR_HEAD.md",
     "templates/ARTHUR_HIRING_PACKET.template.md",
 ]
 for rel in required:
@@ -44,4 +44,4 @@ if not arthur.get("can_activate_specialists"):
 if not arthur.get("requires_hiring_packet"):
     fail("Arthur hiring packet requirement missing")
 
-print("PASS: Full Software House Arthur head and hiring authority validated.")
+print("PASS: Full Pantheon Arthur head and hiring authority validated.")

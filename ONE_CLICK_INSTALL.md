@@ -1,4 +1,4 @@
-# Software House V8.0 — One-Click Install
+# Pantheon V8.0 — One-Click Install
 
 ## Install
 
@@ -53,7 +53,7 @@ V8.1 fixes the V8 audit issues:
 - `model` is now the canonical model field.
 - Arthur is collapsed to `openai/gpt-5-mini` under Hermes.
 - `llm_module` is display-only and derived from `model`.
-- `SoftwareHouse/contracts/` is the canonical schema directory.
+- `Pantheon/contracts/` is the canonical schema directory.
 - Routes and pipelines are validated against contracts.
 - Pipelines are dispatchable through `event_routes`.
 - Context-pack-first is validated structurally.

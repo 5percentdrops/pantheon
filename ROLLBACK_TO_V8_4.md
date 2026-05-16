@@ -19,7 +19,7 @@ State written outside the repo:
 
 - `~/.hermes-<slug>/` (32 directories)
 - `~/.paperclip/adapter-plugins.json` (entry for `hermes_local`)
-- Paperclip company record (`Software House`) imported via `paperclipai company import`
+- Paperclip company record (`Pantheon`) imported via `paperclipai company import`
 
 ## Full rollback (one command, destructive)
 
@@ -36,7 +36,7 @@ If you have not yet wrapped a `rollback_to_v8_4.sh` helper, run the steps below 
 ### 1. Remove the imported Paperclip company
 
 ```bash
-paperclipai company list                              # find the id of "Software House"
+paperclipai company list                              # find the id of "Pantheon"
 paperclipai company delete <company_id> --confirm     # deletes record + agents + skills
 ```
 
@@ -95,13 +95,13 @@ rm -f scripts/bootstrap_hermes_homes.sh \
 If the repo is not under git, restore from the original V8.4 zip:
 
 ```bash
-unzip -o SoftwareHouse_V8_4_OneClickInstall_RealPaperclipImport_Final_Repo.zip
+unzip -o pantheon.zip
 ```
 
 ### 5. Re-run V8.4 install (native adapters)
 
 ```bash
-rm -rf software-house     # force regeneration with V8.4 adapter map
+rm -rf pantheon     # force regeneration with V8.4 adapter map
 bash scripts/one_click_install.sh
 ```
 
@@ -111,7 +111,7 @@ This produces `claude_local` / `codex_local` / `gemini_local` adapter blocks for
 
 ### Keep V8.5 source, disable for a single agent
 
-Edit the generated `software-house/.paperclip.yaml` for that agent — change `adapter.type: hermes_local` → `adapter.type: claude_local` (or whichever native applies). Re-import the company with `paperclipai company import --target update`.
+Edit the generated `pantheon/.paperclip.yaml` for that agent — change `adapter.type: hermes_local` → `adapter.type: claude_local` (or whichever native applies). Re-import the company with `paperclipai company import --target update`.
 
 ### Keep V8.5, blow away one agent's Hermes memory
 
@@ -122,7 +122,7 @@ bash scripts/bootstrap_hermes_homes.sh --only marcus --force-soul
 
 ### Keep V8.5, retire Owen properly (or activate)
 
-Owen is intentionally skipped in V8.5 because NotebookLM has no API. To retire him cleanly: delete his record from the imported Paperclip company. To activate: edit `SoftwareHouse/paperclip/organization.import.json`, set Owen's `model` to a concrete provider (e.g., `google/gemini-3.1-pro`), rerun `one_click_install.sh --convert-only`, re-import.
+Owen is intentionally skipped in V8.5 because NotebookLM has no API. To retire him cleanly: delete his record from the imported Paperclip company. To activate: edit `Pantheon/paperclip/organization.import.json`, set Owen's `model` to a concrete provider (e.g., `google/gemini-3.1-pro`), rerun `one_click_install.sh --convert-only`, re-import.
 
 ## Verification post-rollback
 
