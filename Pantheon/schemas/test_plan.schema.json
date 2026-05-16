@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "test_plan.schema.json",
+  "title": "Test Plan (V8.10 alias of task_tdd_block.schema.json)",
+  "description": "Friendly-name alias. See contracts/test_plan.schema.json for the canonical mount; the authoritative shape lives in `task_tdd_block.schema.json`.",
+  "$ref": "task_tdd_block.schema.json"
+}

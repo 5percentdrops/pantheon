@@ -9,19 +9,27 @@ pipeline:
     - architecture_before_tickets
     - qa_sdd_signoff_required_before_tdd_block   # V8.6
     - tests_before_code
+    - per_stage_max_output_tokens_enforced       # V8.10
+  output_budget:                                 # V8.10 article-derived: bound length per stage
+    pipeline_total_max_tokens: 60000
+    enforcement: truncate_with_warning_then_escalate
   stages:
     - id: context_pack
       agent: winston-director-knowledge-architecture
+      input_event: prd_created                   # V8.10: declared dispatch trigger
       output_contract: context_pack.schema.json
       required: true
+      max_output_tokens: 4000                    # V8.10
     - id: prd_validation
       agent: arthur-project-manager
       input_contract: prd.schema.json
       output_contract: paperclip_issue.schema.json
+      max_output_tokens: 2000                    # V8.10
     - id: sdd_architecture
       agent: marcus-senior-backend-developer
       input_contract: prd.schema.json
       output_contract: prd_to_sdd_pipeline.schema.json
+      max_output_tokens: 12000                   # V8.10
     - id: sdd_qa_review                            # V8.6: mid-pipeline QA
       agent: senior-qa                             # Nadia
       input_contract: prd_to_sdd_pipeline.schema.json
@@ -30,6 +38,7 @@ pipeline:
       fail_action: return_to_marcus_with_notes
       max_iterations: 2
       escalation_on_persistent_fail: arthur-project-manager
+      max_output_tokens: 4000                    # V8.10
       reason: |
         Catches PRD-to-SDD drift at design time, before Marcus locks
         task-level TDD red tests. Prevents the failure mode where
@@ -39,16 +48,24 @@ pipeline:
       agent: marcus-senior-backend-developer
       input_contract: sdd_qa_signoff.schema.json   # V8.6: gate not bypassable
       output_contract: task_tdd_block.schema.json
+      max_output_tokens: 6000                    # V8.10
     - id: implementation
       agent: jack-backend-developer
       input_contract: task_tdd_block.schema.json
       output_contract: implementation_report.schema.json
+      max_output_tokens: 16000                   # V8.10 — implementation is the largest legitimate stage
     - id: dual_review_clara
       agent: clara-claude-pr-review-lead
+      input_contract: implementation_report.schema.json  # V8.10: bypass-proof
       output_contract: merge_review.schema.json
+      max_output_tokens: 4000                    # V8.10
     - id: dual_review_cody
       agent: cody-code-escalation-reviewer
+      input_contract: merge_review.schema.json   # V8.10: bypass-proof
       output_contract: merge_review.schema.json
+      max_output_tokens: 4000                    # V8.10
     - id: memory_update
       agent: winston-director-knowledge-architecture
+      input_contract: merge_review.schema.json   # V8.10: bypass-proof
       output_contract: memory_update.schema.json
+      max_output_tokens: 2000                    # V8.10

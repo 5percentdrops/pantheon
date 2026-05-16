@@ -3,10 +3,19 @@ pipeline:
   pattern: pipeline
   dispatch_events:
     - ci_failed
+  hard_gates:
+    - per_stage_max_output_tokens_enforced     # V8.10
+  output_budget:                               # V8.10
+    pipeline_total_max_tokens: 10000
+    enforcement: truncate_with_warning_then_escalate
   stages:
     - id: ci_log_triage
       agent: cody-code-escalation-reviewer
+      input_event: ci_failure_event             # V8.10: declared input
       output_contract: ci_triage.schema.json
+      max_output_tokens: 4000                   # V8.10
     - id: fix_ticket_or_escalation
       agent: arthur-project-manager
+      input_contract: ci_triage.schema.json     # V8.10: bypass-proof
       output_contract: paperclip_issue.schema.json
+      max_output_tokens: 2000                   # V8.10

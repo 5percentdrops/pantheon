@@ -1,11 +1,53 @@
-# Pantheon — 3 → 33 Smoke-Scale Ramp
+# Pantheon — 2 → 33 Smoke-Scale Ramp
 
 When you stand up Pantheon on a fresh machine, **don't fire all 33 agents on
 day one**. Multi-agent failures compound silently; you want to see them at
-3-agent scale, fix the wiring, then add scope.
+2-agent scale, fix the wiring, then add scope.
 
 Run the ramp in this order. Each phase has an explicit pass/fail signal —
 don't move on until you see it.
+
+---
+
+## Phase 0: Pair (2 agents) — V8.10
+
+The article's first prescription is *"Start with two agents working together
+on a simple pipeline task."* Phase 0 verifies the handoff *contract* before
+you involve any engineer at all.
+
+**Active:** Arthur + Marcus only.
+**Disabled:** everyone else (Jack included).
+
+```bash
+bash scripts/one_click_install.sh -y --no-dreaming --no-paperclip
+# Then in Paperclip UI: enable only arthur, marcus.
+```
+
+Send a one-paragraph PRD with NO ambiguity:
+
+> *"Build a function `add(a, b)` that returns the sum of two integers.
+> Write it in Python. No file IO. No tests. No error handling for
+> non-integers."*
+
+**Pass signal:** Arthur routes → Marcus emits a 1-page SDD →
+Nadia signoff (V8.6 mid-pipeline gate fires even with no engineer
+downstream) → Arthur archives. Total wall time: < 5 min.
+
+**Why Phase 0 matters:** if `arthur → marcus` handoff fails on a function
+this trivial, every later phase is wasted effort. Phase 0 isolates the
+contract surface (`prd.schema.json` → `paperclip_issue.schema.json` →
+`prd_to_sdd_pipeline.schema.json`) from any engineer-side risk.
+
+**Fail signals:**
+- Marcus rejects the PRD with `scope_unclear` → your PRD template needs
+  tightening before adding more agents.
+- Arthur loops on PRD validation → check `prd.schema.json` is mounted
+  and Arthur's seed prompt enforces it.
+- Nadia approves trivially without checking the PRD clauses → V8.6 gate
+  is performative; tighten her seed.
+
+Only move to Phase 1 once Phase 0 passes cleanly twice in a row with
+different toy PRDs.
 
 ---
 

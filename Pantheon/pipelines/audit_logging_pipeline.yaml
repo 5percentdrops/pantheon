@@ -6,16 +6,27 @@ pipeline:
   cadence: every_agent_heartbeat
   assigned_producer: paperclip_heartbeat_logger
   supervised_by: arthur-project-manager
+  hard_gates:
+    - per_producer_max_output_bytes_enforced    # V8.10
+  output_budget:                                # V8.10 — emitters, not LLMs; caps are structural bytes
+    pipeline_total_max_bytes: 256000
+    enforcement: ring_buffer_drop_oldest
   stages:
     - id: emit_heartbeat
       producer: paperclip_heartbeat_logger
+      input_event: runtime_agent_heartbeat       # V8.10: declared non-schema runtime input
       output_contract: heartbeat.schema.json
+      max_output_bytes: 4096                     # V8.10
     - id: emit_transcript
       producer: paperclip_transcript_logger
+      input_event: runtime_agent_transcript_chunk   # V8.10
       output_contract: transcript.schema.json
+      max_output_bytes: 32768                    # V8.10 — bounded transcript chunks
     - id: emit_budget_event
       producer: paperclip_budget_meter
+      input_event: runtime_token_usage_delta     # V8.10
       output_contract: budget_event.schema.json
+      max_output_bytes: 1024                     # V8.10
   consumer: paperclip_audit_log
   runtime_boundary: |
     This repo declares the pipeline shape. Actual heartbeat/transcript/budget

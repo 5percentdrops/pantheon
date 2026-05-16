@@ -4,6 +4,14 @@ pipeline:
   dispatch_events:
     - high_risk_pr_opened
     - architecture_red_team_requested
+  hard_gates:
+    - per_fanout_max_output_tokens_enforced     # V8.10
+  input_contract: implementation_report.schema.json   # V8.10: bypass-proof entrypoint
+  output_budget:                                # V8.10
+    pipeline_total_max_tokens: 40000
+    per_fanout_max_output_tokens: 6000
+    synthesis_max_output_tokens: 4000
+    enforcement: truncate_with_warning_then_escalate
   fanout_agents:
     - cody-code-escalation-reviewer
     - clara-claude-pr-review-lead

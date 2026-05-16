@@ -163,6 +163,26 @@ Per-ticket outcomes (V8.7) grade Jack's PRs. System outcomes (V8.9) grade the **
 
 Winston Sunday-night scan flags two agents doing the same job — by role Jaccard, by handoff overlap, by shared seed-skill, by shared model+harness. Advisory only; never blocks the pipeline. First scan on the 33-agent roster surfaced 125 findings — concrete triage signal for tightening role scopes.
 
+### 🪜 2-agent Phase 0 smoke (V8.10)
+
+Before the Phase 1 triad, run Arthur + Marcus on a trivial `add(a, b)` PRD. Verifies the handoff contract surface (`prd → paperclip_issue → prd_to_sdd_pipeline`) cleanly before any engineer risk. Must pass twice with different toy PRDs before Jack ever wakes up.
+
+### 📏 Per-stage output caps (V8.10)
+
+Every pipeline now declares `output_budget` and every stage declares `max_output_tokens` (or `_bytes` for emitters). Marcus's SDD capped at 12 000. Jack's implementation capped at 16 000 (largest legitimate stage). Maxwell override capped at 16 000 — most expensive lane gets explicit cap. Closes article Mistake 5 (token bloat).
+
+### 🔐 Bypass-proof every handoff (V8.10)
+
+V8.6 made the SDD→TDD handoff bypass-proof. V8.10 extends the invariant across all 9 pipelines: every non-first stage declares `input_contract` or `input_event`. Cody cannot accept an SDD where it expects an implementation report. Wrong-handoff routing fails at schema validation, not after wasting Opus tokens.
+
+### 🧭 Friendly schema aliases (V8.10)
+
+`sdd.schema.json` and `test_plan.schema.json` now ship as `$ref` aliases (in both `schemas/` and `contracts/`) to the canonical `prd_to_sdd_pipeline.schema.json` and `task_tdd_block.schema.json`. New users grepping the article-derived names get a hit. One canonical shape, two findable paths.
+
+### 📓 Concrete example walkthrough (V8.10)
+
+`examples/weekly_market_intelligence.md` — a 9-stage trace of a real PRD ("weekly competitor intel report") with per-stage projected token + wall-time, sequential vs fan-out variants, sample dashboard view. Numbers are projections from V8.10 caps; replace with empirical data after your first run.
+
 ### 🎛 Stack you control
 
 ```
@@ -292,6 +312,8 @@ Three layers stop it: per-agent budget caps, dual PR review (Clara + Cody), and 
 
 - [`README_INSTALL.md`](README_INSTALL.md) — full install guide, OS matrix, key setup
 - [`SMOKE_SCALE.md`](SMOKE_SCALE.md) — phased 3→33 agent ramp (don't fire all 33 on day one)
+- [`examples/weekly_market_intelligence.md`](examples/weekly_market_intelligence.md) — concrete 9-stage walkthrough with token/time projections
+- [`PATCH_NOTES_V8_10.md`](PATCH_NOTES_V8_10.md) — Phase 0 + per-stage caps + bypass-proof contracts + schema aliases + example doc
 - [`PATCH_NOTES_V8_9.md`](PATCH_NOTES_V8_9.md) — central observability (dashboard + system outcomes + redundant work)
 - [`PATCH_NOTES_V8_8.md`](PATCH_NOTES_V8_8.md) — escalation packet schema + cross-agent learning + Maxwell override grading
 - [`PATCH_NOTES_V8_7.md`](PATCH_NOTES_V8_7.md) — outcome rubric + fan-out + budget watcher + CMA burst

@@ -18,3 +18,9 @@ pipeline:
   output_contract: memory_update.schema.json
   hard_rule:
     governance_updates_require_human_approval: true
+  hard_gates:                                # V8.10
+    - per_run_max_output_tokens_enforced
+  output_budget:                             # V8.10
+    pipeline_total_max_tokens: 8000
+    max_output_tokens_per_artifact: 3000
+    enforcement: truncate_with_warning_then_escalate

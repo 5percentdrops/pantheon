@@ -9,6 +9,11 @@ pipeline:
     - observability_never_calls_llm
     - observability_never_mutates_hermes_homes
     - failing_system_outcomes_surfaces_to_board_does_not_auto_pause
+    - per_run_max_output_bytes_enforced    # V8.10 (file IO only, no tokens)
+  output_budget:                           # V8.10 — pure file IO; cap is bytes
+    pipeline_total_max_bytes: 1048576       # 1 MB cap across all dashboard writes
+    enforcement: truncate_oldest_then_log
+    rationale: "No LLM tokens; cap protects against runaway dashboard growth."
   stages:
     - id: metrics_rollup
       schedule: "*/15 * * * * UTC"

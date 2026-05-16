@@ -7,6 +7,10 @@ pipeline:
     - hermes_doctor_must_pass_before_dream
     - dream_runs_per_home_only_never_cross_agent
     - dream_never_rewrites_soul_md
+    - per_run_max_output_tokens_enforced    # V8.10
+  output_budget:                            # V8.10
+    pipeline_total_max_tokens: 8000          # matches native_dream args.max_tokens
+    enforcement: hard_cap_then_skip_iteration
   schedule:
     type: per_agent_cron
     expression: "0 3 * * *"

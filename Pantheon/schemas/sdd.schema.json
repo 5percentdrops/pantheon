@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sdd.schema.json",
+  "title": "SDD (V8.10 alias of prd_to_sdd_pipeline.schema.json)",
+  "description": "Friendly-name alias. See contracts/sdd.schema.json for the canonical mount; the authoritative shape lives in `prd_to_sdd_pipeline.schema.json`.",
+  "$ref": "prd_to_sdd_pipeline.schema.json"
+}

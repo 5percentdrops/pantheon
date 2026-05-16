@@ -3,6 +3,14 @@ pipeline:
   pattern: specialist_team
   dispatch_events:
     - architecture_decision_requested
+  hard_gates:
+    - per_specialist_max_output_tokens_enforced   # V8.10
+  input_contract: prd.schema.json                 # V8.10: bypass-proof entrypoint
+  output_budget:                                  # V8.10
+    pipeline_total_max_tokens: 40000
+    per_specialist_max_output_tokens: 6000
+    final_decision_max_output_tokens: 4000
+    enforcement: truncate_with_warning_then_escalate
   specialists:
     - winston-director-knowledge-architecture
     - marcus-senior-backend-developer

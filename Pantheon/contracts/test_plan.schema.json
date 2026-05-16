@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "test_plan.schema.json",
+  "title": "Test Plan (V8.10 alias of task_tdd_block.schema.json)",
+  "description": "Friendly-name alias. Authoritative shape lives in `task_tdd_block.schema.json`. This file exists so callers using the article-derived name `test_plan.schema.json` resolve cleanly. Do NOT redefine the shape here — change `task_tdd_block.schema.json` and this $ref will follow.",
+  "$ref": "task_tdd_block.schema.json"
+}

@@ -25,6 +25,8 @@ validators = [
     "validate_v8_8_patches.py",
     # V8.9: observability layer (metrics dashboard + system outcomes + redundant work)
     "validate_v8_9_patches.py",
+    # V8.10: Phase 0, per-stage max_tokens, bypass-proof, schema aliases, example doc
+    "validate_v8_10_patches.py",
 ]
 
 failed = []

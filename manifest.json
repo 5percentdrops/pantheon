@@ -32,7 +32,7 @@
     "Nadia",
     "Arthur"
   ],
-  "version": "8.9",
+  "version": "8.10",
   "pantheon_parallel_escalation": {
     "arthur": "GPT-5 mini under Hermes",
     "jack": "DeepSeek V4 Pro under Hermes",
@@ -481,7 +481,7 @@
     "pipeline_dispatch_enabled": true,
     "budget_caps_checked": true
   },
-  "schema_version": "pantheon.v8.9",
+  "schema_version": "pantheon.v8.10",
   "v8_2_patch": {
     "arthur_model_purged": true,
     "retry_ladder_canonical": "engineering_escalation_ladder_v8_2",
@@ -641,5 +641,65 @@
     "observability_policy": "Pantheon/policies/observability_policy.yaml",
     "cron_installer": "scripts/install_observability_crons.sh",
     "hard_rule": "observability NEVER calls LLM, NEVER mutates hermes homes (except Arthur MEMORY.md on escalate_to_board)"
+  },
+  "v8_10_patch": {
+    "smoke_phase_0_pair": {
+      "doc": "SMOKE_SCALE.md#phase-0",
+      "agents": [
+        "arthur-project-manager",
+        "marcus-senior-backend-developer"
+      ],
+      "rationale": "verify handoff contract before any engineer involvement"
+    },
+    "per_stage_output_caps": {
+      "pipelines_updated": [
+        "feature_delivery",
+        "sdd_qa_review",
+        "tdd_block",
+        "dual_review_clara",
+        "dual_review_cody",
+        "ci_triage",
+        "architecture_council",
+        "red_team_fanout",
+        "maxwell_override_grading",
+        "model_route_override",
+        "audit_logging",
+        "memory_hygiene",
+        "dreaming",
+        "observability"
+      ],
+      "invariant": "every agent/producer stage declares max_output_tokens OR max_output_bytes",
+      "pipeline_total_caps_examples": {
+        "feature_delivery": 60000,
+        "architecture_council": 40000,
+        "red_team_fanout": 40000,
+        "maxwell_override_grading": 30000,
+        "observability_bytes": 1048576
+      }
+    },
+    "bypass_proof_input_contracts": {
+      "invariant": "every non-first stage declares input_contract OR input_event (audit_logging emitters use input_event for runtime sources)",
+      "first_stage_inheritance": "allowed from pipeline.input_contract",
+      "pipelines_audited": 9
+    },
+    "schema_aliases": {
+      "sdd.schema.json": {
+        "": "prd_to_sdd_pipeline.schema.json",
+        "locations": [
+          "Pantheon/schemas/",
+          "Pantheon/contracts/"
+        ]
+      },
+      "test_plan.schema.json": {
+        "": "task_tdd_block.schema.json",
+        "locations": [
+          "Pantheon/schemas/",
+          "Pantheon/contracts/"
+        ]
+      },
+      "rationale": "article-derived names resolve cleanly; authoritative shapes unchanged"
+    },
+    "example_walkthrough": "examples/weekly_market_intelligence.md",
+    "hard_rule": "no stage may emit unbounded output; no stage may consume from an undeclared upstream"
   }
 }
