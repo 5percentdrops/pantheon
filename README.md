@@ -1,190 +1,155 @@
-# SoftwareHouse Standalone Plug-and-Play Package
+# Software House
 
-This package applies the same final CoreSeed standard used for FeedDeck, StoryVision, and Theseus House.
+> AI-native software studio. 33 agents. One company. Runs on **Paperclip** (control plane) + **Hermes** (per-agent runtime).
 
-## Includes
+```
+Paperclip     →   company / control plane (1 instance)
+hermes_local  →   external Paperclip adapter (npm: hermes-paperclip-adapter)
+HERMES_HOME   →   per-agent identity root  (~/.hermes-<slug>, 32 active homes)
+hermes        →   runtime invoked per task with HERMES_HOME injected
+LLM models    →   Anthropic, OpenAI, Google, DeepSeek, Moonshot — passed through
+```
 
-- Organisation name
-- Agents
-- Roles
-- Descriptions
-- Personalities
-- LLM/module assignments
-- Harness assignments
-- Paperclip organisation import
-- Hermes seed skills
-- OpenClaw seed skills
-- Routes / handoff maps
-- Escalation schemas
-- Validation script
-- Install script
-- Original source repo for audit
+Every agent has its own `SOUL.md`, `MEMORY.md`, `USER.md`, persistent session, and self-improving skill library. Identity survives heartbeats, machine moves, and company re-imports.
 
-## Main contact
+---
 
-Arthur — Project Manager
-
-## Install
+## Quick start
 
 ```bash
-python3 scripts/validate.py
-bash scripts/install.sh
+git clone https://github.com/5percentdrops/software-house-v8.5.git
+cd software-house-v8.5
+bash scripts/one_click_install.sh -y --setup-keys
 ```
 
-## Key changes from original
+That's it. Installer does: validate → convert → bootstrap 32 Hermes homes → register `hermes_local` adapter → `paperclipai company import`.
 
-- Added Priya — System Architect.
-- Added Safiya — Security Reviewer.
-- Added seed skills for every Hermes/OpenClaw agent.
-- Added OpenClaw escalation rules.
-- Kept the Brain/Hands operating model.
+**Prereqs:** `bash`, `python3 ≥ 3.11`, `node ≥ 20`, `npm`, `git`, `curl`, [paperclipai](https://www.npmjs.com/package/paperclipai) `≥ 2026.513.0`, [hermes](https://github.com/NousResearch/hermes-agent).
 
+**OS:** Linux ✅ · macOS ✅ · WSL2 ✅ · Windows native ❌ (use WSL — see [`README_INSTALL.md`](README_INSTALL.md))
 
-## Codex PR Reviewer
+---
 
-Software House now includes **Cody — Codex PR Reviewer**.
+## The company
 
-Codex review is a required PR gate after a pull request is opened/submitted and before merge readiness.
+33 agents organised under **Arthur** (Project Manager / Head). Domain leads, junior/senior engineers, dual PR review, escalation ladders, governance gates.
 
-Flow:
-implementation → PR opened/submitted → Codex PR review → revise/block/approve → QA/security/architecture as needed → Project Manager merge readiness.
+| Layer | Agents |
+|---|---|
+| **Head** | Arthur (PM, GPT-5 mini) |
+| **Architecture** | Marcus (Opus 4.7), Priya (Opus 4.7) |
+| **Build (senior)** | Marcus, Magnus (Gemini 3.1 Pro), Maxwell (Opus 4.7 Max) |
+| **Build (engineers)** | Jack, Ben, Ivan, Theo, Leo, Ellie, Grant (DeepSeek V4 Pro) |
+| **Specialists** | Felix (Pine Script), Henrik, Oscar, Mira, Sonia, Viktor, Dominic, Nathan, Vera, Graham |
+| **PR review (dual)** | Clara (Claude Opus 4.7) → Cody (GPT-5.5 Codex) |
+| **Quality & security** | Nadia (QA), Safiya (Security), Stone (perf), Adrian (release) |
+| **Knowledge** | Winston (Claude 3.5 Haiku, wiki archive) |
+| **Domain** | Chloe, Dante (Kimi K2), Elena (Sonnet 4.6) |
+| **Skipped (no API)** | Owen (NotebookLM — re-enable when API ships) |
 
+Model spread: Anthropic 15 · DeepSeek 7 · OpenAI 5 · Google 3 · Moonshot 2.
 
-## Hermes Codex PR Reviewer correction
+---
 
-Cody now uses **Hermes as the harness** and **Codex as the underlying code-review engine**.
+## What ships
 
-This means Cody can:
-- review PR diffs with Codex,
-- recognise new code patterns,
-- learn repeated fixes,
-- detect recurring bug classes,
-- create Hermes learning candidates,
-- improve future reviews over time.
-
-Preferred Codex model when configurable: **GPT-5.2-Codex**.
-Fallback: latest Codex default available in the installed Codex environment.
-
-
-## Dual PR Review Update
-
-Software House now uses two separate Hermes-harnessed PR reviewers:
-
-1. **Clara — Claude PR Review Lead**
-   - Harness: Hermes
-   - Underlying engine: Claude Code Review / Opus 4.7
-   - First-line deep PR review
-
-2. **Cody — Hermes Codex PR Reviewer**
-   - Harness: Hermes
-   - Underlying engine: latest Codex coding/review model
-   - Second-line PR review and repeated-pattern learning
-
-Specialist escalation is conditional:
-- Safiya for security
-- Priya for architecture
-- Nadia for QA/tests
-- Arthur for requirements and merge readiness
-
-## V8 Paperclip + Hermes Control Plane Update
-
-This repo now treats the stack correctly:
-
-```text
-Paperclip = company/control plane
-Arthur = Project Manager / Head employee inside Paperclip
-Hermes = harness/runtime over selected LLM models
-LLM models = GPT-5 mini, GPT-5.5, Opus 4.7 XHigh/Max, Gemini Pro 3.1, DeepSeek V4 Pro, etc.
+```
+scripts/                  38 files — one_click_install, validators, converters,
+                          bootstrap, adapter installer, secure key setup
+SoftwareHouse/            270 files — agents, routes, contracts, pipelines,
+                          paperclip company import, skills, schemas, templates
+docs/                     architecture, escalation patterns, model map
+manifest.json             canonical org spec (33 agents, v8.5)
+PATCH_NOTES_V8_*.md       version history (V8 → V8.5)
+ROLLBACK_TO_V8_4.md       revert path
+README_INSTALL.md         full install guide + OS matrix
 ```
 
-The canonical installer is:
+---
+
+## Pipeline
+
+```
+USER PRD
+   ↓
+Arthur (approval gate)
+   ↓
+Marcus  ─→  SDD  →  Feature Tickets  →  Task-level TDD
+   ↓
+Jack (sequential execution; green-before-next)
+   ↓
+PR opened
+   ↓
+Clara (Claude Opus first-line review)
+   ↓
+Cody (Codex second-line + pattern learning)
+   ↓
+[conditional] Safiya (security) · Priya (arch) · Nadia (QA)
+   ↓
+[escalation] Maxwell (Opus Max) if Cody fails ×2
+   ↓
+Arthur (merge readiness)
+   ↓
+Winston (archive to wiki)
+```
+
+Hard gates: context-pack before non-trivial work · architecture before tickets · tests before code · green before next task · green + reviewed before merge · human approval for governance, merge, deploy, prod trading rules, API-key permission changes.
+
+---
+
+## Security
+
+- `setup_api_keys.sh`: `umask 077`, files `chmod 600`, `read -s` (no echo), atomic temp→rename, idempotent, zero network calls
+- No keys, no `.env`, no PEM in repo — `.gitignore` blocks them
+- `production trading keys forbidden in general agents` enforced at policy layer
+- Per-agent isolation: each `~/.hermes-<slug>/` is independent; `--per-agent` mode for env separation
+
+---
+
+## Verify install
 
 ```bash
-bash scripts/one_click_install.sh
+paperclipai adapters list | grep hermes_local         # adapter registered
+paperclipai company list                              # Software House present
+ls -d ~/.hermes-* | wc -l                             # 32 (Owen skipped)
+python3 scripts/validate_hermes_local_package.py      # OK: 32 routed
 ```
 
-The installer validates the V7 pipeline, validates the V8 Paperclip control-plane layer, and stages:
+Then smoke-test in the Paperclip UI: send Arthur the PRD `"Build a CLI tool that counts unique words in a file."` and watch the routing.
 
-```text
-.stage/paperclip_company.import.json
-SoftwareHouse/paperclip/paperclip_company.import.json
-```
+---
 
-Core hard gates:
-
-- Context pack before non-trivial work.
-- Architecture before tickets.
-- Tests before code.
-- Green before next task.
-- Green + reviewed before merge.
-- Human approval for governance, merge, deployment, production trading rules, and API-key permission changes.
-- No production trading keys inside general Paperclip/Hermes workers.
-- Execution cannot invent trades.
-- Automated sizing must use fractional Kelly only.
-
-
-## V8.1 integrity patch
-
-V8.1 fixes the V8 audit issues:
-
-- `model` is now the canonical model field.
-- Arthur is collapsed to `openai/gpt-5-mini` under Hermes.
-- `llm_module` is display-only and derived from `model`.
-- `SoftwareHouse/contracts/` is the canonical schema directory.
-- Routes and pipelines are validated against contracts.
-- Pipelines are dispatchable through `event_routes`.
-- Context-pack-first is validated structurally.
-- OpenClaw active harness/seed material is disabled and moved to deprecated history.
-- Budget caps are sanity-checked.
-
-
-## V8.2 hardening note
-
-V8.2 removes the remaining stale Arthur model declarations and makes `model` canonical.
-
-```text
-Arthur model: openai/gpt-5-mini
-Arthur display: GPT-5 mini under Hermes
-Paperclip: company/control plane
-Hermes: harness/runtime over selected LLMs
-```
-
-V8.2 also adds:
-
-- canonical engineering escalation ladder
-- artifact producers for heartbeat/transcript/budget events
-- model route override lifecycle
-- stronger merge review schema with reviewer identity
-- validator checks for stale Arthur model references
-
-## V8.5 runtime model — Hermes-as-harness
-
-**Every agent runs on Hermes.** V8.5 replaces V8.4's mixed `claude_local` / `codex_local` / `gemini_local` adapter split with a uniform `hermes_local` adapter (from npm `hermes-paperclip-adapter`, loaded via Paperclip's external adapter plugin loader at `~/.paperclip/adapter-plugins.json`).
-
-```text
-Paperclip          company/control plane (1 instance)
-hermes_local       external adapter (1 plugin, loaded into Paperclip)
-HERMES_HOME        per-agent identity root (~/.hermes-<slug>, 32 of them)
-hermes             runtime invoked per task with HERMES_HOME injected
-LLM models         provider/model passed through to Hermes (Anthropic, OpenAI, Google, DeepSeek, Kimi)
-```
-
-Each agent gets `~/.hermes-<slug>/`:
-
-- `config.yaml` — model + provider + toolsets seeded by the bootstrap script
-- `SOUL.md` — agent's role + personality (extracted from AGENTS.md body)
-- `MEMORY.md` — persistent, grows across heartbeats
-- `USER.md` — main contact (Arthur)
-- `skills/` — seed skill + any skills the agent writes itself post-task
-
-Run:
+## Re-run flags
 
 ```bash
-bash scripts/one_click_install.sh -y
+bash scripts/one_click_install.sh -y --validate-only        # validators only
+bash scripts/one_click_install.sh -y --convert-only         # generate package
+bash scripts/one_click_install.sh -y --no-bootstrap         # skip 32-home step
+bash scripts/one_click_install.sh -y --skip-adapter-install # skip adapter register
+bash scripts/one_click_install.sh -y --no-paperclip         # skip company import
+bash scripts/one_click_install.sh -y --setup-keys           # add secure key prompt
 ```
 
-Internally: validate → convert → **bootstrap 32 Hermes homes** → **install `hermes_local` adapter plugin** → `paperclipai company import`.
+---
 
-Owen (NotebookLM) is intentionally skipped at import (no API to shell to). The org-chart record remains; the adapter block is omitted. Re-enable when NotebookLM exposes an API or the workflow moves to Gemini 3.1 Pro.
+## Docs
 
-Full patch notes: `PATCH_NOTES_V8_5.md`. Rollback to V8.4: `ROLLBACK_TO_V8_4.md`.
+- [`README_INSTALL.md`](README_INSTALL.md) — full install guide, OS matrix, key setup
+- [`PATCH_NOTES_V8_5.md`](PATCH_NOTES_V8_5.md) — Hermes-as-harness rollout
+- [`ROLLBACK_TO_V8_4.md`](ROLLBACK_TO_V8_4.md) — one-command revert
+- [`docs/PAPERCLIP_HERMES_CONTROL_PLANE_V8.md`](docs/PAPERCLIP_HERMES_CONTROL_PLANE_V8.md)
+- [`docs/FULL_SOFTWARE_HOUSE_ARTHUR_HEAD.md`](docs/FULL_SOFTWARE_HOUSE_ARTHUR_HEAD.md)
+- [`docs/UNIVERSAL_ORGANISATION_ESCALATION_PATTERN.md`](docs/UNIVERSAL_ORGANISATION_ESCALATION_PATTERN.md)
+- [`docs/FINAL_SOFTWARE_HOUSE_MODEL_MAP.md`](docs/FINAL_SOFTWARE_HOUSE_MODEL_MAP.md)
+
+---
+
+## Boundary
+
+This repo **does not** install Paperclip, Hermes, OpenClaw, provider API keys, or production trading keys. It stages a company/org package for Paperclip + Hermes-based workers. Bring your own runtime, bring your own keys, opt-in via `setup_api_keys.sh`.
+
+---
+
+## License
+
+See repo settings. Internal use — verify before redistribution.
